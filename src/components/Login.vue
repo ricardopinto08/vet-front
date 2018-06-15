@@ -26,6 +26,7 @@
 
   <script>
   import router from "../router/index"
+  import { eventBus } from '../main'
   export default {
     data() {
       return {
@@ -33,7 +34,8 @@
           user: '',
           password: ''
         },
-        error: ''
+        error: '',
+        isLogged: false
       }
     },
     methods: {
@@ -45,11 +47,19 @@
         }
         this.$http.post('http://localhost:3000/v1/auth/',this.credentials)
             .then(response =>{
+              this.isLogged=true;
+              eventBus.$emit('someoneSignedIn', this.isLogged);
               sessionStorage.setItem('token', response.body.token);
+              this.$router.push('/');
             }, error =>{
               console.log(error);
             });
       }
+    },
+    created() {
+      eventBus.$on('someoneSignedOut', (isLogged) =>{
+        this.isLogged = isLogged;
+      });
     }
 
   }

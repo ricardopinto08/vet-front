@@ -12,6 +12,8 @@ Vue.use(VueResource)
 Vue.http.headers.common['Access-Control-Allow-Methods'] = 'GET, POST, PATCH, PUT, DELETE, OPTIONS'
 Vue.config.productionTip = false
 
+export const eventBus = new Vue();
+
 const router = new VueRouter({
   routes,
   mode: 'history'
