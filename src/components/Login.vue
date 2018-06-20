@@ -1,26 +1,41 @@
 <template>
     <div>
-      <h2>Log In</h2>
+      <h2>Iniciar sesión</h2>
       <div class="alert alert-danger" v-if="error">
         <p>{{ error }}</p>
       </div>
       <div class="form-group">
+        <label for="mail">Correo:</label>
         <input
+          id="mail"
           type="text"
           class="form-control"
-          placeholder="Enter your username"
+          placeholder="Correo"
           v-model="credentials.user"
         >
       </div>
       <div class="form-group">
+        <label for="pass">Contraseña:</label>
         <input
+          id="pass"
           type="password"
           class="form-control"
-          placeholder="Enter your password"
+          placeholder="Contraseña"
           v-model="credentials.password"
         >
       </div>
-      <button class="btn btn-primary" @click="submit()">Access</button>
+      <button class="btn btn-primary" @click="submit()">Siguiente</button>
+      <div class="">
+        ¿Olvidaste tu contraseña?
+      </div>
+      <hr>
+      <p>¿No estás registrado?</p>
+      <router-link tag="li" to="/registerClient">
+        <a>Registro para clientes</a>
+      </router-link>
+      <router-link tag="li" to="/registerVet">
+        <a>Registro para veterinarios</a>
+      </router-link>
     </div>
   </template>
 
@@ -40,11 +55,6 @@
     },
     methods: {
       submit() {
-        console.log(this.credentials);
-        var credentials = {
-          user: this.credentials.user,
-          password: this.credentials.password
-        }
         this.$http.post('http://localhost:3000/v1/auth/',this.credentials)
             .then(response =>{
               this.isLogged=true;

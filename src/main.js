@@ -2,10 +2,15 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import VueRouter from 'vue-router'
 import { routes } from './router/index'
-import VueResource from 'vue-resource'
 
+import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
+import VueA11yDialog from 'vue-a11y-dialog'
+import Dropdown from 'bp-vuejs-dropdown';
+
+Vue.use(Dropdown)
+Vue.use(VueA11yDialog)
 Vue.use(VueRouter)
 Vue.use(VueResource)
 
