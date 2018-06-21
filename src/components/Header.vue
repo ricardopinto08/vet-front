@@ -34,7 +34,7 @@ export default {
   },
   created() {
     eventBus.$on('someoneSignedIn', (isLogged) =>{
-      console.log(sessionStorage.getItem('token'));
+      //console.log(sessionStorage.getItem('token'));
       this.isLogged = isLogged;
     });
   }

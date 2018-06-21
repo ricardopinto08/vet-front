@@ -60,6 +60,7 @@
               this.isLogged=true;
               eventBus.$emit('someoneSignedIn', this.isLogged);
               sessionStorage.setItem('token', response.body.token);
+              sessionStorage.setItem('email', this.credentials.user);
               this.$router.push('/');
             }, error =>{
               console.log(error);

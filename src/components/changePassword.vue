@@ -12,23 +12,23 @@
       >
     </div>
     <div class="form-group">
-      <label for="passConfirm">Confirma contraseña anterior:</label>
+      <label for="passConfirm">Contraseña new:</label>
       <input
         id="passConfirm"
         type="password"
         class="form-control"
         placeholder="Contraseña"
-        v-model="passwordConfirm"
+        v-model="passwordnew"
       >
     </div>
     <div class="form-group">
-      <label for="pass">Contraseña nueva:</label>
+      <label for="pass">Confirma contraseña anterior:</label>
       <input
         id="passNew"
         type="password"
         class="form-control"
         placeholder="Contraseña"
-        v-model="passwordnew"
+        v-model="passwordConfirm"
       >
     </div>
     <button class="btn btn-primary" @click="submit()">Actualizar contraseña</button>
@@ -39,6 +39,7 @@
 export default {
   data() {
     return {
+      email: sessionStorage.getItem('email'),
       password: '',
       passwordConfirm: '',
       passwordnew: ''
@@ -46,19 +47,22 @@ export default {
   },
   methods: {
     submit() {
-      var credentials = {
-        user: this.credentials.user,
-        password: this.credentials.password
+      if(this.passwordnew != this.passwordConfirm) {
+        alert("Las contraseñas no coinciden");
+      }else{
+        this.$http.post('http://localhost:3000/v1/auth/', {user: this.email, password: this.password})
+            .then(r =>{
+              this.$http.post('http://localhost:3000/v1/users#update',{email: this.email, password: this.password})
+                  .then(response =>{
+                    this.$router.push('/');
+                  }, error =>{
+                    console.info("YAASSSSS");
+                    console.log(error);
+                  });
+            }, error =>{
+              alert("Contraseña anterior incorrecta");
+            });
       }
-      this.$http.post('http://localhost:3000/v1/auth/',this.credentials)
-          .then(response =>{
-            this.isLogged=true;
-
-            sessionStorage.setItem('token', response.body.token);
-            this.$router.push('/');
-          }, error =>{
-            console.log(error);
-          });
     }
   }
 }
