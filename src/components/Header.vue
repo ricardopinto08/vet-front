@@ -1,9 +1,20 @@
 <template lang="html">
   <ul class="nav nav-pills">
+    <hr>
     <router-link to="/" tag="li" active-class="active" exact><a>Inicio</a></router-link>
-    <button v-if="!isLogged" @click="logIn" class="btn btn-primary" exact>Iniciar sesión</button>
+
+    <router-link to="/myProfileClient" tag="li" v-if="isClient" active-class="active" exact><a>Mi perfil</a></router-link>
+    <router-link to="/myProfileVet" tag="li" v-if="isVet" active-class="active" exact><a>Mi perfil</a></router-link>
+
+    <router-link to="/myHorsesClient" tag="li" v-if="isClient" active-class="active" exact><a>Mis caballos</a></router-link>
+    <router-link to="/myHorsesVet" tag="li" v-if="isVet" active-class="active" exact><a>Mis caballos</a></router-link>
+
+    <router-link to="/changeVet" tag="li" v-if="isClient" active-class="active" exact><a>Reasignar caballo</a></router-link>
+
     <router-link to="/changePassword" v-if="isLogged" tag="li" active-class="active" exact><a>Cambiar contraseña</a></router-link>
+    <button v-if="!isLogged" @click="logIn" class="btn btn-primary" exact>Iniciar sesión</button>
     <button v-if="isLogged" @click="logOut" class="btn btn-primary" exact>Cerrar sesión</button>
+    <hr>
   </ul>
 </template>
 
@@ -18,7 +29,7 @@ export default {
    },
   methods: {
     logOut() {
-      sessionStorage.removeItem('token');
+      sessionStorage.clear();
       this.isLogged = false;
       eventBus.$emit('someoneSignedOut', this.isLogged);
       this.$router.push('/login');
@@ -29,12 +40,14 @@ export default {
   },
   data: function () {
     return {
-      isLogged: sessionStorage.getItem('token') !== null
+      isLogged: sessionStorage.getItem('token') !== null,
+      isVet: sessionStorage.getItem('type') == "Vet",
+      isClient: sessionStorage.getItem('type') == "Client"
     };
   },
   created() {
     eventBus.$on('someoneSignedIn', (isLogged) =>{
-      //console.log(sessionStorage.getItem('token'));
+      console.log(sessionStorage.getItem('type'));
       this.isLogged = isLogged;
     });
   }

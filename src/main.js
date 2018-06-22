@@ -8,7 +8,11 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import VueA11yDialog from 'vue-a11y-dialog'
 import Dropdown from 'bp-vuejs-dropdown';
+import BootstrapVue from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+Vue.use(BootstrapVue);
 Vue.use(Dropdown)
 Vue.use(VueA11yDialog)
 Vue.use(VueRouter)

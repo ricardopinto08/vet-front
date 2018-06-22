@@ -2,8 +2,7 @@
   <div class="container">
     <div class="row">
       <div >
-        <h1>Vet</h1>
-        <hr>
+        <h1>Plataforma de veterinarios</h1>
         <app-header></app-header>
         <router-view></router-view >
       </div>

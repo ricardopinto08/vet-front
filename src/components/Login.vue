@@ -60,10 +60,14 @@
               this.isLogged=true;
               eventBus.$emit('someoneSignedIn', this.isLogged);
               sessionStorage.setItem('token', response.body.token);
-              sessionStorage.setItem('email', this.credentials.user);
+              sessionStorage.setItem('type', response.body.type);
+              sessionStorage.setItem('id', response.body.user.id);
+              sessionStorage.setItem('email', response.body.user.email);
+              sessionStorage.setItem('name', response.body.user.name);
+              sessionStorage.setItem('lastname', response.body.user.lastname);
               this.$router.push('/');
-            }, error =>{
-              console.log(error);
+            }, error1 =>{
+              this.error="Usuario o contraseña incorrecta";
             });
       }
     },
