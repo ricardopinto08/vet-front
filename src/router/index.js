@@ -6,10 +6,14 @@ import registerClient from '@/components/client/registerClient'
 import myProfileClient from '@/components/client/myProfileClient'
 import myHorsesClient from '@/components/client/myHorsesClient'
 import changeVet from '@/components/client/changeVet'
+import sellHorse from '@/components/client/sellHorse'
+import myVets from '@/components/client/myVets'
 
 import registerVet from '@/components/vet/registerVet'
 import myProfileVet from '@/components/vet/myProfileVet'
 import myHorsesVet from '@/components/vet/myHorsesVet'
+import createHorse from '@/components/vet/createHorse'
+
 
 import changePassword from '@/components/changePassword'
 import VueRouter from 'vue-router'
@@ -68,5 +72,21 @@ export const routes =[
       path: '/changeVet',
       name: 'changeVet',
       component: changeVet
+    },
+    {
+      path: '/sellHorse',
+      name: 'sellHorse',
+      component: sellHorse
+    },
+    {
+      path: '/createHorse',
+      name: 'createHorse',
+      component: createHorse
+    },
+    {
+      path: '/myVets',
+      name: 'myVets',
+      component: myVets
     }
+
   ];

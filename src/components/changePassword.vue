@@ -12,7 +12,7 @@
       >
     </div>
     <div class="form-group">
-      <label for="passConfirm">Contraseña new:</label>
+      <label for="passConfirm">Contraseña nueva:</label>
       <input
         id="passConfirm"
         type="password"
@@ -22,7 +22,7 @@
       >
     </div>
     <div class="form-group">
-      <label for="pass">Confirma contraseña anterior:</label>
+      <label for="pass">Confirma la contraseña nueva:</label>
       <input
         id="passNew"
         type="password"
@@ -52,7 +52,7 @@ export default {
       }else{
         this.$http.post('http://localhost:3000/v1/auth/', {user: this.email, password: this.password})
             .then(r =>{
-              this.$http.post('http://localhost:3000/v1/users#update',{email: this.email, password: this.password})
+              this.$http.patch('http://localhost:3000/v1/users#update',{email: this.email, password: this.passwordnew})
                   .then(response =>{
                     this.$router.push('/');
                   }, error =>{

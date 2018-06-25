@@ -8,10 +8,11 @@
         <label for="mail">Correo:</label>
         <input
           id="mail"
-          type="text"
+          type="email"
           class="form-control"
           placeholder="Correo"
           v-model="credentials.user"
+          required
         >
       </div>
       <div class="form-group">
@@ -22,12 +23,10 @@
           class="form-control"
           placeholder="Contraseña"
           v-model="credentials.password"
+          required
         >
       </div>
       <button class="btn btn-primary" @click="submit()">Siguiente</button>
-      <div class="">
-        ¿Olvidaste tu contraseña?
-      </div>
       <hr>
       <p>¿No estás registrado?</p>
       <router-link tag="li" to="/registerClient">
@@ -58,7 +57,7 @@
         this.$http.post('http://localhost:3000/v1/auth/',this.credentials)
             .then(response =>{
               this.isLogged=true;
-              eventBus.$emit('someoneSignedIn', this.isLogged);
+              eventBus.$emit('someoneSignedIn', {isLogged: this.isLogged, type: response.body.type});
               sessionStorage.setItem('token', response.body.token);
               sessionStorage.setItem('type', response.body.type);
               sessionStorage.setItem('id', response.body.user.id);

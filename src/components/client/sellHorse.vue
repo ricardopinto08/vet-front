@@ -1,13 +1,13 @@
 <template lang="html">
   <div class="">
     <b-form @submit = "submit">
-      <label for="ddown1">Selecciona el caballo que deseas transferir: </label>
+      <label for="ddown1">Selecciona el caballo que deseas vender: </label>
       <b-form-select id = "ddown1" required v-model="selected" :options="horses" class="mb-3" />
       <br>
-      <label for="emailVet">Escribe el correo del veterinario a quien se lo vas a transferir</label>
-      <b-form-input id = "emailVet" type="text" required placeholder="Veterinario@mail.com" v-model="credentials.emailVet"></b-form-input>
+      <label for="emailClient">Escribe el correo de la persona a quien se lo vas a vender</label>
+      <b-form-input id = "emailClient" type="text" required placeholder="Juan@mail.com" v-model="credentials.emailClient"></b-form-input>
       <br>
-      <b-button type="submit" variant="primary">Transferir</b-button>
+      <b-button type="submit" variant="primary">Vender</b-button>
     </b-form>
   </div>
 
@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       credentials: {
-        emailVet:''
+        emailClient:''
       },
       selected: null,
       id: sessionStorage.getItem('id'),
@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     submit() {
-      this.$http.post('http://localhost:3000/v1/horses/'+this.selected+'/changeVet',this.credentials)
+      this.$http.post('http://localhost:3000/v1/horses/'+this.selected+'/sell',this.credentials)
           .then(response =>{
 
           }, error1 =>{
@@ -39,9 +39,6 @@ export default {
     this.$http.get('http://localhost:3000/v1/clients/'+this.id+'/gethorses')
     .then(response =>{
       var i;
-      console.info(this.temp);
-      console.info(this.temp2);
-      console.info(response);
       for (i=0; i< response.body.length; i++){
         this.horses.push({value: response.body[i].horse_id, text: response.body[i].name });
       }

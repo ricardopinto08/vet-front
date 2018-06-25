@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="">
-    <b-table striped hover :items="horses" :fields="fields"></b-table>
+    <b-table striped hover :items="vets" :fields="fields"></b-table>
   </div>
 </template>
 
@@ -10,24 +10,24 @@ export default {
     return {
       id: sessionStorage.getItem('id'),
       fields: {
-        horse_id:{
+        id:{
           label: 'Identificación',
           sortable: true
         },
-        name:{
+        email:{
+          label: 'Correo',
+          sortable: true
+        },
+        name: {
           label: 'Nombre',
           sortable: true
         },
-        born_date: {
-          label: 'Fecha de nacimiento',
-          sortable: true
-        },
-        created_at: {
-          label: 'Creación del caballo',
+        lastname: {
+          label: 'Apellido',
           sortable: true
         }
       },
-      horses:[]
+      vets:[]
     }
   },
   methods: {
@@ -36,10 +36,9 @@ export default {
     }
   },
   created() {
-    this.$http.get('http://localhost:3000/v1/clients/'+this.id+'/gethorses')
+    this.$http.get('http://localhost:3000/v1/clients/'+this.id+'/getVets')
     .then(response =>{
-      this.horses=response.body;
-      console.log(this.horses);
+      this.vets=response.body;
     }, error1 =>{
       console.info(error1);
     });

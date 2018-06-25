@@ -10,7 +10,7 @@ export default {
     return {
       id: sessionStorage.getItem('id'),
       fields: {
-        id:{
+        horse_id:{
           label: 'Identificación',
           sortable: true
         },
