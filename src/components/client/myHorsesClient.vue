@@ -1,47 +1,63 @@
 <template lang="html">
   <div class="">
-    <b-table striped hover :items="horses" :fields="fields"></b-table>
+    <b-table striped hover :items="horses" :fixed="true" :fields="fields">
+      <template slot="name" slot-scope="data">
+        <a :href="`#${data.value.replace(/[^a-z]+/i,'-').toLowerCase()}`" @click="caballo(data.item)">
+          {{data.value}}
+        </a>
+      </template>
+    </b-table>
   </div>
 </template>
 
 <script>
+import { eventBus } from '../../main'
 export default {
   data() {
     return {
       id: sessionStorage.getItem('id'),
-      fields: {
-        horse_id:{
-          label: 'Identificación',
+      fields: [
+        {
+          key: 'horse_id',
+          label: 'Identificador',
           sortable: true
         },
-        name:{
+        {
+          key: 'name',
           label: 'Nombre',
-          sortable: true
+          sortable: true,
+          formatter: 'fullName'
         },
-        born_date: {
+        {
+          key: 'born_date',
           label: 'Fecha de nacimiento',
           sortable: true
-        },
-        created_at: {
-          label: 'Creación del caballo',
-          sortable: true
         }
-      },
+      ],
       horses:[]
     }
   },
   methods: {
     submit() {
 
+    },
+    caballo(value){
+      this.$router.push('/horseProfileClient'+value.horse_id);
+    },
+    fullName (value){
+      return `${value}`
     }
   },
   created() {
     this.$http.get('http://localhost:3000/v1/clients/'+this.id+'/gethorses')
     .then(response =>{
       this.horses=response.body;
-      console.log(this.horses);
     }, error1 =>{
       console.info(error1);
+    });
+    eventBus.$on('oneHorse', (horse) =>{
+      this.horse = horse;
+      console.info(horse);
     });
   }
 }

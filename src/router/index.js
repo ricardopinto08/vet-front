@@ -8,11 +8,16 @@ import myHorsesClient from '@/components/client/myHorsesClient'
 import changeVet from '@/components/client/changeVet'
 import sellHorse from '@/components/client/sellHorse'
 import myVets from '@/components/client/myVets'
+import horseProfileClient from '@/components/client/horseProfileClient'
+import historyOfVets from '@/components/client/historyOfVets'
+
 
 import registerVet from '@/components/vet/registerVet'
 import myProfileVet from '@/components/vet/myProfileVet'
 import myHorsesVet from '@/components/vet/myHorsesVet'
 import createHorse from '@/components/vet/createHorse'
+import horseProfileVet from '@/components/vet/horseProfileVet'
+import historyOfOwners from '@/components/vet/historyOfOwners'
 
 
 import changePassword from '@/components/changePassword'
@@ -87,6 +92,26 @@ export const routes =[
       path: '/myVets',
       name: 'myVets',
       component: myVets
+    },
+    {
+      path: '/horseProfileClient:id',
+      name: 'horseProfileClient',
+      component: horseProfileClient
+    },
+    {
+      path: '/horseProfileVet:id',
+      name: 'horseProfileVet',
+      component: horseProfileVet
+    },
+    {
+      path: '/historyOfOwners:id',
+      name: 'historyOfOwners',
+      component: historyOfOwners
+    },
+    {
+      path: '/historyOfVets:id',
+      name: 'historyOfVets',
+      component: historyOfVets
     }
 
   ];

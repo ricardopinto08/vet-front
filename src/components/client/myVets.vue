@@ -25,6 +25,10 @@ export default {
         lastname: {
           label: 'Apellido',
           sortable: true
+        },
+        horse_name: {
+          label: 'Caballo a cargo',
+          sortable: true
         }
       },
       vets:[]

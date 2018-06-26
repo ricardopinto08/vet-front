@@ -1,12 +1,7 @@
 <template lang="html">
   <div class="">
-    <b-table striped hover :items="horses" :fields="fields">
-      <template slot="name" slot-scope="data">
-        <a :href="`#${data.value.replace(/[^a-z]+/i,'-').toLowerCase()}`" @click="caballo(data.item)">
-          {{data.value}}
-        </a>
-      </template>
-    </b-table>
+    <h1>Historial de veterinarios</h1>
+    <b-table striped hover :items="vets" :fields="fields"></b-table>
   </div>
 </template>
 
@@ -16,7 +11,7 @@ export default {
     return {
       id: sessionStorage.getItem('id'),
       fields: {
-        horse_id:{
+        id:{
           label: 'Identificación',
           sortable: true
         },
@@ -24,12 +19,20 @@ export default {
           label: 'Nombre',
           sortable: true
         },
-        born_date: {
-          label: 'Fecha de nacimiento',
+        lastname: {
+          label: 'Apellido',
+          sortable: true
+        },
+        created_at: {
+          label: 'Fecha de inicio',
+          sortable: true
+        },
+        end_date: {
+          label: 'Fecha de finalización',
           sortable: true
         }
       },
-      horses:[]
+      vets:[]
     }
   },
   methods: {
@@ -41,9 +44,9 @@ export default {
     },
   },
   created() {
-    this.$http.get('http://localhost:3000/v1/vets/'+this.id+'/gethorses')
+    this.$http.get('http://localhost:3000/v1/horses/'+this.$route.params.id+'/historyOfVets')
     .then(response =>{
-      this.horses=response.body;
+      this.vets=response.body;
     }, error1 =>{
       console.info(error1);
     });

@@ -32,6 +32,7 @@ export default {
 
           }, error1 =>{
             this.error=error1;
+            alert("Este correo no existe")
           });
     }
   },

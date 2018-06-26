@@ -26,7 +26,7 @@
           required
         >
       </div>
-      <button class="btn btn-primary" @click="submit()">Siguiente</button>
+      <b-button variant="success" @click="submit()">Siguiente</b-button>
       <hr>
       <p>¿No estás registrado?</p>
       <router-link tag="li" to="/registerClient">
