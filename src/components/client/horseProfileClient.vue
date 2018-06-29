@@ -14,6 +14,7 @@
       </template>
     </b-table>
     <b-button @click="history">Historial de veterinarios</b-button>
+    <b-button @click="medicalHistory">Historia médica</b-button>
   </div>
 </template>
 
@@ -77,6 +78,9 @@ export default {
     },
     history(){
       this.$router.push('/historyOfVets'+this.horse.id);
+    },
+    medicalHistory(){
+      this.$router.push('/medicalHistory'+this.horse.id);
     }
   }
 

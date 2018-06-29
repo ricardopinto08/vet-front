@@ -11,6 +11,7 @@
       <b>Correo: </b><p>{{this.clients[0].email}}</p>
     </div>
     <b-button @click="history">Historial de dueños</b-button>
+    <b-button @click="medicalHistory">Historia médica</b-button>
   </div>
 </template>
 
@@ -74,6 +75,9 @@ export default {
     },
     history(){
       this.$router.push('/historyOfOwners'+this.horse.id);
+    },
+    medicalHistory(){
+      this.$router.push('/medicalHistory'+this.horse.id);
     }
   }
 

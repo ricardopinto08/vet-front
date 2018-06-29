@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Home from '@/components/Home'
 import Login from '@/components/Login'
+import medicalHistory from '@/components/medicalHistory'
 
 import registerClient from '@/components/client/registerClient'
 import myProfileClient from '@/components/client/myProfileClient'
@@ -18,6 +19,7 @@ import myHorsesVet from '@/components/vet/myHorsesVet'
 import createHorse from '@/components/vet/createHorse'
 import horseProfileVet from '@/components/vet/horseProfileVet'
 import historyOfOwners from '@/components/vet/historyOfOwners'
+import createExamination from '@/components/vet/createExamination'
 
 
 import changePassword from '@/components/changePassword'
@@ -112,6 +114,17 @@ export const routes =[
       path: '/historyOfVets:id',
       name: 'historyOfVets',
       component: historyOfVets
+    },
+    {
+      path: '/createExamination',
+      name: 'createExamination',
+      component: createExamination
+    },
+    {
+      path: '/medicalHistory:id',
+      name: 'medicalHistory',
+      component: medicalHistory
     }
+
 
   ];

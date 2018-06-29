@@ -27,7 +27,6 @@ export default {
   },
   methods: {
     submit() {
-
       this.$http.post('http://localhost:3000/v1/horses/'+this.selected+'/addVet',this.credentials)
           .then(response =>{
 

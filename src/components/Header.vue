@@ -16,6 +16,7 @@
       <router-link to="/sellHorse" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Vender caballo</a></router-link>
 
       <router-link to="/createHorse" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Crear caballo</a></router-link>
+      <router-link to="/createExamination" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Crear consulta</a></router-link>
 
       <router-link to="/changePassword" v-if="isLogged" tag="li" active-class="active" exact><a>Cambiar contraseña</a></router-link>
       <button v-if="!isLogged" @click="logIn" class="btn btn-primary" exact>Iniciar sesión</button>
