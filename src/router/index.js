@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Home from '@/components/Home'
 import Login from '@/components/Login'
 import medicalHistory from '@/components/medicalHistory'
+import clinicalExam from '@/components/clinicalExam'
 
 import registerClient from '@/components/client/registerClient'
 import myProfileClient from '@/components/client/myProfileClient'
@@ -124,6 +125,11 @@ export const routes =[
       path: '/medicalHistory:id',
       name: 'medicalHistory',
       component: medicalHistory
+    },
+    {
+      path: '/clinicalExam:id',
+      name: 'clinicalExam',
+      component: clinicalExam
     }
 
 

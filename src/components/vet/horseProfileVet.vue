@@ -12,6 +12,7 @@
     </div>
     <b-button @click="history">Historial de dueños</b-button>
     <b-button @click="medicalHistory">Historia médica</b-button>
+    <b-button @click="clinicalExam">Examen clínico</b-button>
   </div>
 </template>
 
@@ -78,6 +79,9 @@ export default {
     },
     medicalHistory(){
       this.$router.push('/medicalHistory'+this.horse.id);
+    },
+    clinicalExam(){
+      this.$router.push('/clinicalExam'+this.horse.id);
     }
   }
 

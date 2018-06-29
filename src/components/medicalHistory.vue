@@ -64,12 +64,10 @@ export default {
     },
   },
   created() {
-    console.info("DASFASDFS");
     this.$http.get('http://localhost:3000/v1/horses/'+this.$route.params.id+'/getMedicalHistory')
     .then(response =>{
-      console.info(response);
       this.history=response.body;
-      console.info(this.clients);
+      console.info(response.body);
     }, error1 =>{
       console.info(error1);
     });

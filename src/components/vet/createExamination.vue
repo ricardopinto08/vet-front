@@ -4,6 +4,83 @@
       <label for="ddown1">Selecciona un caballo: </label>
       <b-form-select id = "ddown1" required v-model="examination.idHorse" :options="horses" class="mb-3" />
       <br>
+      <b-form-group id="weightfg"
+                    label="Peso del caballo (Kg):"
+                    label-for="currentWeight">
+        <b-form-input id="currentWeight"
+                      type="number"
+                      step="0.1"
+                      min="0"
+                      v-model="examination.current_weight"
+                      required
+                      placeholder="Peso del caballo (Kg)">
+        </b-form-input>
+      </b-form-group>
+
+      <b-form-group id="chestfg"
+                    label="Perímetro pecho (m):"
+                    label-for="currentChest">
+        <b-form-input id="currentChest"
+                      type="number"
+                      step="0.1"
+                      min="0"
+                      v-model="examination.current_chest"
+                      required
+                      placeholder="Perímetro pecho (m):">
+        </b-form-input>
+      </b-form-group>
+
+      <b-form-group id="umbilicalfg"
+                    label="Perímetro abdominal (m):"
+                    label-for="currentUmbilical">
+        <b-form-input id="currentUmbilical"
+                      type="number"
+                      step="0.1"
+                      min="0"
+                      v-model="examination.current_umbilical"
+                      required
+                      placeholder="Perímetro abdominal (m):">
+        </b-form-input>
+      </b-form-group>
+
+      <b-form-group id="shoulderfg"
+                    label="Largo hasta el hombro (m):"
+                    label-for="currentShoulder">
+        <b-form-input id="currentShoulder"
+                      type="number"
+                      step="0.1"
+                      min="0"
+                      v-model="examination.current_shoulder"
+                      required
+                      placeholder="Largo hasta el hombro (m):">
+        </b-form-input>
+      </b-form-group>
+
+      <b-form-group id="olecranonfg"
+                    label="Largo hasta el olecranon (m):"
+                    label-for="currentOlecranon">
+        <b-form-input id="currentOlecranon"
+                      type="number"
+                      step="0.1"
+                      min="0"
+                      v-model="examination.current_olecranon"
+                      required
+                      placeholder="Largo hasta el olecranon (m):">
+        </b-form-input>
+      </b-form-group>
+
+      <b-form-group id="heightfg"
+                    label="Altura (m):"
+                    label-for="height">
+        <b-form-input id="height"
+                      type="number"
+                      step="0.1"
+                      min="0"
+                      v-model="examination.born_height"
+                      required
+                      placeholder="Altura (m):">
+        </b-form-input>
+      </b-form-group>
       <b-form-group id="titlefg"
                     label="Titulo:"
                     label-for="title">
@@ -33,7 +110,7 @@
                       type="text"
                       v-model="examination.city"
                       required
-                      placeholder="Bogota">
+                      placeholder="Ciudad">
         </b-form-input>
       </b-form-group>
 
@@ -68,6 +145,7 @@
       <b-button type="submit" variant="primary">Crear</b-button>
     </b-form>
     <b-button @click="prueba" >fasd</b-button>
+    <hr>
   </div>
 </template>
 
@@ -77,6 +155,12 @@ export default {
     return {
       minHour:'',
       examination: {
+        current_weight: '',
+        current_chest: '',
+        current_umbilical: '',
+        current_shoulder: '',
+        current_olecranon: '',
+        current_height: '',
         title: '',
         description:'',
         city:'',
