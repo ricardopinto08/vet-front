@@ -3,6 +3,8 @@ import Home from '@/components/Home'
 import Login from '@/components/Login'
 import medicalHistory from '@/components/medicalHistory'
 import clinicalExam from '@/components/clinicalExam'
+import annexed from '@/components/annexed'
+
 
 import registerClient from '@/components/client/registerClient'
 import myProfileClient from '@/components/client/myProfileClient'
@@ -21,6 +23,7 @@ import createHorse from '@/components/vet/createHorse'
 import horseProfileVet from '@/components/vet/horseProfileVet'
 import historyOfOwners from '@/components/vet/historyOfOwners'
 import createExamination from '@/components/vet/createExamination'
+import newAnnexed from '@/components/vet/newAnnexed'
 
 
 import changePassword from '@/components/changePassword'
@@ -130,6 +133,16 @@ export const routes =[
       path: '/clinicalExam:id',
       name: 'clinicalExam',
       component: clinicalExam
+    },
+    {
+      path: '/annexed:id',
+      name: 'annexed',
+      component: annexed
+    },
+    {
+      path: '/newAnnexed:id',
+      name: 'newAnnexed',
+      component: newAnnexed
     }
 
 

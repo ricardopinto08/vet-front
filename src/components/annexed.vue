@@ -1,13 +1,7 @@
 <template lang="html">
   <div class="">
-    <h1>Historia médica</h1>
-    <b-table striped hover :items="history" :fields="fields">
-      <template slot="title" slot-scope="data">
-        <a :href="`#${data.value.replace(/[^a-z]+/i,'-').toLowerCase()}`" @click="caballo(data.item)">
-          {{data.value}}
-        </a>
-      </template>
-    </b-table>
+    <b-table striped hover :items="annexeds" :fields="fields"></b-table>
+    <b-button v-if="rol === 'Vet'" @click="annexed" >Crear anexo</b-button>
   </div>
 </template>
 
@@ -16,9 +10,14 @@ export default {
   data() {
     return {
       id: sessionStorage.getItem('id'),
+      rol: sessionStorage.getItem('type'),
       fields: {
         id:{
           label: 'Identificación',
+          sortable: true
+        },
+        date:{
+          label: 'Fecha',
           sortable: true
         },
         title:{
@@ -45,33 +44,26 @@ export default {
           label: 'Hora final',
           sortable: true
         },
-        vet_name: {
-          label: 'Nombre veterinario',
-          sortable: true
-        },
-        vet_lastname: {
-          label: 'Apellido veterinario',
-          sortable: true
-        },
-        vet_email: {
-          label: 'Email veterinario',
+        image: {
+          label: 'Hora final',
           sortable: true
         }
       },
-      history:[]
+      annexeds:[]
     }
   },
   methods: {
     submit() {
+
     },
-    caballo(value){
-      this.$router.push('/annexed'+value.id);
+    annexed(){
+      this.$router.push('/newAnnexed'+this.$route.params.id);
     },
   },
   created() {
-    this.$http.get('http://localhost:3000/v1/horses/'+this.$route.params.id+'/getMedicalHistory')
+    this.$http.get('http://localhost:3000/v1/examinations/'+this.$route.params.id+'/getAnnexeds')
     .then(response =>{
-      this.history=response.body;
+      this.annexeds=response.body;
       console.info(response.body);
     }, error1 =>{
       console.info(error1);

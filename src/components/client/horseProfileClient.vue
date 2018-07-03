@@ -80,6 +80,7 @@ export default {
   },
   methods: {
     deleteVet(index) {
+      console.info(this.vets[index].email);
       this.$http.post('http://localhost:3000/v1/horses/'+this.horse.id+'/deleteVet',{emailVet: this.vets[index].email})
           .then(response =>{
             this.$router.push('/');

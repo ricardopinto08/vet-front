@@ -26,7 +26,7 @@
           required
         >
       </div>
-      <b-button variant="success" @click="submit()">Siguiente</b-button>
+      <b-button id="logIn" variant="success" @click="submit()">Siguiente</b-button>
       <hr>
       <p>¿No estás registrado?</p>
       <router-link tag="li" to="/registerClient">
@@ -41,6 +41,7 @@
   <script>
   import router from "../router/index"
   import { eventBus } from '../main'
+
   export default {
     data() {
       return {

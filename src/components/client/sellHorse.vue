@@ -30,9 +30,8 @@ export default {
       this.$http.post('http://localhost:3000/v1/horses/'+this.selected+'/sell',this.credentials)
           .then(response =>{
 
-          }, error1 =>{
-            this.error=error1;
-            alert("Este correo no existe")
+          }, error =>{
+            this.error=error;
           });
     }
   },
