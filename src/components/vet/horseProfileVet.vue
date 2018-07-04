@@ -4,15 +4,25 @@
     <b>Id de caballo: </b> <p >{{this.horse.id}}</p>
     <b>Fecha de nacimiento: </b> <p >{{this.horse.born_date}}</p>
     <b>Creación del caballo: </b> <p >{{this.horse.created_at}}</p>
+    <b>Raza: </b> <p >{{this.horse.breed}}</p>
+    <b>Color: </b> <p >{{this.horse.color}}</p>
+    <b>Peso actual: </b> <p >{{this.horse.current_weight}} kilogramos</p>
+    <b>Altura actual: </b> <p >{{this.horse.current_height}} metros</p>
+    <b>Perímetro de pecho actual: </b> <p >{{this.horse.current_chest}} metros</p>
+    <b>Perímetro de abdomen actual: </b> <p >{{this.horse.current_umbilical}} metros</p>
+    <b>Largo hasta el hombro actual: </b> <p >{{this.horse.current_shoulder}} metros</p>
+    <b>Largo hasta el olecranon actual: </b> <p >{{this.horse.current_olecranon}} metros</p>
+    <b>Creación del caballo: </b> <p >{{this.horse.created_at}}</p>
     <div v-if="clients.lenght!==0" class="">
       <h2 >Dueño:</h2>
-      <b>Id: </b><p>{{this.clients[0].id}}</p>
-      <b>Nombre: </b><p>{{this.clients[0].name}} {{this.clients[0].lastname}}</p>
-      <b>Correo: </b><p>{{this.clients[0].email}}</p>
+      <b>Id: </b><p>{{this.clients.id}}</p>
+      <b>Nombre: </b><p>{{this.clients.name}} {{this.clients.lastname}}</p>
+      <b>Correo: </b><p>{{this.clients.email}}</p>
     </div>
     <b-button @click="history">Historial de dueños</b-button>
     <b-button @click="medicalHistory">Historia médica</b-button>
     <b-button @click="clinicalExam">Examen clínico</b-button>
+    <hr>
   </div>
 </template>
 
@@ -20,15 +30,15 @@
 import { eventBus } from '../../main'
 export default {
   created() {
+    this.$http.get('http://localhost:3000/v1/horses/'+this.$route.params.id+'/getCurrentOwner')
+    .then(r =>{
+      this.clients=r.body;
+    }, error1 =>{
+      console.info(error1);
+    });
     this.$http.get('http://localhost:3000/v1/horses/'+this.$route.params.id)
     .then(response =>{
       this.horse=response.body;
-      this.$http.get('http://localhost:3000/v1/horses/'+this.$route.params.id+'/getClients')
-      .then(r =>{
-        this.clients=r.body;
-      }, error1 =>{
-        console.info(error1);
-      });
     }, error1 =>{
       console.info(error1);
     });

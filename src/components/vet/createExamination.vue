@@ -76,7 +76,7 @@
                       type="number"
                       step="0.1"
                       min="0"
-                      v-model="examination.born_height"
+                      v-model="examination.current_height"
                       required
                       placeholder="Altura (m):">
         </b-form-input>

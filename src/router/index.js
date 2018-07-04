@@ -3,7 +3,9 @@ import Home from '@/components/Home'
 import Login from '@/components/Login'
 import medicalHistory from '@/components/medicalHistory'
 import clinicalExam from '@/components/clinicalExam'
+import annexeds from '@/components/annexeds'
 import annexed from '@/components/annexed'
+import examination from '@/components/examination'
 
 
 import registerClient from '@/components/client/registerClient'
@@ -135,14 +137,25 @@ export const routes =[
       component: clinicalExam
     },
     {
-      path: '/annexed:id',
-      name: 'annexed',
-      component: annexed
+      path: '/annexeds:id',
+      name: 'annexeds',
+      component: annexeds
     },
     {
       path: '/newAnnexed:id',
       name: 'newAnnexed',
       component: newAnnexed
+    }
+    ,
+    {
+      path: '/examination:id',
+      name: 'examination',
+      component: examination
+    },
+    {
+      path: '/annexed:id',
+      name: 'annexed',
+      component: annexed
     }
 
 

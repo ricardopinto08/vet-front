@@ -1,7 +1,20 @@
 <template lang="html">
   <div class="">
-    <b-table striped hover :items="annexeds" :fields="fields"></b-table>
-    <b-button v-if="rol === 'Vet'" @click="annexed" >Crear anexo</b-button>
+    <h1>Anexo</h1>
+    <b>Fecha de consulta: </b> <p >{{this.annexed.created_at}} </p>
+    <b>Peso de nacimiento: </b> <p >{{this.annexed.current_weight}} kilogramos</p>
+    <b>Altura: </b> <p >{{this.annexed.current_height}} metros</p>
+    <b>Perímetro de pecho: </b> <p >{{this.annexed.current_chest}} metros</p>
+    <b>Perímetro de abdomen: </b> <p >{{this.annexed.current_umbilical}} metros</p>
+    <b>Largo hasta el hombro: </b> <p >{{this.annexed.current_shoulder}} metros</p>
+    <b>Largo hasta el olecranon: </b> <p >{{this.annexed.current_olecranon}} metros</p>
+    <b>Titulo de consulta: </b> <p >{{this.annexed.title}} </p>
+    <b>Descripción: </b> <p >{{this.annexed.description}} </p>
+    <b>Ciudad: </b> <p >{{this.annexed.city}} </p>
+    <b>Dirección: </b> <p >{{this.annexed.address}} </p>
+    <b>Hora inicio: </b> <p >{{this.annexed.start_hour}} </p>
+    <b>Hora final: </b> <p >{{this.annexed.end_hour}} </p>
+    <hr>
   </div>
 </template>
 
@@ -9,62 +22,19 @@
 export default {
   data() {
     return {
-      id: sessionStorage.getItem('id'),
       rol: sessionStorage.getItem('type'),
-      fields: {
-        id:{
-          label: 'Identificación',
-          sortable: true
-        },
-        date:{
-          label: 'Fecha',
-          sortable: true
-        },
-        title:{
-          label: 'Título',
-          sortable: true
-        },
-        description: {
-          label: 'Descripción',
-          sortable: true
-        },
-        city: {
-          label: 'Ciudad',
-          sortable: true
-        },
-        address: {
-          label: 'Dirección',
-          sortable: true
-        },
-        start_hour: {
-          label: 'Hora inicio',
-          sortable: true
-        },
-        end_hour: {
-          label: 'Hora final',
-          sortable: true
-        },
-        image: {
-          label: 'Hora final',
-          sortable: true
-        }
-      },
-      annexeds:[]
+      annexed:[]
     }
   },
   methods: {
     submit() {
 
-    },
-    annexed(){
-      this.$router.push('/newAnnexed'+this.$route.params.id);
-    },
+    }
   },
   created() {
-    this.$http.get('http://localhost:3000/v1/examinations/'+this.$route.params.id+'/getAnnexeds')
+    this.$http.get('http://localhost:3000/v1/annexeds/'+this.$route.params.id)
     .then(response =>{
-      this.annexeds=response.body;
-      console.info(response.body);
+      this.annexed=response.body;
     }, error1 =>{
       console.info(error1);
     });
