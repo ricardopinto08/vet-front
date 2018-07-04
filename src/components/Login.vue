@@ -55,7 +55,7 @@
     },
     methods: {
       submit() {
-        this.$http.post('http://localhost:3000/v1/auth/',this.credentials)
+        this.$http.post('auth/',this.credentials)
             .then(response =>{
               this.isLogged=true;
               eventBus.$emit('someoneSignedIn', {isLogged: this.isLogged, type: response.body.type});

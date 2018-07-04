@@ -45,7 +45,7 @@ export default {
   },
   created() {
     console.info(this.$route.params.id);
-    this.$http.get('http://localhost:3000/v1/horses/'+this.$route.params.id+'/historyOfOwners')
+    this.$http.get('horses/'+this.$route.params.id+'/historyOfOwners')
     .then(response =>{
       this.clients=response.body;
       console.info(this.clients);

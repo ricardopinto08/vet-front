@@ -30,13 +30,13 @@
 import { eventBus } from '../../main'
 export default {
   created() {
-    this.$http.get('http://localhost:3000/v1/horses/'+this.$route.params.id+'/getCurrentOwner')
+    this.$http.get('horses/'+this.$route.params.id+'/getCurrentOwner')
     .then(r =>{
       this.clients=r.body;
     }, error1 =>{
       console.info(error1);
     });
-    this.$http.get('http://localhost:3000/v1/horses/'+this.$route.params.id)
+    this.$http.get('horses/'+this.$route.params.id)
     .then(response =>{
       this.horse=response.body;
     }, error1 =>{
@@ -77,7 +77,7 @@ export default {
   },
   methods: {
     deleteVet(index) {
-      this.$http.post('http://localhost:3000/v1/horses/'+this.horse.id+'/deleteVet',{emailVet: this.clients[index].email})
+      this.$http.post('horses/'+this.horse.id+'/deleteVet',{emailVet: this.clients[index].email})
           .then(response =>{
             this.$router.push('/');
           }, error1 =>{

@@ -175,7 +175,7 @@ export default {
       console.info(this.annexed);
     },
     submit() {
-      this.$http.post('http://localhost:3000/v1/annexeds#create',this.annexed)
+      this.$http.post('annexeds#create',this.annexed)
           .then(response =>{
           }, error1 =>{
             this.error="Incorrecto";

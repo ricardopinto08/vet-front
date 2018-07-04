@@ -32,7 +32,7 @@ export default {
     }
   },
   created() {
-    this.$http.get('http://localhost:3000/v1/annexeds/'+this.$route.params.id)
+    this.$http.get('annexeds/'+this.$route.params.id)
     .then(response =>{
       this.annexed=response.body;
     }, error1 =>{

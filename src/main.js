@@ -18,6 +18,7 @@ Vue.use(VueA11yDialog)
 Vue.use(VueRouter)
 Vue.use(VueResource)
 
+Vue.http.options.root = "http://ec2-54-185-207-45.us-west-2.compute.amazonaws.com/v1/"
 Vue.http.headers.common['Access-Control-Allow-Methods'] = 'GET, POST, PATCH, PUT, DELETE, OPTIONS'
 Vue.config.productionTip = false
 

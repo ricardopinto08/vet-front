@@ -50,9 +50,9 @@ export default {
       if(this.passwordnew != this.passwordConfirm) {
         alert("Las contraseñas no coinciden");
       }else{
-        this.$http.post('http://localhost:3000/v1/auth/', {user: this.email, password: this.password})
+        this.$http.post('auth/', {user: this.email, password: this.password})
             .then(r =>{
-              this.$http.patch('http://localhost:3000/v1/users#update',{email: this.email, password: this.passwordnew})
+              this.$http.patch('users#update',{email: this.email, password: this.passwordnew})
                   .then(response =>{
                     this.$router.push('/');
                   }, error =>{

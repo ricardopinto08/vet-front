@@ -180,7 +180,7 @@ export default {
     },
     submit() {
       this.examination.idHorse = this.examination.idHorse.toString();
-      this.$http.post('http://localhost:3000/v1/examinations#create',this.examination)
+      this.$http.post('examinations#create',this.examination)
           .then(response =>{
           }, error1 =>{
             this.error="Incorrecto";
@@ -188,7 +188,7 @@ export default {
     }
   },
   created() {
-    this.$http.get('http://localhost:3000/v1/vets/'+this.examination.idVet+'/gethorses')
+    this.$http.get('vets/'+this.examination.idVet+'/gethorses')
     .then(response =>{
       var i;
       for (i=0; i< response.body.length; i++){

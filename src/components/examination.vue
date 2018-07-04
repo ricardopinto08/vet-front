@@ -22,7 +22,7 @@
 <script>
 export default {
   created() {
-    this.$http.get('http://localhost:3000/v1/examinations/'+this.$route.params.id)
+    this.$http.get('examinations/'+this.$route.params.id)
     .then(response =>{
       this.examination=response.body;
     }, error1 =>{

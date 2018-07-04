@@ -71,7 +71,7 @@ export default {
     }
   },
   created() {
-    this.$http.get('http://localhost:3000/v1/examinations/'+this.$route.params.id+'/getAnnexeds')
+    this.$http.get('examinations/'+this.$route.params.id+'/getAnnexeds')
     .then(response =>{
       this.annexeds=response.body;
     }, error1 =>{

@@ -32,11 +32,11 @@
 import { eventBus } from '../../main'
 export default {
   created() {
-    this.$http.get('http://localhost:3000/v1/horses/'+this.$route.params.id)
+    this.$http.get('horses/'+this.$route.params.id)
     .then(response =>{
       this.horse=response.body;
       console.info(response.body);
-      this.$http.get('http://localhost:3000/v1/horses/'+this.$route.params.id+'/getVets')
+      this.$http.get('horses/'+this.$route.params.id+'/getVets')
       .then(r =>{
         this.vets=r.body;
       }, error1 =>{
@@ -81,7 +81,7 @@ export default {
   methods: {
     deleteVet(index) {
       console.info(this.vets[index].email);
-      this.$http.post('http://localhost:3000/v1/horses/'+this.horse.id+'/deleteVet',{emailVet: this.vets[index].email})
+      this.$http.post('horses/'+this.horse.id+'/deleteVet',{emailVet: this.vets[index].email})
           .then(response =>{
             this.$router.push('/');
           }, error1 =>{

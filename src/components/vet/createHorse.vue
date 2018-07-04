@@ -187,7 +187,7 @@ export default {
       this.credentials.current_shoulder = this.credentials.born_shoulder;
       this.credentials.current_weight = this.credentials.born_weight;
       this.credentials.current_umbilical = this.credentials.born_umbilical;
-      this.$http.post('http://localhost:3000/v1/horses#create',this.credentials)
+      this.$http.post('horses#create',this.credentials)
           .then(response =>{
 
             this.$router.push('/myHorsesVet');

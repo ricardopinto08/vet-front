@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     submit() {
-      this.$http.post('http://localhost:3000/v1/horses/'+this.selected+'/sell',this.credentials)
+      this.$http.post('horses/'+this.selected+'/sell',this.credentials)
           .then(response =>{
 
           }, error =>{
@@ -36,7 +36,7 @@ export default {
     }
   },
   created() {
-    this.$http.get('http://localhost:3000/v1/clients/'+this.id+'/gethorses')
+    this.$http.get('clients/'+this.id+'/gethorses')
     .then(response =>{
       var i;
       for (i=0; i< response.body.length; i++){
