@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="container">
     <form id="app" @submit="checkForm" method="post">
       <h2>Registro Cliente</h2>
       <p v-if="error.length">
@@ -73,7 +73,7 @@
     </form>
     <hr>
     <div id="app">
-      <button type="button" @click="openDialog">
+      <button class="btn btn-primary" type="button" @click="openDialog">
         Términos y condiciones
       </button>
       <a11y-dialog id="app-dialog" app-root="#app" @dialog-ref="assignDialogRef">

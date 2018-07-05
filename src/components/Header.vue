@@ -1,28 +1,37 @@
 <template lang="html">
-  <div class="">
-    <ul class="nav nav-pills">
-      <hr>
-      <router-link to="/" tag="li" active-class="active" exact><a>Inicio</a></router-link>
+  <div class="w-100">
+    <div >
+      <b-navbar type="dark" variant="primary" toggleable>
+        <b-navbar-toggle target="nav_dropdown_collapse"></b-navbar-toggle>
+        <a class="navbar-brand" href="#">Navbar</a>
+        <b-collapse is-nav id="nav_dropdown_collapse">
+          <b-navbar-nav>
+            <!-- <b-nav-item to="/" tag="li" active-class="active" exact><a>Inicio</a></b-nav-item> -->
 
-      <router-link to="/myProfileClient" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Mi perfil</a></router-link>
-      <router-link to="/myProfileVet" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Mi perfil</a></router-link>
+            <b-nav-item to="/myProfileClient" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Mi perfil</a></b-nav-item>
+            <b-nav-item to="/myProfileVet" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Mi perfil</a></b-nav-item>
 
-      <router-link to="/myHorsesClient" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Mis caballos</a></router-link>
-      <router-link to="/myHorsesVet" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Mis caballos</a></router-link>
+            <b-nav-item to="/myHorsesClient" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Mis caballos</a></b-nav-item>
+            <b-nav-item to="/myHorsesVet" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Mis caballos</a></b-nav-item>
 
-      <router-link to="/myVets" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Mis veterinarios</a></router-link>
+            <b-nav-item to="/myVets" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Mis veterinarios</a></b-nav-item>
 
-      <router-link to="/changeVet" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Agregar veterinario</a></router-link>
-      <router-link to="/sellHorse" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Vender caballo</a></router-link>
+            <b-nav-item to="/changeVet" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Agregar veterinario</a></b-nav-item>
+            <b-nav-item to="/sellHorse" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Vender caballo</a></b-nav-item>
 
-      <router-link to="/createHorse" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Crear caballo</a></router-link>
-      <router-link to="/createExamination" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Crear consulta</a></router-link>
+            <b-nav-item to="/createHorse" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Crear caballo</a></b-nav-item>
+            <b-nav-item to="/createExamination" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Crear consulta</a></b-nav-item>
 
-      <router-link to="/changePassword" v-if="isLogged" tag="li" active-class="active" exact><a>Cambiar contraseña</a></router-link>
-      <button v-if="!isLogged" @click="logIn" class="btn btn-primary" exact>Iniciar sesión</button>
-      <button v-if="isLogged" @click="logOut" class="btn btn-primary" exact>Cerrar sesión</button>
-      <hr>
-    </ul>
+            <b-nav-item to="/changePassword" v-if="isLogged" tag="li" active-class="active" exact><a>Cambiar contraseña</a></b-nav-item>
+            <b-nav-item v-if="!isLogged" @click="logIn"  active-class="active" exact>Iniciar sesión</b-nav-item>
+            <b-nav-item v-if="isLogged" @click="logOut"  active-class="active" exact>Cerrar sesión</b-nav-item>
+            <!-- Navbar dropdowns -->
+          </b-navbar-nav>
+        </b-collapse>
+      </b-navbar>
+
+    </div>
+
   </div>
 
 </template>
@@ -31,6 +40,7 @@
 <script>
 import { eventBus } from '../main'
 import Dropdown from 'bp-vuejs-dropdown';
+import bNavbarToggle from 'bootstrap-vue/es/components/navbar/navbar-toggle';
 
 export default {
   components: {
@@ -64,4 +74,9 @@ export default {
 </script>
 
 <style lang="css">
+.navbar-brand{
+  height: 100%;
+  text-align: center;
+}
+
 </style>

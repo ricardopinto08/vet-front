@@ -1,9 +1,8 @@
 <template lang="html">
-  <div class="">
+  <div class="container">
     <h1>{{this.horse.name}}</h1>
     <b>Id de caballo: </b> <p >{{this.horse.id}}</p>
     <b>Fecha de nacimiento: </b> <p >{{this.horse.born_date}}</p>
-    <b>Creación del caballo: </b> <p >{{this.horse.created_at}}</p>
     <b>Raza: </b> <p >{{this.horse.breed}}</p>
     <b>Color: </b> <p >{{this.horse.color}}</p>
     <b>Peso actual: </b> <p >{{this.horse.current_weight}} kilogramos</p>

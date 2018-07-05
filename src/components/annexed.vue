@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="container">
     <h1>Anexo</h1>
     <b>Fecha de consulta: </b> <p >{{this.annexed.created_at}} </p>
     <b>Peso de nacimiento: </b> <p >{{this.annexed.current_weight}} kilogramos</p>

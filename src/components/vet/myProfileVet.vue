@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="container">
     <h1>Veterinario</h1>
     <b>Id de usuario: </b> <p>{{id}}</p>
     <b>Correo: </b><p>{{email}}</p>

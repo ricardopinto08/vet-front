@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="container">
     <h1>{{this.horse.name}}</h1>
     <b>Id de caballo: </b> <p>{{this.horse.id}}</p>
     <b>Fecha de nacimiento: </b> <p >{{this.horse.born_date}}</p>

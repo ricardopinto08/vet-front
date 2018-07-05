@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="container">
     <h1>Historial de propietarios</h1>
     <b-table striped hover :items="clients" :fields="fields"></b-table>
   </div>

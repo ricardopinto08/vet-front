@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="container">
     <h1>Anexos</h1>
     <b-table striped hover :items="annexeds" :fields="fields">
       <template slot="title" slot-scope="data">

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
       <h2>Iniciar sesión</h2>
       <div class="alert alert-danger" v-if="error">
         <p>{{ error }}</p>

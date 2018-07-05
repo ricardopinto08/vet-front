@@ -1,6 +1,6 @@
 <template lang="html">
-  <div class="">
-    <b-form @submit = "submit">
+  <div class="container">
+    <b-form @submit = "submit" class="w-10000">
       <label for="ddown1">Selecciona un caballo: </label>
       <b-form-select id = "ddown1" required v-model="selected" :options="horses" class="mb-3" />
       <br>

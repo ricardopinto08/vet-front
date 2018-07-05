@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="container">
     <b-form @submit="submit">
       <label for="ddown1">Selecciona un caballo: </label>
       <b-form-select id = "ddown1" required v-model="examination.idHorse" :options="horses" class="mb-3" />

@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="container">
     <h2>Actualizar contraseña</h2>
     <div class="form-group">
       <label for="pass">Contraseña anterior:</label>

@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="container">
     <h1>Examen clínico de {{this.horse.name}}</h1>
     <b>Peso de nacimiento: </b> <p >{{this.horse.born_height}} kilogramos</p>
     <b>Altura de nacimiento: </b> <p >{{this.horse.born_weight}} metros</p>

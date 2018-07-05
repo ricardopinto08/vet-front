@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="container">
     <b-form @submit="submit">
 
       <b-form-group id="horseNamefg"
