@@ -2,7 +2,7 @@
   <div class="">
     <h1>Inicio</h1>
     <hr>
-    <p>Hola :)))))2</p>
+    <p>Hola :)))))3</p>
 
   </div>
 </template>
