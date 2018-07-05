@@ -26,10 +26,11 @@ export default {
     }
   },
   methods: {
-    submit() {
+    submit(evt) {
+      evt.preventDefault();
       this.$http.post('horses/'+this.selected+'/sell',this.credentials)
           .then(response =>{
-
+            this.$router.push('/myHorsesClient');
           }, error =>{
             this.error=error;
           });

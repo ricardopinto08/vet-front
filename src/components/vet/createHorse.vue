@@ -180,7 +180,8 @@ export default {
     }
   },
   methods: {
-    submit() {
+    submit(evt) {
+      evt.preventDefault();
       this.credentials.current_height = this.credentials.born_height;
       this.credentials.current_chest = this.credentials.born_chest;
       this.credentials.current_olecranon = this.credentials.born_olecranon;
@@ -189,7 +190,7 @@ export default {
       this.credentials.current_umbilical = this.credentials.born_umbilical;
       this.$http.post('horses#create',this.credentials)
           .then(response =>{
-            this.$router.push('/');
+            this.$router.push('/myHorsesVet');
           }, error1 =>{
             this.error="Usuario o contraseña incorrecta";
           });

@@ -178,10 +178,12 @@ export default {
     prueba() {
       console.info(this.examination);
     },
-    submit() {
+    submit(evt) {
+      evt.preventDefault();
       this.examination.idHorse = this.examination.idHorse.toString();
       this.$http.post('examinations#create',this.examination)
           .then(response =>{
+            this.$router.push('/myHorsesVet');
           }, error1 =>{
             this.error="Incorrecto";
           });
