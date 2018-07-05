@@ -174,9 +174,11 @@ export default {
     prueba() {
       console.info(this.annexed);
     },
-    submit() {
-      this.$http.post('http://localhost:3000/v1/annexeds#create',this.annexed)
+    submit(evt) {
+      evt.preventDefault();
+      this.$http.post('annexeds#create',this.annexed)
           .then(response =>{
+            this.$router.push('/myHorsesVet');
           }, error1 =>{
             this.error="Incorrecto";
           });

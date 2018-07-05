@@ -178,17 +178,19 @@ export default {
     prueba() {
       console.info(this.examination);
     },
-    submit() {
+    submit(evt) {
+      evt.preventDefault();
       this.examination.idHorse = this.examination.idHorse.toString();
-      this.$http.post('http://localhost:3000/v1/examinations#create',this.examination)
+      this.$http.post('examinations#create',this.examination)
           .then(response =>{
+            this.$router.push('/myHorsesVet');
           }, error1 =>{
             this.error="Incorrecto";
           });
     }
   },
   created() {
-    this.$http.get('http://localhost:3000/v1/vets/'+this.examination.idVet+'/gethorses')
+    this.$http.get('vets/'+this.examination.idVet+'/gethorses')
     .then(response =>{
       var i;
       for (i=0; i< response.body.length; i++){

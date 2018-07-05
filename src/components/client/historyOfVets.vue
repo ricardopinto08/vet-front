@@ -44,7 +44,7 @@ export default {
     },
   },
   created() {
-    this.$http.get('http://localhost:3000/v1/horses/'+this.$route.params.id+'/historyOfVets')
+    this.$http.get('horses/'+this.$route.params.id+'/historyOfVets')
     .then(response =>{
       this.vets=response.body;
     }, error1 =>{

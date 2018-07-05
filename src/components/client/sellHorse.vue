@@ -26,17 +26,18 @@ export default {
     }
   },
   methods: {
-    submit() {
-      this.$http.post('http://localhost:3000/v1/horses/'+this.selected+'/sell',this.credentials)
+    submit(evt) {
+      evt.preventDefault();
+      this.$http.post('horses/'+this.selected+'/sell',this.credentials)
           .then(response =>{
-
+            this.$router.push('/myHorsesClient');
           }, error =>{
             this.error=error;
           });
     }
   },
   created() {
-    this.$http.get('http://localhost:3000/v1/clients/'+this.id+'/gethorses')
+    this.$http.get('clients/'+this.id+'/gethorses')
     .then(response =>{
       var i;
       for (i=0; i< response.body.length; i++){

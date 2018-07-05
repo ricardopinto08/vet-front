@@ -69,7 +69,7 @@ export default {
     },
   },
   created() {
-    this.$http.get('http://localhost:3000/v1/horses/'+this.$route.params.id+'/getMedicalHistory')
+    this.$http.get('horses/'+this.$route.params.id+'/getMedicalHistory')
     .then(response =>{
       this.history=response.body;
     }, error1 =>{

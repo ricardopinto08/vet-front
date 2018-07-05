@@ -13,7 +13,7 @@
 <script>
 export default {
   created() {
-    this.$http.get('http://localhost:3000/v1/horses/'+this.$route.params.id)
+    this.$http.get('horses/'+this.$route.params.id)
     .then(response =>{
       this.horse=response.body;
     }, error1 =>{

@@ -41,7 +41,7 @@ export default {
     },
   },
   created() {
-    this.$http.get('http://localhost:3000/v1/vets/'+this.id+'/gethorses')
+    this.$http.get('vets/'+this.id+'/gethorses')
     .then(response =>{
       this.horses=response.body;
     }, error1 =>{

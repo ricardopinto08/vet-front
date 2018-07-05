@@ -122,14 +122,14 @@ export default {
       if(this.user.password != this.user.passwordConfirm) {
         alert("Las contraseñas no coinciden");
       }else if (this.user.name && this.user.lastname && this.user.email && this.user.password && this.user.passwordConfirm) {
-        this.$http.post('http://localhost:3000/v1/clients#create',this.user)
+        this.$http.post('clients#create',this.user)
             .then(response => response.json())
             .then(response =>{
               if (response.error){
                 this.errors.push(response.error);
               }else{
                 this.credentials = {user: this.user.email, password: this.user.password}
-                this.$http.post('http://localhost:3000/v1/auth/',this.credentials)
+                this.$http.post('auth/',this.credentials)
                     .then(response =>{
                       this.isLogged=true;
                       eventBus.$emit('someoneSignedIn', this.isLogged);
