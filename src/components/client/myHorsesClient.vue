@@ -42,7 +42,7 @@ export default {
 
     },
     caballo(value){
-      this.$router.push('horseProfileClient'+value.horse_id);
+      this.$router.push('/horseProfileClient'+value.horse_id);
     },
     fullName (value){
       return `${value}`
