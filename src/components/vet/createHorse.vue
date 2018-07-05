@@ -190,7 +190,6 @@ export default {
       this.credentials.current_umbilical = this.credentials.born_umbilical;
       this.$http.post('horses#create',this.credentials)
           .then(response =>{
-
             this.$router.push('/myHorsesVet');
           }, error1 =>{
             this.error="Usuario o contraseña incorrecta";
