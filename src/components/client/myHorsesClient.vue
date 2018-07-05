@@ -42,14 +42,14 @@ export default {
 
     },
     caballo(value){
-      this.$router.push('/horseProfileClient'+value.horse_id);
+      this.$router.push('horseProfileClient'+value.horse_id);
     },
     fullName (value){
       return `${value}`
     }
   },
   created() {
-    this.$http.get('/clients/'+this.id+'/gethorses')
+    this.$http.get('clients/'+this.id+'/gethorses')
     .then(response =>{
       this.horses=response.body;
     }, error1 =>{
