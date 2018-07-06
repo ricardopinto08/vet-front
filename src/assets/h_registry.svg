@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.366 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f3f6fa;
+      }
+
+      .cls-2 {
+        fill: #4a5152;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        fill: #5bbdc4;
+      }
+
+      .cls-5 {
+        fill: #bec6c7;
+      }
+    </style>
+  </defs>
+  <g id="h_registry" transform="translate(-122.502 -55.9)">
+    <path id="Path_20" data-name="Path 20" class="cls-1" d="M146.4,113.7v24.591h17.641v-3.462h3.725V113.7Z" transform="translate(-23.898 -52.391)"/>
+    <path id="Path_21" data-name="Path 21" class="cls-1" d="M321.6,342.962l3.725-3.462H321.6Z" transform="translate(-181.457 -257.062)"/>
+    <path id="Path_22" data-name="Path 22" class="cls-2" d="M202.884,58.529v-.683a2.1,2.1,0,0,0-4.189,0v.683H195v3.986h11.589V58.529Z" transform="translate(-67.605 0)"/>
+    <ellipse id="Ellipse_5" data-name="Ellipse 5" class="cls-3" cx="1.047" cy="0.973" rx="1.047" ry="0.973" transform="translate(132.138 56.883)"/>
+    <rect id="Rectangle_42" data-name="Rectangle 42" class="cls-4" width="2.396" height="1.029" rx="0.45" transform="translate(125.452 68.708)"/>
+    <rect id="Rectangle_43" data-name="Rectangle 43" class="cls-5" width="11.579" height="1.029" rx="0.45" transform="translate(129.339 68.708)"/>
+    <rect id="Rectangle_44" data-name="Rectangle 44" class="cls-4" width="2.396" height="1.029" rx="0.45" transform="translate(125.452 71.917)"/>
+    <rect id="Rectangle_45" data-name="Rectangle 45" class="cls-5" width="11.579" height="1.029" rx="0.45" transform="translate(129.339 71.917)"/>
+    <rect id="Rectangle_46" data-name="Rectangle 46" class="cls-4" width="2.396" height="1.029" rx="0.45" transform="translate(125.452 75.127)"/>
+    <rect id="Rectangle_47" data-name="Rectangle 47" class="cls-5" width="11.579" height="1.029" rx="0.45" transform="translate(129.339 75.127)"/>
+    <rect id="Rectangle_48" data-name="Rectangle 48" class="cls-4" width="2.396" height="1.029" rx="0.45" transform="translate(125.452 78.336)"/>
+    <rect id="Rectangle_49" data-name="Rectangle 49" class="cls-5" width="11.579" height="1.029" rx="0.45" transform="translate(129.339 78.336)"/>
+  </g>
+</svg>

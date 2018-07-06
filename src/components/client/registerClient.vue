@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="container">
     <form id="app" @submit="checkForm" method="post">
-      <h2>Registro Cliente</h2>
+      <h2>Registro Propietario</h2>
       <p v-if="error.length">
       <b>Please correct the following error(s):</b>
       <ul>

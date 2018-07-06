@@ -30,10 +30,10 @@
       <hr>
       <p>¿No estás registrado?</p>
       <router-link tag="li" to="/registerClient">
-        <a>Registro para clientes</a>
+        <a>Registro para propietario</a>
       </router-link>
       <router-link tag="li" to="/registerVet">
-        <a>Registro para veterinarios</a>
+        <a>Registro para veterinario</a>
       </router-link>
     </div>
   </template>
@@ -65,7 +65,7 @@
               sessionStorage.setItem('email', response.body.user.email);
               sessionStorage.setItem('name', response.body.user.name);
               sessionStorage.setItem('lastname', response.body.user.lastname);
-              this.$router.push('/');
+              this.$router.push('/myHorses'+sessionStorage.getItem("type"));
             }, error1 =>{
               this.error="Usuario o contraseña incorrecta";
             });

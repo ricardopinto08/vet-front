@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.733 22">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #5bbdc4;
+      }
+    </style>
+  </defs>
+  <g id="menu_profile_a" transform="translate(-41.895)">
+    <path id="Path_9" data-name="Path 9" class="cls-1" d="M108.964,10.759c2.446,0,4.429-2.409,4.429-5.38S112.742,0,108.964,0s-4.429,2.409-4.429,5.38S106.518,10.759,108.964,10.759Z" transform="translate(-58.702)"/>
+    <path id="Path_10" data-name="Path 10" class="cls-1" d="M41.9,300.465c0-.181,0-.051,0,0Z" transform="translate(0 -281.491)"/>
+    <path id="Path_11" data-name="Path 11" class="cls-1" d="M308.085,301.651c0-.05,0-.344,0,0Z" transform="translate(-249.458 -282.536)"/>
+    <path id="Path_12" data-name="Path 12" class="cls-1" d="M58.63,185.324c-.082-5.176-.758-6.651-5.931-7.584a3.634,3.634,0,0,1-4.851,0c-5.116.923-5.833,2.376-5.928,7.416-.008.412-.011.433-.013.385,0,.09,0,.255,0,.544,0,0,1.231,2.483,8.365,2.483s8.365-2.483,8.365-2.483c0-.185,0-.314,0-.4A3.328,3.328,0,0,1,58.63,185.324Z" transform="translate(-0.012 -166.568)"/>
+  </g>
+</svg>

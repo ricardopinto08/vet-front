@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="container">
-    <h1>Cliente</h1>
+    <h1>Propietario</h1>
     <b>Id de usuario: </b> <p>{{id}}</p>
     <b>Correo: </b><p>{{email}}</p>
     <b>Nombre: </b><p>{{name}}</p>
