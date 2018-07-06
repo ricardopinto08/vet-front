@@ -32,7 +32,7 @@
               Mi perfil
             </a>
           </li>
-          <li @click="redirect('/myProfileVet')" v-if="type === 'Vet'" class="nav-item">
+          <li @click="redirect('/myProfileVet')" v-if="type === 'Vet'" class="nav-item active">
             <img src="../assets/menu_profile.svg" class="profileIcon">
             <a class="nav-link"  href="#">
               Mi perfil
