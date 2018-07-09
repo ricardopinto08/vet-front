@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="w-100">
+  <div class="">
     <div class="mobile">
       <img src="../../assets/caballo.png" class="fotoPortadaCaballo" >
       <div class="portada">
@@ -278,7 +278,7 @@ export default {
     display: none;
   }
   .mobile {
-    display: block;
+    position: fixed;
     width: 100%;
     border: 0;
   }
@@ -414,7 +414,7 @@ export default {
   .fotoPerfilCaballo {
     width: 105px;
     height: 105px;
-    margin-left: 125px;
+    margin-left: 33.3%;
     border-radius: 100px;
     margin-top: -50px;
     position: absolute;

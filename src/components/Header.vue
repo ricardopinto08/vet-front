@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="w-100">
+  <div class="">
       <div class="bottom">
         <ul class="nav nav-pills nav-fill">
 
@@ -43,35 +43,36 @@
 
         </ul>
       </div>
+      <div class="desktop">
+        <b-navbar class="myNav" type="dark" variant="primary" toggleable>
+          <b-navbar-toggle target="nav_dropdown_collapse"></b-navbar-toggle>
+          <a class="navbar-brand" href="#">Navbar</a>
+          <b-collapse is-nav id="nav_dropdown_collapse">
+            <b-navbar-nav>
+              <!-- <b-nav-item to="/" tag="li" active-class="active" exact><a>Inicio</a></b-nav-item> -->
 
-      <b-navbar class="myNav" type="dark" variant="primary" toggleable>
-        <b-navbar-toggle target="nav_dropdown_collapse"></b-navbar-toggle>
-        <a class="navbar-brand" href="#">Navbar</a>
-        <b-collapse is-nav id="nav_dropdown_collapse">
-          <b-navbar-nav>
-            <!-- <b-nav-item to="/" tag="li" active-class="active" exact><a>Inicio</a></b-nav-item> -->
+              <b-nav-item to="/myProfileClient" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Mi perfil</a></b-nav-item>
+              <b-nav-item to="/myProfileVet" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Mi perfil</a></b-nav-item>
 
-            <b-nav-item to="/myProfileClient" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Mi perfil</a></b-nav-item>
-            <b-nav-item to="/myProfileVet" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Mi perfil</a></b-nav-item>
+              <b-nav-item to="/myHorsesClient" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Mis caballos</a></b-nav-item>
+              <b-nav-item to="/myHorsesVet" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Mis caballos</a></b-nav-item>
 
-            <b-nav-item to="/myHorsesClient" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Mis caballos</a></b-nav-item>
-            <b-nav-item to="/myHorsesVet" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Mis caballos</a></b-nav-item>
+              <b-nav-item to="/myVets" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Mis veterinarios</a></b-nav-item>
 
-            <b-nav-item to="/myVets" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Mis veterinarios</a></b-nav-item>
+              <b-nav-item to="/changeVet" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Agregar veterinario</a></b-nav-item>
+              <b-nav-item to="/sellHorse" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Vender caballo</a></b-nav-item>
 
-            <b-nav-item to="/changeVet" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Agregar veterinario</a></b-nav-item>
-            <b-nav-item to="/sellHorse" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Vender caballo</a></b-nav-item>
+              <b-nav-item to="/createHorse" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Crear caballo</a></b-nav-item>
+              <b-nav-item to="/createExamination" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Crear consulta</a></b-nav-item>
 
-            <b-nav-item to="/createHorse" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Crear caballo</a></b-nav-item>
-            <b-nav-item to="/createExamination" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Crear consulta</a></b-nav-item>
-
-            <b-nav-item to="/changePassword" v-if="isLogged" tag="li" active-class="active" exact><a>Cambiar contraseña</a></b-nav-item>
-            <b-nav-item v-if="!isLogged" @click="logIn"  active-class="active" exact>Iniciar sesión</b-nav-item>
-            <b-nav-item v-if="isLogged" @click="logOut"  active-class="active" exact>Cerrar sesión</b-nav-item>
-            <!-- Navbar dropdowns -->
-          </b-navbar-nav>
-        </b-collapse>
-      </b-navbar>
+              <b-nav-item to="/changePassword" v-if="isLogged" tag="li" active-class="active" exact><a>Cambiar contraseña</a></b-nav-item>
+              <b-nav-item v-if="!isLogged" @click="logIn"  active-class="active" exact>Iniciar sesión</b-nav-item>
+              <b-nav-item v-if="isLogged" @click="logOut"  active-class="active" exact>Cerrar sesión</b-nav-item>
+              <!-- Navbar dropdowns -->
+            </b-navbar-nav>
+          </b-collapse>
+        </b-navbar>
+      </div>
 
 
   </div>
@@ -122,20 +123,16 @@ export default {
 body {
   background-color: #F3F6FA;
 }
-@media (max-width: 575.98) {
+@media (min-width: 575.99px) {
   .navbar-brand{
     height: 100%;
+    display: block;
     text-align: center;
   }
   .bottom {
     display: none;
   }
-  .profileIcon{
-    display: none;
-  }
-  .nav-link{
-    display: none;
-  }
+
 
 }
 @media (max-width: 575.98px) {
@@ -146,7 +143,6 @@ body {
     background-color: white;
     position: fixed;
     bottom: 30px;
-
     width: 100%;
     height: 50px;
     bottom: 0px;
@@ -163,7 +159,6 @@ body {
     margin-bottom: 5px;
     border: 5px;
     height: 22px;
-
   }
 }
 

@@ -1,8 +1,7 @@
 <template lang="html">
-  <div class="">
-
-
   <div class="principal">
+
+  <div class="mobile">
     <div class="encabezado">
       <p class="textoblanco">Criadero {{this.hatchery}}</p>
     </div>
@@ -31,19 +30,19 @@
       </div>
     </div>
   </div>
-    <b-table class="tabla" striped hover v-if="leng > 0" :items="horses" :fields="fields">
-      <template slot="name" slot-scope="data">
-        <a :href="`#${data.value.replace(/[^a-z]+/i,'-').toLowerCase()}`" @click="caballo(data.item)">
-          {{data.value}}
-        </a>
-      </template>
-    </b-table>
-    <div v-if="this.leng === 0" class="">
-      <img  src="../../assets/menu_home_a.svg" class="profileIconVacio">
-      <p class="subtitleVacio">Aún no tienes caballos relacionados</p>
-    </div>
 
+  <b-table class="tabla" striped hover v-if="leng > 0" :items="horses" :fields="fields">
+    <template slot="name" slot-scope="data">
+      <a :href="`#${data.value.replace(/[^a-z]+/i,'-').toLowerCase()}`" @click="caballo(data.item)">
+        {{data.value}}
+      </a>
+    </template>
+  </b-table>
 
+  <div v-if="this.leng === 0" class="">
+    <img  src="../../assets/menu_home_a.svg" class="profileIconVacio">
+    <p class="subtitleVacio">Aún no tienes caballos relacionados</p>
+  </div>
   </div>
 </template>
 
@@ -146,7 +145,7 @@ export default {
 
 <style lang="css">
 
-@media (min-width: 992px) and (max-width: 1199.98px) {
+@media (min-width: 992px) {
   .tabla {
     float: block;
   }
@@ -290,10 +289,11 @@ export default {
   }
   .principal {
     width: 100%;
+    position: fixed;
   }
   .caballo {
     background-color: #FFFFFF;
-    width: 305px;
+    width: 80%;
     height: 120px;
     border-radius: 10px;
     margin-left: 60px;
