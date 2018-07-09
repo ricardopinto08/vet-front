@@ -1,41 +1,153 @@
 <template lang="html">
-  <div class="container">
-    <h1>{{this.horse.name}}</h1>
-    <b>Id de caballo: </b> <p>{{this.horse.id}}</p>
-    <b>Fecha de nacimiento: </b> <p >{{this.horse.born_date}}</p>
-    <b>Raza: </b> <p >{{this.horse.breed}}</p>
-    <b>Color: </b> <p >{{this.horse.color}}</p>
-    <b>Peso actual: </b> <p >{{this.horse.current_height}} kilogramos</p>
-    <b>Altura actual: </b> <p >{{this.horse.current_weight}} metros</p>
-    <b>Perímetro de pecho actual: </b> <p >{{this.horse.current_chest}} metros</p>
-    <b>Perímetro de abdomen actual: </b> <p >{{this.horse.current_umbilical}} metros</p>
-    <b>Largo hasta el hombro actual: </b> <p >{{this.horse.current_shoulder}} metros</p>
-    <b>Largo hasta el olecranon actual: </b> <p >{{this.horse.current_olecranon}} metros</p>
-    <b>Creación del caballo: </b> <p >{{this.horse.created_at}}</p>
-    <hr>
-    <h2>Veterinarios:</h2>
-    <b-table striped hover :items="vets"  :fields="fields">
-      <template slot="delete_button" slot-scope="row">
-        <b-button @click="deleteVet(row.index)" variant="danger">
-         Eliminar
-        </b-button>
-      </template>
-    </b-table>
-    <b-button @click="history">Historial de veterinarios</b-button>
-    <b-button @click="medicalHistory">Historia médica</b-button>
-    <b-button @click="clinicalExam">Examen clínico</b-button>
-    <hr>
+  <div class="w-100">
+    <div class="mobile">
+      <div class="portada">
+        <b><p class="nombreCaballo">{{this.horse.name}}</p></b>
+      </div>
+
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            <img src="../../assets/h_registry.svg" class="icon">
+            <b class = "tituloPropiedad">Registro</b>
+            <img src="../../assets/arrow.svg" class="arrow">
+          </div>
+
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              <b class="tituloAtributo" >Id del caballo:</b>
+              <p class="valorAtributo">{{this.horse.id}}</p>
+              <hr class="miLinea">
+              <b class="tituloAtributo" >Fecha de nacimiento:</b>
+              <p class="valorAtributo">{{format(this.horse.born_date)}}</p>
+              <hr class="miLinea">
+              <b class="tituloAtributo" >Creación del caballo:</b>
+              <p class="valorAtributo">{{format(this.horse.created_at)}}</p>
+              <hr class="miLinea">
+              <b class="tituloAtributo" >Raza:</b>
+              <p class="valorAtributo">{{this.horse.breed}}</p>
+              <hr class="miLinea">
+              <b class="tituloAtributo" >Color:</b>
+              <p class="valorAtributo">{{this.horse.color}}</p>
+              <hr class="miLinea">
+              <b class="tituloAtributo" >Peso actual:</b>
+              <p class="valorAtributo">{{this.horse.current_weight}} Kg</p>
+              <hr class="miLinea">
+              <b class="tituloAtributo" >Altura actual:</b>
+              <p class="valorAtributo">{{this.horse.current_height}} m</p>
+              <hr class="miLinea">
+              <b class="tituloAtributo" >Perímetro de pecho actual:</b>
+              <p class="valorAtributo">{{this.horse.current_chest}} m</p>
+              <hr class="miLinea">
+              <b class="tituloAtributo" >Perímetro de abdomen actual:</b>
+              <p class="valorAtributo">{{this.horse.current_umbilical}} m</p>
+              <hr class="miLinea">
+              <b class="tituloAtributo" >Largo hasta el hombro actual:</b>
+              <p class="valorAtributo">{{this.horse.current_shoulder}} m</p>
+              <hr class="miLinea">
+              <b class="tituloAtributo" >Largo hasta el olecranon actual:</b>
+              <p class="valorAtributo">{{this.horse.current_olecranon}} m</p>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <img src="../../assets/h_medical.svg" class="icon">
+              <b class = "tituloPropiedad">Consultas médicas</b>
+              <img src="../../assets/arrow.svg" class="arrow">
+
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+              <div v-for="examination in historyM">
+                <b class="">{{format(examination.start_hour)}}</b>
+                <p>{{examination.address}}, {{examination.city}}</p>
+                <p>Por: {{examination.vet_name}} {{examination.vet_lastname}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <img src="../../assets/h_vet.svg" class="icon">
+            <b class = "tituloPropiedad">Historial de veterinarios</b>
+            <img src="../../assets/arrow.svg" class="arrow">
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+              <div v-for="vet in vetsH">
+                <b class="">{{format(vet.created_at)}}</b>
+                <br>
+                <b>Por: {{vet.name}} {{vet.lastname}}</b>
+                <p>Teléfono estático</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingFour" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            <img src="../../assets/h_owner.svg" class="icon">
+            <b class = "tituloPropiedad">Historial de propietarios</b>
+            <img src="../../assets/arrow.svg" class="arrow">
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+            <div class="card-body">
+              <div v-for="client in clients">
+                <b class="">{{format(client.created_at)}} / {{format(client.end_date)}}</b>
+                <p>Por: {{client.name}} {{client.lastname}}</p>
+                <p>Teléfono estático</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="desktop">
+      <h1>{{this.horse.name}}</h1>
+      <b>Id de caballo: </b> <p>{{this.horse.id}}</p>
+      <b>Fecha de nacimiento: </b> <p >{{this.horse.born_date}}</p>
+      <b>Raza: </b> <p >{{this.horse.breed}}</p>
+      <b>Color: </b> <p >{{this.horse.color}}</p>
+      <b>Peso actual: </b> <p >{{this.horse.current_height}} kilogramos</p>
+      <b>Altura actual: </b> <p >{{this.horse.current_weight}} metros</p>
+      <b>Perímetro de pecho actual: </b> <p >{{this.horse.current_chest}} metros</p>
+      <b>Perímetro de abdomen actual: </b> <p >{{this.horse.current_umbilical}} metros</p>
+      <b>Largo hasta el hombro actual: </b> <p >{{this.horse.current_shoulder}} metros</p>
+      <b>Largo hasta el olecranon actual: </b> <p >{{this.horse.current_olecranon}} metros</p>
+      <b>Creación del caballo: </b> <p >{{this.horse.created_at}}</p>
+      <hr>
+      <h2>Veterinarios:</h2>
+      <b-table striped hover :items="vets"  :fields="fields">
+        <template slot="delete_button" slot-scope="row">
+          <b-button @click="deleteVet(row.index)" variant="danger">
+           Eliminar
+          </b-button>
+        </template>
+      </b-table>
+      <b-button @click="history">Historial de veterinarios</b-button>
+      <b-button @click="medicalHistory">Historia médica</b-button>
+      <b-button @click="clinicalExam">Examen clínico</b-button>
+      <hr>
+    </div>
+
   </div>
 </template>
 
 <script>
 import { eventBus } from '../../main'
+
 export default {
   created() {
     this.$http.get('horses/'+this.$route.params.id)
     .then(response =>{
       this.horse=response.body;
-      console.info(response.body);
+
       this.$http.get('horses/'+this.$route.params.id+'/getVets')
       .then(r =>{
         this.vets=r.body;
@@ -46,11 +158,38 @@ export default {
       console.info(error1);
     });
 
+    this.$http.get('horses/'+this.$route.params.id+'/historyOfVets')
+    .then(response =>{
+      console.info(response.body);
+      this.vetsH=response.body;
+    }, error1 =>{
+      console.info(error1);
+    });
+
+    this.$http.get('horses/'+this.$route.params.id+'/historyOfOwners')
+    .then(response =>{
+      this.clients=response.body;
+      console.info(this.clients);
+    }, error1 =>{
+      console.info(error1);
+    });
+
+    this.$http.get('horses/'+this.$route.params.id+'/getMedicalHistory')
+    .then(response =>{
+      console.info(response);
+      this.historyM=response.body;
+    }, error1 =>{
+      console.info(error1);
+    });
+
   },
   data() {
     return {
       horse: {},
       vets: [],
+      clients: [],
+      historyM: [],
+      vetsH:[],
       fields: {
         id:{
           label: 'Identificación',
@@ -79,6 +218,7 @@ export default {
     }
   },
   methods: {
+
     deleteVet(index) {
       console.info(this.vets[index].email);
       this.$http.post('horses/'+this.horse.id+'/deleteVet',{emailVet: this.vets[index].email})
@@ -90,6 +230,14 @@ export default {
     },
     history(){
       this.$router.push('/historyOfVets'+this.horse.id);
+    },
+    format (data){
+      if(data != null){
+        return data.substring(8, 10)+"・"+data.substring(5, 7)+"・"+data.substring(0, 4);
+      }else{
+        return ""
+      }
+
     },
     medicalHistory(){
       this.$router.push('/medicalHistory'+this.horse.id);
@@ -103,4 +251,109 @@ export default {
 </script>
 
 <style lang="css">
+@media (min-width: 992px) and (max-width: 1199.98px){
+  .desktop {
+    display: block;
+  }
+  .mobile {
+    display: none;
+  }
+}
+@media (max-width: 575.98px) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+    width: 100%;
+    border: 0;
+  }
+  .portada {
+    background-color: #FFFFFF;
+    width: 355px;
+    height: 160px;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-top: 100px;
+    margin-bottom: 9px;
+  }
+  .nombreCaballo{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+    height: 17px;
+    color: #5BBDC4;
+    margin-bottom: 3px;
+    padding-top: 68px;
+    margin-left: 142px;
+  }
+  .card-header {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: white;
+    margin-bottom: 0px;
+    padding: 0;
+    height: 70px;
+    border: 0;
+  }
+  .card {
+    margin-bottom: 10px;
+    border: 0;
+  }
+
+  .icon {
+    float: left;
+    width: 21.37px;
+    height: 24.59px;
+    margin-left: 24px;
+    margin-top: 25.41px;
+  }
+
+  .arrow {
+    float: right;
+    width: 28px;
+    height: 28px;
+    margin-right: 25px;
+    margin-top: 21px;
+  }
+
+  .tituloPropiedad {
+    float: left;
+    font-size: 15px;
+    padding-left: 12px;
+    margin-top: 30px;
+    height: 100%;
+  }
+  .card-body {
+    background-color: #FBFCFD;
+    padding: 0;
+
+  }
+  .show {
+    background-color: #FBFCFD;
+  }
+  .tituloAtributo {
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    float: left;
+  }
+  .valorAtributo {
+    margin-top: 15px;
+    color: #4A5152;
+    font-size: 15px;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    float: right;
+    text-align: right;
+  }
+  .miLinea{
+    float:right;
+    margin-left: 50.5px;
+    width: 324.5px;
+    margin-top: 0;
+    border-width: 1px;
+    color: #E4EDEF;
+  }
+
+}
 </style>

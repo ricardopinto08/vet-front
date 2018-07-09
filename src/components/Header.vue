@@ -1,42 +1,43 @@
 <template lang="html">
   <div class="w-100">
-    <div >
       <div class="bottom">
         <ul class="nav nav-pills nav-fill">
 
           <li @click="redirect('/myHorsesClient')" v-if="type === 'Client'" class="nav-item">
             <img src="../assets/menu_home.svg" class="profileIcon">
-            <a class="nav-link"  href="#">Mi criadero</a>
+            <p class="nav-link"  href="#">Mi criadero</p>
           </li>
+
           <li @click="redirect('/myHorsesVet')" v-if="type === 'Vet'" class="nav-item">
             <img src="../assets/menu_home.svg" class="profileIcon">
-            <a class="nav-link"  href="#">Mi criadero</a>
+            <p class="nav-link"  href="#">Mi criadero</p>
           </li>
 
 
           <li class="nav-item">
             <img src="../assets/menu_explore.svg" class="profileIcon">
-            <a class="nav-link"  href="#">Explorar</a>
+            <p class="nav-link"  href="#">Explorar</p>
           </li>
 
 
           <li @click="redirect('/myVets')" v-if="type === 'Client'" class="nav-item">
             <img src="../assets/menu_vet.svg" class="profileIcon">
-            <a class="nav-link"  href="#">Mis veterinarios</a>
+            <p class="nav-link"  href="#">Mis veterinarios</p>
           </li>
 
 
           <li @click="redirect('/myProfileClient')" v-if="type === 'Client'" class="nav-item">
             <img src="../assets/menu_profile.svg" class="profileIcon">
-            <a class="nav-link"  href="#">
+            <p class="nav-link"  href="#">
               Mi perfil
-            </a>
+            </p>
           </li>
+
           <li @click="redirect('/myProfileVet')" v-if="type === 'Vet'" class="nav-item active">
             <img src="../assets/menu_profile.svg" class="profileIcon">
-            <a class="nav-link"  href="#">
+            <p class="nav-link"  href="#">
               Mi perfil
-            </a>
+            </p>
           </li>
 
 
@@ -72,7 +73,6 @@
         </b-collapse>
       </b-navbar>
 
-    </div>
 
   </div>
 
@@ -106,7 +106,7 @@ export default {
   data: function () {
     return {
       isLogged: sessionStorage.getItem('token') !== null,
-      type: sessionStorage.getItem('type')
+      type: sessionStorage.getItem('type'),
     };
   },
   created() {
@@ -119,31 +119,48 @@ export default {
 </script>
 
 <style lang="css">
-.navbar-brand{
-  height: 100%;
-  text-align: center;
+body {
+  background-color: #F3F6FA;
 }
-@media only screen and (max-width: 600px) {
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .navbar-brand{
+    height: 100%;
+    text-align: center;
+  }
+  .bottom {
+    display: none;
+  }
+  .profileIcon{
+    display: none;
+  }
+
+}
+@media (max-width: 575.98px) {
   .myNav {
     display: none;
   }
   .bottom {
+    background-color: white;
     position: fixed;
+    bottom: 30px;
+
     width: 100%;
     height: 50px;
     bottom: 0px;
   }
   .nav-link {
     font-family: 'Ubuntu', sans-serif;
+    padding: 0px;
     font-size: 8px;
-    min-height: 9px;
-    min-width: 40px;
-    color: ###5BBDC4;
+    height: 9px;
+    color: #5BBDC4;
   }
   .profileIcon{
+    margin-top: 8px;
+    margin-bottom: 5px;
     border: 5px;
     height: 22px;
-    width: 16.73px;
+
   }
 }
 
