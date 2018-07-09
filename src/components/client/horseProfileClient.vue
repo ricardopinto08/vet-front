@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="container">
     <div class="mobile">
       <img src="../../assets/caballo.png" class="fotoPortadaCaballo" >
       <div class="portada">
@@ -270,6 +270,7 @@ export default {
     display: block;
   }
   .mobile {
+    width: 100%;
     display: none;
   }
 }
@@ -278,7 +279,7 @@ export default {
     display: none;
   }
   .mobile {
-    position: fixed;
+
     width: 100%;
     border: 0;
   }
@@ -287,7 +288,7 @@ export default {
     width: 95%;
     height: 160px;
     border-radius: 10px;
-    margin-left: 3%;
+    margin-left: 0;
     margin-right: 3%;
     margin-bottom: 9px;
     margin-top: -50px;
@@ -308,6 +309,7 @@ export default {
     background-color: #FFFFFF;
     margin-bottom: 0px;
     padding: 0;
+    width: 100%;
     border-width: 1px;
     height: 70px;
     border-width: 1px;
@@ -427,6 +429,7 @@ export default {
   }
   .tarjetas{
     padding-top: 120px;
+    width: 100%;
   }
 
 }

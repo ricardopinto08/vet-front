@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="w-100">
     <b-table striped hover :items="vets" :fields="fields">
       <template slot="name" slot-scope="data">
         <a :href="`#${data.value.replace(/[^a-z]+/i,'-').toLowerCase()}`" @click="caballo(data.item)">
