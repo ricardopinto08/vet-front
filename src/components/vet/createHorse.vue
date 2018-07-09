@@ -36,7 +36,7 @@
 
       <b-form-group id="genderfg"
                     label="Género:"
-                    label-for="breed">
+                    label-for="gender">
         <b-form-select id = "gender" required v-model="credentials.gender"  class="mb-3" >
           <option :value="null">Selecciona una opción</option>
           <option value="m">Macho</option>
@@ -52,6 +52,28 @@
                       v-model="credentials.color"
                       required
                       placeholder="Color del caballo">
+        </b-form-input>
+      </b-form-group>
+
+      <b-form-group id="momfg"
+                    label="Nombre de la madre:"
+                    label-for="mom">
+        <b-form-input id="mom"
+                      type="text"
+                      v-model="credentials.mom"
+                      required
+                      placeholder="Nombre de la madre">
+        </b-form-input>
+      </b-form-group>
+
+      <b-form-group id="dadfg"
+                    label="Nombre del padre:"
+                    label-for="dad">
+        <b-form-input id="dad"
+                      type="text"
+                      v-model="credentials.dad"
+                      required
+                      placeholder="Nombre del padre">
         </b-form-input>
       </b-form-group>
 
@@ -158,7 +180,7 @@ export default {
       credentials: {
         name: '',
         breed: '',
-        gender: '',
+        gender: 'null',
         color: '',
         born_date: '',
         current_weight: '',

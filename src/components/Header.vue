@@ -122,7 +122,7 @@ export default {
 body {
   background-color: #F3F6FA;
 }
-@media (min-width: 992px) and (max-width: 1199.98px) {
+@media (max-width: 575.98) {
   .navbar-brand{
     height: 100%;
     text-align: center;
@@ -131,6 +131,9 @@ body {
     display: none;
   }
   .profileIcon{
+    display: none;
+  }
+  .nav-link{
     display: none;
   }
 

@@ -4,7 +4,7 @@
 
   <div class="principal">
     <div class="encabezado">
-      <p class="textoblanco">Criadero de {{name}}</p>
+      <p class="textoblanco">Criadero {{this.hatchery}}</p>
     </div>
     <p class="title"> <b>Mis caballos</b></p>
     <p class="subtitle">({{leng}} en total)</p>
@@ -24,10 +24,10 @@
         <b class="propiedadNegrilla">Color:</b> <p class="propiedadValue"> {{horse.color}}</p>
       </div>
       <div class="renglon">
-        <b class="propiedadNegrilla">Mamá:</b> <p class="propiedadValue"> Mamá estática</p>
+        <b class="propiedadNegrilla">Mamá:</b> <p class="propiedadValue"> {{horse.mom}}</p>
       </div>
       <div class="renglon">
-        <b class="propiedadNegrilla">Papá:</b> <p class="propiedadValue"> Papá estático</p>
+        <b class="propiedadNegrilla">Papá:</b> <p class="propiedadValue"> {{horse.dad}}</p>
       </div>
     </div>
   </div>
@@ -54,6 +54,7 @@ export default {
     return {
       id: sessionStorage.getItem('id'),
       name: sessionStorage.getItem("name"),
+      hatchery: sessionStorage.getItem("hatchery"),
       fields: [
         {
           key: 'horse_id',

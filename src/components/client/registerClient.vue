@@ -42,6 +42,28 @@
         >
       </div>
       <div class="form-group">
+        <label for="hatchery">Criadero: </label>
+        <input
+          id="hatchery"
+          type="text"
+          class="form-control"
+          placeholder="Criadero"
+          v-model="user.hatchery"
+          required="true"
+        >
+      </div>
+      <div class="form-group">
+        <label for="phone">Teléfono: </label>
+        <input
+          id="phone"
+          type="number"
+          class="form-control"
+          placeholder="Telefono"
+          v-model="user.phone"
+          required="true"
+        >
+      </div>
+      <div class="form-group">
         <label for="pass">Contraseña: </label>
         <input
           id="pass"
@@ -59,7 +81,7 @@
           type="password"
           class="form-control"
           placeholder="Enter your password"
-          v-model="user.passwordConfirm"
+          v-model="user.password_confirmation"
           required="true"
         >
       </div>
@@ -102,8 +124,10 @@ export default {
         name:'',
         lastname: '',
         email: '',
+        hatchery: '',
         password: '',
-        passwordConfirm: ''
+        password_confirmation: '',
+        phone: 0,
       },
       error: ''
     }
@@ -119,9 +143,10 @@ export default {
     },
     checkForm: function (e) {
       e.preventDefault();
-      if(this.user.password != this.user.passwordConfirm) {
+      if(this.user.password != this.user.password_confirmation) {
         alert("Las contraseñas no coinciden");
-      }else if (this.user.name && this.user.lastname && this.user.email && this.user.password && this.user.passwordConfirm) {
+      }else if (this.user.name && this.user.lastname && this.user.email && this.user.password && this.user.password_confirmation) {
+        console.info(this.user);
         this.$http.post('clients#create',this.user)
             .then(response => response.json())
             .then(response =>{

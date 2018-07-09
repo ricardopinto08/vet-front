@@ -1,11 +1,14 @@
 <template lang="html">
   <div class="w-100">
     <div class="mobile">
+      <img src="../../assets/caballo.png" class="fotoPortadaCaballo" >
       <div class="portada">
+        <img src="../../assets/caballo.png" class="fotoPerfilCaballo" >
         <b><p class="nombreCaballo">{{this.horse.name}}</p></b>
       </div>
 
-      <div id="accordion">
+
+      <div id="accordion" class="tarjetas">
         <div class="card">
           <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
             <img src="../../assets/h_registry.svg" class="icon">
@@ -47,30 +50,39 @@
               <hr class="miLinea">
               <b class="tituloAtributo" >Largo hasta el olecranon actual:</b>
               <p class="valorAtributo">{{this.horse.current_olecranon}} m</p>
+              <hr class="miLinea">
+              <b class="tituloAtributo" >Nombre del padre:</b>
+              <p class="valorAtributo">{{this.horse.dad}}</p>
+              <hr class="miLinea">
+              <b class="tituloAtributo" >Nombre de la madre:</b>
+              <p class="valorAtributo">{{this.horse.mom}}</p>
 
             </div>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
               <img src="../../assets/h_medical.svg" class="icon">
               <b class = "tituloPropiedad">Consultas médicas</b>
               <img src="../../assets/arrow.svg" class="arrow">
-
           </div>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
               <div v-for="examination in historyM">
-                <b class="">{{format(examination.start_hour)}}</b>
-                <p>{{examination.address}}, {{examination.city}}</p>
-                <p>Por: {{examination.vet_name}} {{examination.vet_lastname}}</p>
+                <b class="fechaConsulta">{{format(examination.start_hour)}}</b>
+                <p class="direccionConsulta">{{examination.address}}, {{examination.city}} <img src="../../assets/right_arrow.svg" class="arrowRight"> </p>
+
+                <p class="vetConsulta">Por: {{examination.vet_name}} {{examination.vet_lastname}}</p>
+
+                <hr v-if="historyM.indexOf(examination) != historyM.length-1" class="miLinea">
               </div>
             </div>
           </div>
         </div>
+
         <div class="card">
-          <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
             <img src="../../assets/h_vet.svg" class="icon">
             <b class = "tituloPropiedad">Historial de veterinarios</b>
             <img src="../../assets/arrow.svg" class="arrow">
@@ -78,10 +90,11 @@
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
             <div class="card-body">
               <div v-for="vet in vetsH">
-                <b class="">{{format(vet.created_at)}}</b>
+                <b class="fechaConsulta">{{format(vet.created_at)}}</b>
                 <br>
-                <b>Por: {{vet.name}} {{vet.lastname}}</b>
-                <p>Teléfono estático</p>
+                <b class="direccionConsulta" >{{vet.name}} {{vet.lastname}}</b>
+                <p class="vetConsulta"> {{vet.phone}}</p>
+                <hr v-if="vetsH.indexOf(vet) != vetsH.length-1" class="miLinea">
               </div>
             </div>
           </div>
@@ -96,16 +109,17 @@
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
             <div class="card-body">
               <div v-for="client in clients">
-                <b class="">{{format(client.created_at)}} / {{format(client.end_date)}}</b>
-                <p>Por: {{client.name}} {{client.lastname}}</p>
-                <p>Teléfono estático</p>
+                <b class="fechaConsulta" >{{format(client.created_at)}} / {{format(client.end_date)}}</b>
+                <br>
+                <b class="direccionConsulta">{{client.name}} {{client.lastname}}</b>
+                <p class="vetConsulta">{{client.phone}}</p>
+                <hr v-if="clients.indexOf(client) != clients.length-1" class="miLinea">
               </div>
             </div>
           </div>
         </div>
+
       </div>
-
-
     </div>
 
     <div class="desktop">
@@ -270,33 +284,38 @@ export default {
   }
   .portada {
     background-color: #FFFFFF;
-    width: 355px;
+    width: 95%;
     height: 160px;
     border-radius: 10px;
-    margin-left: 10px;
-    margin-top: 100px;
+    margin-left: 3%;
+    margin-right: 3%;
     margin-bottom: 9px;
+    margin-top: -50px;
+    position: absolute;
   }
   .nombreCaballo{
     font-family: 'Ubuntu', sans-serif;
     font-size: 15px;
     height: 17px;
+    width: 100%;
     color: #5BBDC4;
     margin-bottom: 3px;
+    text-align: center;
     padding-top: 68px;
-    margin-left: 142px;
   }
   .card-header {
     font-family: 'Ubuntu', sans-serif;
-    background-color: white;
+    background-color: #FFFFFF;
     margin-bottom: 0px;
     padding: 0;
+    border-width: 1px;
     height: 70px;
-    border: 0;
+    border-width: 1px;
   }
   .card {
     margin-bottom: 10px;
-    border: 0;
+    border-width: 1px;
+    width: 100%;
   }
 
   .icon {
@@ -319,7 +338,7 @@ export default {
     float: left;
     font-size: 15px;
     padding-left: 12px;
-    margin-top: 30px;
+    padding-top: 27px;
     height: 100%;
   }
   .card-body {
@@ -329,6 +348,9 @@ export default {
   }
   .show {
     background-color: #FBFCFD;
+    border-width: 8px;
+    border-color: #E4EDEF;
+
   }
   .tituloAtributo {
     margin-top: 15px;
@@ -351,8 +373,60 @@ export default {
     margin-left: 50.5px;
     width: 324.5px;
     margin-top: 0;
+    margin-bottom: 0;
     border-width: 1px;
     color: #E4EDEF;
+  }
+  .fechaConsulta {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
+    display: block;
+    height: 13px;
+    margin-left: 20px;
+    margin-top: 15px;
+    float: initial;
+
+  }
+  .direccionConsulta {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+    color: #303434;
+    margin-left: 20px;
+    margin-top: 10px;
+    float: initial;
+
+  }
+  .vetConsulta {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+    color: #303434;
+    margin-left: 20px;
+    margin-top: 5px;
+    float: initial;
+  }
+  .arrowRight {
+    height: 10px;
+    float: right;
+    margin-top: 7px;
+    display: block;
+    margin-right: 41.12px;
+  }
+  .fotoPerfilCaballo {
+    width: 105px;
+    height: 105px;
+    margin-left: 125px;
+    border-radius: 100px;
+    margin-top: -50px;
+    position: absolute;
+  }
+  .fotoPortadaCaballo {
+    filter: blur(2px);
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  .tarjetas{
+    padding-top: 120px;
   }
 
 }
