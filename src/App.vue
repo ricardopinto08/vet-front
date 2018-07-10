@@ -19,6 +19,10 @@ export default {
 
 <style>
 .mobile{
-  margin-bottom: 20%;
+  padding-bottom: 20%;
+}
+body {
+  background-color: #F3F6FA;
+  margin-bottom: 50%;
 }
 </style>
