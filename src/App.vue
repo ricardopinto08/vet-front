@@ -21,4 +21,7 @@ export default {
 .mobile{
   margin-bottom: 20%;
 }
+body {
+  background-color: #F3F6FA;
+}
 </style>
