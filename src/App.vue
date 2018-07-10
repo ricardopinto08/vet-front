@@ -23,5 +23,6 @@ export default {
 }
 body {
   background-color: #F3F6FA;
+  height: 100%;
 }
 </style>
