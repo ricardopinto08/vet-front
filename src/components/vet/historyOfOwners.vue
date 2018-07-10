@@ -1,9 +1,6 @@
 <template lang="html">
-<<<<<<< HEAD
-  <div class="table-responsive-sm">
-=======
   <div class="container espacio">
->>>>>>> deploy
+
     <h1>Historial de propietarios</h1>
     <div class="table-responsive-sm">
       <b-table striped hover :items="clients" :fields="fields"></b-table>
