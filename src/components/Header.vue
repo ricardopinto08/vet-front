@@ -64,7 +64,7 @@
               <b-nav-item to="/createExamination" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Crear consulta</a></b-nav-item>
 
               <b-nav-item to="/changePassword" v-if="isLogged" tag="li" active-class="active" exact><a>Cambiar contraseña</a></b-nav-item>
-              <b-nav-item class="opciones"  v-if="!isLogged" @click="logIn"  active-class="active" exact>Iniciar sesión</b-nav-item>
+              <b-nav-item  v-if="!isLogged" @click="logIn"  active-class="active" exact>Iniciar sesión</b-nav-item>
               <b-nav-item  v-if="isLogged" @click="logOut"  active-class="active" exact>Cerrar sesión</b-nav-item>
               <!-- Navbar dropdowns -->
             </b-navbar-nav>
