@@ -160,8 +160,6 @@ export default {
   .title {
     font-family: 'Ubuntu', sans-serif;
     font-size: 18px;
-    height: 20px;
-    width: 105px;
     color: #303434;
     margin-bottom: 3px;
     margin-top: 20px;
@@ -170,6 +168,8 @@ export default {
   }
   .tituloCaballo {
     max-width: 50%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     max-height: 19px;
     overflow: hidden;
     font-family: 'Ubuntu', sans-serif;
@@ -191,8 +191,6 @@ export default {
   .subtitle {
     font-family: 'Ubuntu', sans-serif;
     font-size: 13px;
-    height: 14px;
-    width: 65px;
     color: #BEC6C7;
     margin-bottom: 20px;
     margin-left: 15px;
@@ -262,7 +260,6 @@ export default {
     margin-left: 85px;
   }
   .primerRenglon {
-
     margin-bottom: 10px;
     font-family: 'Ubuntu', sans-serif;
     font-size: 12px;
@@ -273,17 +270,25 @@ export default {
     margin-left: 85px;
   }
   .propiedadNegrilla {
+    max-width: 50%;
+    max-height: 19px;
+    overflow: hidden;
     font-size: 12px;
     text-align: left;
     float: auto;
   }
   .propiedadValue {
+    max-width: 50%;
+    max-height: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     font-family: 'Ubuntu', sans-serif;
     font-size: 12px;
-    height: 13px;
+    height: 15px;
     float: right;
     color: #4A5152;
-    margin-bottom: 3px;
+    margin-bottom: 0px;
     text-align: right;
     margin-right: 20px;
 
