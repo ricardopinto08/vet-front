@@ -1,10 +1,8 @@
 <template>
-  <div class="">
-    <div class="">
+    <div class="colorGeneral">
         <app-header></app-header>
         <router-view></router-view >
     </div>
-  </div>
 </template>
 
 <script>
@@ -22,7 +20,6 @@ export default {
   margin-bottom: 20%;
 }
 body {
-  background-color: #F3F6FA;
-  height: 100%;
+  background-color: #F3F6FA !important;
 }
 </style>
