@@ -169,9 +169,11 @@ export default {
 
   }
   .tituloCaballo {
+    max-width: 50%;
+    max-height: 19px;
+    overflow: hidden;
     font-family: 'Ubuntu', sans-serif;
     font-size: 15px;
-    height: 17px;
     color: #303434;
     float: left;
     margin-bottom: 0px;
@@ -179,7 +181,6 @@ export default {
   .propiedad {
     font-family: 'Ubuntu', sans-serif;
     font-size: 12px;
-    height: 17px;
     color: #303434;
     margin-bottom: 10px;
     padding-top: 3px;
@@ -261,10 +262,10 @@ export default {
     margin-left: 85px;
   }
   .primerRenglon {
+
     margin-bottom: 10px;
     font-family: 'Ubuntu', sans-serif;
     font-size: 12px;
-    height: 13px;
     color: #303434;
     padding-top: 10px;
     padding-bottom: 15px;

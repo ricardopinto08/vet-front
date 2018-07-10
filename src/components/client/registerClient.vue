@@ -147,6 +147,7 @@ export default {
         alert("Las contraseñas no coinciden");
       }else if (this.user.name && this.user.lastname && this.user.email && this.user.password && this.user.password_confirmation) {
         console.info(this.user);
+        this.user.email=this.user.email.toLowerCase();
         this.$http.post('clients#create',this.user)
             .then(response => response.json())
             .then(response =>{

@@ -203,6 +203,7 @@ export default {
   },
   methods: {
     submit(evt) {
+      this.credentials.emailClient=this.credentials.emailClient.toLowerCase();
       evt.preventDefault();
       this.credentials.current_height = this.credentials.born_height;
       this.credentials.current_chest = this.credentials.born_chest;

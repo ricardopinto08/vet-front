@@ -117,10 +117,7 @@ export default {
 </script>
 
 <style lang="css">
-body {
-  background-color: #F3F6FA;
-  margin-bottom: 50%;
-}
+
 @media (min-width: 575.99px) {
   .navbar-brand{
     height: 100%;

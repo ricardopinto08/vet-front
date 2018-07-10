@@ -28,6 +28,7 @@ export default {
   methods: {
     submit(evt) {
       evt.preventDefault();
+      this.credentials.emailVet=this.credentials.emailVet.toLowerCase();
       this.$http.post('horses/'+this.selected+'/addVet',this.credentials)
           .then(response =>{
             this.$router.push('/myVets');

@@ -129,7 +129,6 @@
           </template>
         </b-table>
       </div>
-
     </div>
 
     <div class="desktop">
@@ -424,9 +423,10 @@ export default {
     margin-right: 41.12px;
   }
   .fotoPerfilCaballo {
-    width: 105px;
-    height: 105px;
-    margin-left: 33.3%;
+    width: 30%;
+    min-height: ;
+    margin-right: 35%;
+    margin-left: 35%;
     border-radius: 100px;
     margin-top: -50px;
     position: absolute;

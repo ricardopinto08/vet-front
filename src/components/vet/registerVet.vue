@@ -134,6 +134,7 @@ export default {
       if(this.user.password != this.user.password_confirmation) {
         alert("Las contraseñas no coinciden");
       }else if (this.user.name && this.user.lastname && this.user.email && this.user.password && this.user.password_confirmation) {
+        this.user.email=this.user.email.toLowerCase();
         this.$http.post('vets#create',this.user)
             .then(response => response.json())
             .then(response =>{
