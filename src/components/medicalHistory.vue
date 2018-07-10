@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="container">
+  <div class="table-responsive-sm">
     <h1>Historia médica</h1>
     <b-table striped hover :items="history" :fields="fields">
       <template slot="title" slot-scope="data">

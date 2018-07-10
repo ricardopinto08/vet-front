@@ -119,6 +119,7 @@ export default {
 <style lang="css">
 body {
   background-color: #F3F6FA;
+  margin-bottom: 50%;
 }
 @media (min-width: 575.99px) {
   .navbar-brand{
@@ -152,6 +153,9 @@ body {
     margin-bottom: 0;
   }
 
+  .mobile {
+    margin-bottom: 30%
+  }
 
   .navbar-collapse {
     padding-right: 15px;

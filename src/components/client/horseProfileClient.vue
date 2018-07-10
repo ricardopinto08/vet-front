@@ -120,6 +120,16 @@
         </div>
 
       </div>
+      <div class="table-responsive-sm">
+        <b-table striped hover :items="vets"  :fields="fields">
+          <template slot="delete_button" slot-scope="row">
+            <b-button @click="deleteVet(row.index)" variant="danger">
+             Eliminar
+            </b-button>
+          </template>
+        </b-table>
+      </div>
+
     </div>
 
     <div class="desktop">
