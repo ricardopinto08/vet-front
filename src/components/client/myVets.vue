@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="w-100">
+  <div class="table-responsive-sm">
     <b-table striped hover :items="vets" :fields="fields">
       <template slot="name" slot-scope="data">
         <a :href="`#${data.value.replace(/[^a-z]+/i,'-').toLowerCase()}`" @click="caballo(data.item)">
@@ -18,7 +18,8 @@ export default {
       fields: {
         id:{
           label: 'Identificación',
-          sortable: true
+          sortable: true,
+
         },
         email:{
           label: 'Correo',

@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="container">
+  <div class="w-100">
     <div class="mobile">
       <img src="../../assets/caballo.png" class="fotoPortadaCaballo" >
       <div class="portada">
@@ -265,7 +265,7 @@ export default {
 </script>
 
 <style lang="css">
-@media (min-width: 992px) and (max-width: 1199.98px){
+@media (min-width: 575px) {
   .desktop {
     display: block;
   }
@@ -288,8 +288,8 @@ export default {
     width: 95%;
     height: 160px;
     border-radius: 10px;
-    margin-left: 0;
-    margin-right: 3%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
     margin-bottom: 9px;
     margin-top: -50px;
     position: absolute;

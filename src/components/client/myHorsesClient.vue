@@ -9,7 +9,6 @@
     <p class="subtitle">({{leng}} en total)</p>
     <div @click="caballo(horse)" class="caballo" v-for="horse in horses">
 
-
       <div class="primerRenglon">
         <b class="tituloCaballo">{{horse.name}}</b> <p class="meses">({{calcularEdad(horse.born_date)}} meses)</p>
       </div>
@@ -29,20 +28,24 @@
         <b class="propiedadNegrilla">Papá:</b> <p class="propiedadValue"> {{horse.dad}}</p>
       </div>
     </div>
+    <div v-if="this.leng === 0" class="">
+      <img  src="../../assets/menu_home_a.svg" class="profileIconVacio">
+      <p class="subtitleVacio">Aún no tienes caballos relacionados</p>
+    </div>
   </div>
 
-  <b-table class="tabla" striped hover v-if="leng > 0" :items="horses" :fields="fields">
-    <template slot="name" slot-scope="data">
-      <a :href="`#${data.value.replace(/[^a-z]+/i,'-').toLowerCase()}`" @click="caballo(data.item)">
-        {{data.value}}
-      </a>
-    </template>
-  </b-table>
-
-  <div v-if="this.leng === 0" class="">
-    <img  src="../../assets/menu_home_a.svg" class="profileIconVacio">
-    <p class="subtitleVacio">Aún no tienes caballos relacionados</p>
+  <div class="desktop">
+    <b-table class="tabla" striped hover v-if="leng > 0" :items="horses" :fields="fields">
+      <template slot="name" slot-scope="data">
+        <a :href="`#${data.value.replace(/[^a-z]+/i,'-').toLowerCase()}`" @click="caballo(data.item)">
+          {{data.value}}
+        </a>
+      </template>
+    </b-table>
   </div>
+
+
+
   </div>
 </template>
 
@@ -145,60 +148,11 @@ export default {
 
 <style lang="css">
 
-@media (min-width: 992px) {
+@media (min-width: 575.99px) {
   .tabla {
     float: block;
   }
-  .title {
-    display: none;
-  }
-  .subtitle {
-    display: none;
-  }
-  .title {
-    display: none;
-
-  }
-  .tituloCaballo {
-    display: none;
-  }
-  .propiedad {
-    display: none;
-
-  }
-  .subtitle {
-    display: none;
-  }
-  .profileIconVacio{
-    display: none;
-
-  }
-  .subtitleVacio {
-    display: none;
-  }
-  .encabezado {
-    display: none;
-  }
-  .textoblanco {
-    display: none;
-  }
-
-  .caballo {
-    display: none;
-  }
-  .renglon {
-    display: none;
-  }
-  .primerRenglon {
-    display: none;
-  }
-  .propiedadNegrilla {
-    display: none;
-  }
-  .propiedadValue {
-    display: none;
-  }
-  .meses{
+  .mobile {
     display: none;
   }
 }
@@ -272,7 +226,6 @@ export default {
     height: 30px;
     width: 100%;
     color: #BEC6C7;
-    margin-top: 0px;
     text-align: center;
     background-color: #5BBDC4;
   }

@@ -1,61 +1,59 @@
 <template lang="html">
-  <div class="">
-      <div class="bottom">
+  <div class="w-100">
+      <div class="bottom" v-if="isLogged">
         <ul class="nav nav-pills nav-fill">
 
           <li @click="redirect('/myHorsesClient')" v-if="type === 'Client'" class="nav-item">
             <img src="../assets/menu_home.svg" class="profileIcon">
-            <p class="nav-link"  href="#">Mi criadero</p>
+            <p class="opciones"  href="#">Mi criadero</p>
           </li>
 
           <li @click="redirect('/myHorsesVet')" v-if="type === 'Vet'" class="nav-item">
             <img src="../assets/menu_home.svg" class="profileIcon">
-            <p class="nav-link"  href="#">Mi criadero</p>
+            <p class="opciones"  href="#">Mi criadero</p>
           </li>
 
 
           <li class="nav-item">
             <img src="../assets/menu_explore.svg" class="profileIcon">
-            <p class="nav-link"  href="#">Explorar</p>
+            <p class="opciones"  href="#">Explorar</p>
           </li>
 
 
           <li @click="redirect('/myVets')" v-if="type === 'Client'" class="nav-item">
             <img src="../assets/menu_vet.svg" class="profileIcon">
-            <p class="nav-link"  href="#">Mis veterinarios</p>
+            <p class="opciones"  href="#">Mis veterinarios</p>
           </li>
 
 
           <li @click="redirect('/myProfileClient')" v-if="type === 'Client'" class="nav-item">
             <img src="../assets/menu_profile.svg" class="profileIcon">
-            <p class="nav-link"  href="#">
+            <p class="opciones"  href="#">
               Mi perfil
             </p>
           </li>
 
           <li @click="redirect('/myProfileVet')" v-if="type === 'Vet'" class="nav-item active">
             <img src="../assets/menu_profile.svg" class="profileIcon">
-            <p class="nav-link"  href="#">
+            <p class="opciones"  href="#">
               Mi perfil
             </p>
           </li>
-
-
         </ul>
       </div>
-      <div class="desktop">
+
         <b-navbar class="myNav" type="dark" variant="primary" toggleable>
           <b-navbar-toggle target="nav_dropdown_collapse"></b-navbar-toggle>
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#" >Horse-app</a>
           <b-collapse is-nav id="nav_dropdown_collapse">
             <b-navbar-nav>
               <!-- <b-nav-item to="/" tag="li" active-class="active" exact><a>Inicio</a></b-nav-item> -->
 
-              <b-nav-item to="/myProfileClient" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Mi perfil</a></b-nav-item>
-              <b-nav-item to="/myProfileVet" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Mi perfil</a></b-nav-item>
+              <b-nav-item  to="/myProfileClient" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Mi perfil</a></b-nav-item>
+              <b-nav-item  to="/myProfileVet" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Mi perfil</a></b-nav-item>
 
-              <b-nav-item to="/myHorsesClient" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Mis caballos</a></b-nav-item>
-              <b-nav-item to="/myHorsesVet" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Mis caballos</a></b-nav-item>
+              <b-nav-item  to="/myHorsesClient" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Mis caballos</a></b-nav-item>
+              <b-nav-item  to="/myHorsesVet" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Mis caballos</a></b-nav-item>
 
               <b-nav-item to="/myVets" tag="li" v-if="type === 'Client'" active-class="active" exact><a>Mis veterinarios</a></b-nav-item>
 
@@ -66,13 +64,12 @@
               <b-nav-item to="/createExamination" tag="li" v-if="type === 'Vet'" active-class="active" exact><a>Crear consulta</a></b-nav-item>
 
               <b-nav-item to="/changePassword" v-if="isLogged" tag="li" active-class="active" exact><a>Cambiar contraseña</a></b-nav-item>
-              <b-nav-item v-if="!isLogged" @click="logIn"  active-class="active" exact>Iniciar sesión</b-nav-item>
-              <b-nav-item v-if="isLogged" @click="logOut"  active-class="active" exact>Cerrar sesión</b-nav-item>
+              <b-nav-item class="opciones"  v-if="!isLogged" @click="logIn"  active-class="active" exact>Iniciar sesión</b-nav-item>
+              <b-nav-item  v-if="isLogged" @click="logOut"  active-class="active" exact>Cerrar sesión</b-nav-item>
               <!-- Navbar dropdowns -->
             </b-navbar-nav>
           </b-collapse>
         </b-navbar>
-      </div>
 
 
   </div>
@@ -134,20 +131,53 @@ body {
   }
 
 
+
 }
 @media (max-width: 575.98px) {
-  .myNav {
-    display: none;
+  .desktop {
+    display: block;
   }
+
+  .navbar-brand{
+    height: 100%;
+    margin-left: 5%;
+    display: block;
+    text-align: center;
+  }
+
+  .navbar {
+    padding-top: 3%;
+    display: block!important;
+    height: 100%;
+    margin-bottom: 0;
+  }
+
+
+  .navbar-collapse {
+    padding-right: 15px;
+    padding-left: 15%;
+    overflow-x: visible;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .bottom {
     background-color: white;
+    z-index: 10;
     position: fixed;
-    bottom: 30px;
+    bottom: 0px;
     width: 100%;
     height: 50px;
-    bottom: 0px;
   }
   .nav-link {
+    font-family: 'Ubuntu', sans-serif;
+    padding: 10px;
+    font-size: 10px;
+    height: 9px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #5BBDC4;
+  }
+  .opciones {
     font-family: 'Ubuntu', sans-serif;
     padding: 0px;
     font-size: 8px;
