@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="container">
+  <div class="container espacio">
     <form id="app" @submit="checkForm" method="post">
       <h2>Registro Veterinario</h2>
       <p v-if="error.length">

@@ -16,7 +16,7 @@
             <img src="../../assets/arrow.svg" class="arrow">
           </div>
 
-          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+          <div id="collapseOne" class="collapse miColor" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
               <b class="tituloAtributo" >Id del caballo:</b>
               <p class="valorAtributo">{{this.horse.id}}</p>
@@ -358,7 +358,7 @@ export default {
     padding: 0;
 
   }
-  .show {
+  .miColor {
     background-color: #FBFCFD;
     border-width: 8px;
     border-color: #E4EDEF;

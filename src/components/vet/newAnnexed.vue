@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="container">
+  <div class="container espacio">
     <b-form @submit="submit">
       <b-form-group id="weightfg"
                     label="Peso del caballo (Kg):"
@@ -141,7 +141,6 @@
 
       <b-button type="submit" variant="primary">Crear</b-button>
     </b-form>
-    <b-button @click="prueba" >fasd</b-button>
     <hr>
   </div>
 </template>

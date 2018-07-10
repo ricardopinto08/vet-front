@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="container">
+  <div class="container espacio">
     <h1>Propietario</h1>
     <b>Id de usuario: </b> <p>{{id}}</p>
     <b>Correo: </b><p>{{email}}</p>

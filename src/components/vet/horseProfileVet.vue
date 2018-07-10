@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="container">
+  <div class="container espacio">
     <h1>{{this.horse.name}}</h1>
     <b>Id de caballo: </b> <p >{{this.horse.id}}</p>
     <b>Fecha de nacimiento: </b> <p >{{this.horse.born_date}}</p>
@@ -98,4 +98,7 @@ export default {
 </script>
 
 <style lang="css">
+.espacio{
+  margin-bottom: 20%;
+}
 </style>

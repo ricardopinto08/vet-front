@@ -1,13 +1,16 @@
 <template lang="html">
   <div class="table-responsive-sm">
     <h1>Anexos</h1>
-    <b-table striped hover :items="annexeds" :fields="fields">
-      <template slot="title" slot-scope="data">
-        <a :href="`#${data.value.replace(/[^a-z]+/i,'-').toLowerCase()}`" @click="anexo(data.item)">
-          {{data.value}}
-        </a>
-      </template>
-    </b-table>
+    <div class="table-responsive-sm">
+      <b-table striped hover :items="annexeds" :fields="fields">
+        <template slot="title" slot-scope="data">
+          <a :href="`#${data.value.replace(/[^a-z]+/i,'-').toLowerCase()}`" @click="anexo(data.item)">
+            {{data.value}}
+          </a>
+        </template>
+      </b-table>
+    </div>
+
     <b-button v-if="rol === 'Vet'" @click="annexed" >Crear anexo</b-button>
   </div>
 </template>
