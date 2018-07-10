@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="container">
+  <div class="container espacio">
     <b-form @submit="submit">
       <label for="ddown1">Selecciona un caballo: </label>
       <b-form-select id = "ddown1" required v-model="examination.idHorse" :options="horses" class="mb-3" />
@@ -144,7 +144,7 @@
 
       <b-button type="submit" variant="primary">Crear</b-button>
     </b-form>
-    <b-button @click="prueba" >fasd</b-button>
+    
     <hr>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="principal">
+  <div class="w-100">
 
   <div class="mobile">
     <div class="encabezado">

@@ -16,7 +16,7 @@
             <img src="../../assets/arrow.svg" class="arrow">
           </div>
 
-          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+          <div id="collapseOne" class="collapse miColor" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
               <b class="tituloAtributo" >Id del caballo:</b>
               <p class="valorAtributo">{{this.horse.id}}</p>
@@ -120,6 +120,16 @@
         </div>
 
       </div>
+      <div class="table-responsive-sm">
+        <b-table striped hover :items="vets"  :fields="fields">
+          <template slot="delete_button" slot-scope="row">
+            <b-button @click="deleteVet(row.index)" variant="danger">
+             Eliminar
+            </b-button>
+          </template>
+        </b-table>
+      </div>
+
     </div>
 
     <div class="desktop">
@@ -348,7 +358,7 @@ export default {
     padding: 0;
 
   }
-  .show {
+  .miColor {
     background-color: #FBFCFD;
     border-width: 8px;
     border-color: #E4EDEF;

@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="container">
+  <div class="container espacio">
     <h1>Consulta médica</h1>
     <b>Fecha de consulta: </b> <p >{{this.examination.created_at}} kilogramos</p>
     <b>Peso de nacimiento: </b> <p >{{this.examination.current_weight}} kilogramos</p>

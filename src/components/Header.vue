@@ -44,7 +44,7 @@
 
         <b-navbar class="myNav" type="dark" variant="primary" toggleable>
           <b-navbar-toggle target="nav_dropdown_collapse"></b-navbar-toggle>
-          <a class="navbar-brand" href="#" >Horse-app</a>
+          <a class="navbar-brand" href="/" >Horse-app</a>
           <b-collapse is-nav id="nav_dropdown_collapse">
             <b-navbar-nav>
               <!-- <b-nav-item to="/" tag="li" active-class="active" exact><a>Inicio</a></b-nav-item> -->
@@ -168,6 +168,11 @@ body {
     width: 100%;
     height: 50px;
   }
+
+  .show {
+    border-width: 0px;
+  }
+
   .nav-link {
     font-family: 'Ubuntu', sans-serif;
     padding: 10px;

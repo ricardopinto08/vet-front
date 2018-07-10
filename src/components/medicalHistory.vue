@@ -1,13 +1,17 @@
 <template lang="html">
   <div class="container">
     <h1>Historia médica</h1>
-    <b-table striped hover :items="history" :fields="fields">
-      <template slot="title" slot-scope="data">
-        <a :href="`#${data.value.replace(/[^a-z]+/i,'-').toLowerCase()}`" @click="caballo(data.item)">
-          {{data.value}}
-        </a>
-      </template>
-    </b-table>
+    <div class="table-responsive-sm">
+
+      <b-table striped hover :items="history" :fields="fields">
+        <template slot="title" slot-scope="data">
+          <a :href="`#${data.value.replace(/[^a-z]+/i,'-').toLowerCase()}`" @click="caballo(data.item)">
+            {{data.value}}
+          </a>
+        </template>
+      </b-table>
+    </div>
+
   </div>
 </template>
 
