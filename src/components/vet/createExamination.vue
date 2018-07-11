@@ -2,7 +2,7 @@
   <div class="container espacio">
     <b-form @submit="submit">
       <label for="ddown1">Selecciona un caballo: </label>
-      <b-form-select id = "ddown1" required v-model="examination.idHorse" :options="horses" class="mb-3" />
+      <b-form-select id = "ddown1" v-bind="this.assign(examination.idHorse)"  required v-model="examination.idHorse" :options="horses" class="mb-3" />
       <br>
       <b-form-group id="weightfg"
                     label="Peso del caballo (Kg):"
@@ -65,6 +65,7 @@
                       min="0"
                       v-model="examination.current_olecranon"
                       required
+
                       placeholder="Largo hasta el olecranon (m):">
         </b-form-input>
       </b-form-group>
@@ -144,7 +145,7 @@
 
       <b-button type="submit" variant="primary">Crear</b-button>
     </b-form>
-    
+
     <hr>
   </div>
 </template>
@@ -170,17 +171,31 @@ export default {
         idVet: sessionStorage.getItem('id'),
         idHorse:''
       },
-      horses:[{value: null, text: 'Selecciona un caballo', id: "&"}]
-
+      horses:[{value: null, text: 'Selecciona un caballo', id: "&"}],
+      allHorses: ''
     }
   },
   methods: {
-    prueba() {
-      console.info(this.examination);
+    assign(data) {
+      if (data!==""){
+        var horse = ""
+        for (var i=0; i< this.horses.length-1;i++){
+          if(this.allHorses[i].horse_id===data){
+            this.examination.current_weight= this.allHorses[i].current_weight;
+            this.examination.current_chest= this.allHorses[i].current_chest;
+            this.examination.current_umbilical= this.allHorses[i].current_umbilical;
+            this.examination.current_shoulder= this.allHorses[i].current_shoulder;
+            this.examination.current_olecranon= this.allHorses[i].current_olecranon;
+            this.examination.current_height= this.allHorses[i].current_height;
+          }
+        }
+      }
+
     },
     submit(evt) {
       evt.preventDefault();
       this.examination.idHorse = this.examination.idHorse.toString();
+      console.info(this.examination);
       this.$http.post('examinations#create',this.examination)
           .then(response =>{
             this.$router.push('/myHorsesVet');
@@ -195,6 +210,7 @@ export default {
       var i;
       for (i=0; i< response.body.length; i++){
         this.horses.push({value: response.body[i].horse_id, text: response.body[i].name });
+        this.allHorses=response.body;
       }
     }, error1 =>{
       console.info(error1);

@@ -19,6 +19,9 @@ export default {
 .mobile{
   margin-bottom: 20%;
 }
+.espacio{
+  margin-bottom: 20%;
+}
 body {
   background-color: #F3F6FA !important;
 }

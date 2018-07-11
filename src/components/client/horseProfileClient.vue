@@ -69,7 +69,7 @@
           </div>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
-              <div v-for="examination in historyM">
+              <div @click="redirect('/examination'+examination.id)" v-for="examination in historyM">
                 <b class="fechaConsulta">{{format(examination.start_hour)}}</b>
                 <p class="direccionConsulta">{{examination.address}}, {{examination.city}} <img src="../../assets/right_arrow.svg" class="arrowRight"> </p>
 
@@ -261,13 +261,15 @@ export default {
       }else{
         return ""
       }
-
     },
     medicalHistory(){
       this.$router.push('/medicalHistory'+this.horse.id);
     },
     clinicalExam(){
       this.$router.push('/clinicalExam'+this.horse.id);
+    },
+    redirect(data){
+      this.$router.push(data);
     }
   }
 
@@ -424,11 +426,11 @@ export default {
     margin-right: 41.12px;
   }
   .fotoPerfilCaballo {
-    width: 105px;
-    height: 105px;
+    width: 33.3%;
+    height: 66%;
     margin-left: 33.3%;
-    border-radius: 100px;
-    margin-top: -50px;
+    border-radius: 100%;
+    margin-top: -15%;
     position: absolute;
   }
   .fotoPortadaCaballo {

@@ -14,7 +14,7 @@
     <b>Dirección: </b> <p >{{this.examination.address}} </p>
     <b>Hora inicio: </b> <p >{{this.examination.start_hour}} </p>
     <b>Hora final: </b> <p >{{this.examination.end_hour}} </p>
-    <b-button v-if="rol === 'Vet'" @click="annexed" >Ver anexos</b-button>
+    <b-button  @click="annexed" >Ver anexos</b-button>
     <hr>
   </div>
 </template>
