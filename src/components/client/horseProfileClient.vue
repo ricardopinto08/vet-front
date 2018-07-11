@@ -12,7 +12,7 @@
             <p class="subtituloPequeno">Altura</p>
           </div>
           <div class="p-2 tituloPequeno central">
-            <p class="valorPequeno pad"><b>{{calcularEdad(horse.born_date)}} meses</b></p>
+            <p class="valorPequeno pad"><b>{{calcularEdad(this.horse.born_date)}} meses</b></p>
             <p class="subtituloPequeno ">Edad</p>
           </div>
           <div class="p-2 tituloPequeno">
@@ -24,11 +24,12 @@
 
 
       <div id="accordion" class="tarjetas">
-        <div class="card">
+        <div @click="flip(1)" class="card">
           <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
             <img src="../../assets/h_registry.svg" class="icon">
             <b class = "tituloPropiedad">Registro</b>
-            <img src="../../assets/arrow.svg" class="arrow">
+            <img v-if="arrows[0]" src="../../assets/arrow.svg" class="arrow up">
+            <img v-else src="../../assets/arrow.svg" class="arrow">
           </div>
 
           <div id="collapseOne" class="collapse miColor" aria-labelledby="headingOne" data-parent="#accordion">
@@ -77,7 +78,7 @@
         </div>
 
         <div class="card">
-          <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <div @click="" class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
               <img src="../../assets/h_medical.svg" class="icon">
               <b class = "tituloPropiedad">Consultas médicas</b>
               <img src="../../assets/arrow.svg" class="arrow">
@@ -119,6 +120,7 @@
           <div class="card-header" id="headingFour" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
             <img src="../../assets/h_owner.svg" class="icon">
             <b class = "tituloPropiedad">Historial de propietarios</b>
+            <img src="../../assets/arrow.svg" class="arrow">
             <img src="../../assets/arrow.svg" class="arrow">
           </div>
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
@@ -187,19 +189,19 @@ export default {
     .then(response =>{
       this.horse=response.body;
 
-      this.$http.get('horses/'+this.$route.params.id+'/getVets')
-      .then(r =>{
-        this.vets=r.body;
-      }, error1 =>{
-        console.info(error1);
-      });
+    }, error1 =>{
+      console.info(error1);
+    });
+
+    this.$http.get('horses/'+this.$route.params.id+'/getVets')
+    .then(r =>{
+      this.vets=r.body;
     }, error1 =>{
       console.info(error1);
     });
 
     this.$http.get('horses/'+this.$route.params.id+'/historyOfVets')
     .then(response =>{
-      console.info(response.body);
       this.vetsH=response.body;
     }, error1 =>{
       console.info(error1);
@@ -208,14 +210,12 @@ export default {
     this.$http.get('horses/'+this.$route.params.id+'/historyOfOwners')
     .then(response =>{
       this.clients=response.body;
-      console.info(this.clients);
     }, error1 =>{
       console.info(error1);
     });
 
     this.$http.get('horses/'+this.$route.params.id+'/getMedicalHistory')
     .then(response =>{
-      console.info(response);
       this.historyM=response.body;
     }, error1 =>{
       console.info(error1);
@@ -252,14 +252,19 @@ export default {
         },
         delete_button:{
           label: ''
-        }
+        },
       },
+      arrows: {1:false,2:false,3:false,4:false,}
     }
   },
   methods: {
+    //Toca así porque con un arreglo no quedan las variables reactivas
+    flip(index){
+      console.info(this.arrows);
+      this.arrows[index]=!this.arrows[index]
 
+    },
     deleteVet(index) {
-      console.info(this.vets[index].email);
       this.$http.post('horses/'+this.horse.id+'/deleteVet',{emailVet: this.vets[index].email})
           .then(response =>{
             this.$router.push('/');
@@ -287,41 +292,44 @@ export default {
       this.$router.push(data);
     },
     calcularEdad(data) {
-      var fecha = data.substring(0, 4)+"-"+data.substring(5, 7)+"-"+data.substring(8, 10);
+      if(data !== undefined){
+        var fecha = data.substring(0, 4)+"-"+data.substring(5, 7)+"-"+data.substring(8, 10);
 
-      var values = fecha.split("-");
-      var dia = values[2];
-      var mes = values[1];
-      var ano = values[0];
-      // cogemos los valores actuales
-      var fecha_hoy = new Date();
-      var ahora_ano = fecha_hoy.getYear();
-      var ahora_mes = fecha_hoy.getMonth() + 1;
-      var ahora_dia = fecha_hoy.getDate();
-      // realizamos el calculo
-      var edad = (ahora_ano + 1900) - ano;
-      if (ahora_mes < mes) {
-          edad--;
+        var values = fecha.split("-");
+        var dia = values[2];
+        var mes = values[1];
+        var ano = values[0];
+        // cogemos los valores actuales
+        var fecha_hoy = new Date();
+        var ahora_ano = fecha_hoy.getYear();
+        var ahora_mes = fecha_hoy.getMonth() + 1;
+        var ahora_dia = fecha_hoy.getDate();
+        // realizamos el calculo
+        var edad = (ahora_ano + 1900) - ano;
+        if (ahora_mes < mes) {
+            edad--;
+        }
+        if ((mes == ahora_mes) && (ahora_dia < dia)) {
+            edad--;
+        }
+        if (edad > 1900) {
+            edad -= 1900;
+        }
+        // calculamos los meses
+        var meses = 0;
+        if (ahora_mes > mes && dia > ahora_dia)
+            meses = ahora_mes - mes - 1;
+        else if (ahora_mes > mes)
+            meses = ahora_mes - mes
+        if (ahora_mes < mes && dia < ahora_dia)
+            meses = 12 - (mes - ahora_mes);
+        else if (ahora_mes < mes)
+            meses = 12 - (mes - ahora_mes + 1);
+        if (ahora_mes == mes && dia > ahora_dia)
+            meses = 11;
+        return meses+edad*12
       }
-      if ((mes == ahora_mes) && (ahora_dia < dia)) {
-          edad--;
-      }
-      if (edad > 1900) {
-          edad -= 1900;
-      }
-      // calculamos los meses
-      var meses = 0;
-      if (ahora_mes > mes && dia > ahora_dia)
-          meses = ahora_mes - mes - 1;
-      else if (ahora_mes > mes)
-          meses = ahora_mes - mes
-      if (ahora_mes < mes && dia < ahora_dia)
-          meses = 12 - (mes - ahora_mes);
-      else if (ahora_mes < mes)
-          meses = 12 - (mes - ahora_mes + 1);
-      if (ahora_mes == mes && dia > ahora_dia)
-          meses = 11;
-      return meses+edad*12
+
     }
   }
 
@@ -329,7 +337,7 @@ export default {
 </script>
 
 <style lang="css">
-@media (min-width: 575px) {
+@media (min-width: 575.99px) {
   .desktop {
     display: block;
   }
@@ -386,25 +394,28 @@ export default {
   .icon {
     float: left;
     width: 21.37px;
-    height: 24.59px;
+    height: 100%;
     margin-left: 24px;
-    margin-top: 25.41px;
+    display: flex;
+    align-items: center;
   }
 
   .arrow {
     float: right;
     width: 28px;
-    height: 28px;
+    height: 100%;
     margin-right: 25px;
-    margin-top: 21px;
+    display: flex;
+    align-items: center;
   }
 
   .tituloPropiedad {
     float: left;
     font-size: 15px;
     padding-left: 12px;
-    padding-top: 27px;
     height: 100%;
+    display: flex;
+    align-items: center;
   }
   .card-body {
     background-color: #FBFCFD;
@@ -493,7 +504,7 @@ export default {
   }
 
   .tripleParametro {
-    margin-top: 20px;
+    margin-top: 5%;
   }
 
   .tituloPequeno {
@@ -525,6 +536,10 @@ export default {
 
   .pad{
     margin-top: -10px;
+  }
+
+  .up{
+    transform: rotate(180deg);
   }
 
 

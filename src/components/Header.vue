@@ -4,12 +4,16 @@
         <ul class="nav nav-pills nav-fill">
 
           <li @click="redirect('/myHorsesClient')" v-if="type === 'Client'" class="nav-item">
-            <img src="../assets/menu_home.svg" class="profileIcon">
+            <div v-if='this.$route.name==="myHorsesClient" || this.$route.name==="horseProfileClient"' class="triangle-up"></div>
+            <img v-if='this.$route.name==="myHorsesClient" || this.$route.name==="horseProfileClient"' src="../assets/menu_home_a.svg" class="profileIcon">
+            <img v-else src="../assets/menu_home.svg" class="profileIcon">
             <p class="opciones"  href="#">Mi criadero</p>
           </li>
 
           <li @click="redirect('/myHorsesVet')" v-if="type === 'Vet'" class="nav-item">
-            <img src="../assets/menu_home.svg" class="profileIcon">
+            <div v-if='this.$route.name==="myHorsesVet" || this.$route.name==="horseProfileClient"' class="triangle-up"></div>
+            <img v-if='this.$route.name==="myHorsesVet" || this.$route.name==="horseProfileClient"' src="../assets/menu_home_a.svg" class="profileIcon">
+            <img v-else src="../assets/menu_home.svg" class="profileIcon">
             <p class="opciones"  href="#">Mi criadero</p>
           </li>
 
@@ -21,20 +25,26 @@
 
 
           <li @click="redirect('/myVets')" v-if="type === 'Client'" class="nav-item">
-            <img src="../assets/menu_vet.svg" class="profileIcon">
+            <div v-if='this.$route.name==="myVets"' class="triangle-up"></div>
+            <img v-if='this.$route.name==="myVets"' src="../assets/menu_vet_a.svg" class="profileIcon">
+            <img v-else src="../assets/menu_vet.svg" class="profileIcon">
             <p class="opciones"  href="#">Mis veterinarios</p>
           </li>
 
 
           <li @click="redirect('/myProfileClient')" v-if="type === 'Client'" class="nav-item">
-            <img src="../assets/menu_profile.svg" class="profileIcon">
+            <div v-if='this.$route.name==="myProfileClient"' class="triangle-up"></div>
+            <img v-if='this.$route.name==="myProfileClient"' src="../assets/menu_profile_a.svg" class="profileIcon">
+            <img v-else src="../assets/menu_profile.svg" class="profileIcon">
             <p class="opciones"  href="#">
               Mi perfil
             </p>
           </li>
 
           <li @click="redirect('/myProfileVet')" v-if="type === 'Vet'" class="nav-item active">
-            <img src="../assets/menu_profile.svg" class="profileIcon">
+            <div v-if='this.$route.name==="myProfileVet"' class="triangle-up"></div>
+            <img v-if='this.$route.name==="myProfileVet"' src="../assets/menu_profile_a.svg" class="profileIcon">
+            <img v-else src="../assets/menu_profile.svg" class="profileIcon">
             <p class="opciones"  href="#">
               Mi perfil
             </p>
@@ -133,7 +143,7 @@ export default {
 }
 @media (max-width: 575.98px) {
   .desktop {
-    display: block;
+    display: none;
   }
 
   .navbar-brand{
@@ -188,11 +198,22 @@ export default {
     color: #5BBDC4;
   }
   .profileIcon{
-    margin-top: 8px;
+    margin-top: 7px;
     margin-bottom: 5px;
     border: 5px;
     height: 22px;
   }
+  .triangle-up {
+  	width: 0;
+  	height: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  	border-left: 10px solid transparent;
+  	border-right: 10px solid transparent;
+  	border-bottom: 10px solid white;
+    margin-top: -9px;
+}
 }
 
 </style>

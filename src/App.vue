@@ -20,11 +20,12 @@ export default {
   margin-bottom: 20%;
 }
 .espacio{
-  margin-bottom: 20%;
+  margin-bottom: 30%;
 }
 
 body {
+  margin-bottom: 30%;
   background-color: #F3F6FA !important;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Oxygen', sans-serif;
 }
 </style>
