@@ -55,6 +55,7 @@
     },
     methods: {
       submit() {
+        this.credentials.user=this.credentials.user.toLowerCase();
         this.$http.post('auth/',this.credentials)
             .then(response =>{
               console.info(response);

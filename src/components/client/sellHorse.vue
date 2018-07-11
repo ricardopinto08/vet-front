@@ -28,6 +28,7 @@ export default {
   methods: {
     submit(evt) {
       evt.preventDefault();
+      this.credentials.emailClient=this.credentials.emailClient.toLowerCase();
       this.$http.post('horses/'+this.selected+'/sell',this.credentials)
           .then(response =>{
             this.$router.push('/myHorsesClient');
