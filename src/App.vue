@@ -1,5 +1,5 @@
 <template>
-    <div class="colorGeneral">
+    <div class="">
         <app-header></app-header>
         <router-view></router-view >
     </div>
@@ -22,7 +22,9 @@ export default {
 .espacio{
   margin-bottom: 20%;
 }
+
 body {
   background-color: #F3F6FA !important;
+  font-family: 'Open Sans', sans-serif;
 }
 </style>

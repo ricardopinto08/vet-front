@@ -307,7 +307,6 @@ export default {
     position: absolute;
   }
   .nombreCaballo{
-    font-family: 'Ubuntu', sans-serif;
     font-size: 15px;
     height: 17px;
     width: 100%;
@@ -317,7 +316,6 @@ export default {
     padding-top: 68px;
   }
   .card-header {
-    font-family: 'Ubuntu', sans-serif;
     background-color: #FFFFFF;
     margin-bottom: 0px;
     padding: 0;
@@ -328,7 +326,7 @@ export default {
   }
   .card {
     margin-bottom: 10px;
-    border-width: 1px;
+    border-width: 0px;
     width: 100%;
   }
 
@@ -392,7 +390,6 @@ export default {
     color: #E4EDEF;
   }
   .fechaConsulta {
-    font-family: 'Ubuntu', sans-serif;
     font-size: 12px;
     display: block;
     height: 13px;
@@ -402,7 +399,6 @@ export default {
 
   }
   .direccionConsulta {
-    font-family: 'Ubuntu', sans-serif;
     font-size: 15px;
     color: #303434;
     margin-left: 20px;
@@ -411,7 +407,6 @@ export default {
 
   }
   .vetConsulta {
-    font-family: 'Ubuntu', sans-serif;
     font-size: 15px;
     color: #303434;
     margin-left: 20px;

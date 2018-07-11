@@ -172,7 +172,7 @@ export default {
   }
 
   .nav-link {
-    font-family: 'Ubuntu', sans-serif;
+
     padding: 10px;
     font-size: 10px;
     height: 9px;
@@ -181,7 +181,7 @@ export default {
     color: #5BBDC4;
   }
   .opciones {
-    font-family: 'Ubuntu', sans-serif;
+
     padding: 0px;
     font-size: 8px;
     height: 9px;

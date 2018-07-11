@@ -158,7 +158,7 @@ export default {
 }
 @media (max-width: 575.98px) {
   .title {
-    font-family: 'Ubuntu', sans-serif;
+    
     font-size: 18px;
     color: #303434;
     margin-bottom: 3px;
@@ -172,14 +172,14 @@ export default {
     text-overflow: ellipsis;
     max-height: 19px;
     overflow: hidden;
-    font-family: 'Ubuntu', sans-serif;
+
     font-size: 15px;
     color: #303434;
     float: left;
     margin-bottom: 0px;
   }
   .propiedad {
-    font-family: 'Ubuntu', sans-serif;
+
     font-size: 12px;
     color: #303434;
     margin-bottom: 10px;
@@ -189,7 +189,7 @@ export default {
 
   }
   .subtitle {
-    font-family: 'Ubuntu', sans-serif;
+
     font-size: 13px;
     color: #BEC6C7;
     margin-bottom: 20px;
@@ -206,7 +206,7 @@ export default {
 
   }
   .subtitleVacio {
-    font-family: 'Ubuntu', sans-serif;
+
     font-size: 13px;
     height: 32px;
     width: 126px;
@@ -220,7 +220,7 @@ export default {
     display: none;
   }
   .encabezado {
-    font-family: 'Ubuntu', sans-serif;
+
     font-size: 13px;
     height: 30px;
     width: 100%;
@@ -229,7 +229,7 @@ export default {
     background-color: #5BBDC4;
   }
   .textoblanco {
-    font-family: 'Ubuntu', sans-serif;
+
     font-size: 13px;
     height: 100%;
     color: #FFFFFF;
@@ -253,7 +253,7 @@ export default {
   }
   .renglon {
     margin-bottom: 3px;
-    font-family: 'Ubuntu', sans-serif;
+
     font-size: 12px;
     height: 13px;
     color: #303434;
@@ -261,7 +261,7 @@ export default {
   }
   .primerRenglon {
     margin-bottom: 10px;
-    font-family: 'Ubuntu', sans-serif;
+
     font-size: 12px;
     color: #303434;
     padding-top: 10px;
@@ -283,7 +283,7 @@ export default {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    font-family: 'Ubuntu', sans-serif;
+
     font-size: 12px;
     height: 15px;
     float: right;
@@ -295,7 +295,7 @@ export default {
   }
 
   .meses{
-    font-family: 'Ubuntu', sans-serif;
+
     font-size: 12px;
     color: #BEC6C7;
     height: 13px;
