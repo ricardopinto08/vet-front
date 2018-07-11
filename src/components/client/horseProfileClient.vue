@@ -5,6 +5,21 @@
       <div class="portada">
         <img src="../../assets/caballo.png" class="fotoPerfilCaballo" >
         <b><p class="nombreCaballo">{{this.horse.name}}</p></b>
+        <br>
+        <div class="d-flex justify-content-center tripleParametro">
+          <div class="p-2 tituloPequeno">
+            <p class="valorPequeno"> <b>{{this.horse.current_height}} m</b></p>
+            <p class="subtituloPequeno">Altura</p>
+          </div>
+          <div class="p-2 tituloPequeno central">
+            <p class="valorPequeno pad"><b>{{calcularEdad(horse.born_date)}} meses</b></p>
+            <p class="subtituloPequeno ">Edad</p>
+          </div>
+          <div class="p-2 tituloPequeno">
+            <p class="valorPequeno"><b>{{this.horse.current_weight}} kg</b></p>
+            <p class="subtituloPequeno">Peso</p>
+          </div>
+        </div>
       </div>
 
 
@@ -270,6 +285,43 @@ export default {
     },
     redirect(data){
       this.$router.push(data);
+    },
+    calcularEdad(data) {
+      var fecha = data.substring(0, 4)+"-"+data.substring(5, 7)+"-"+data.substring(8, 10);
+
+      var values = fecha.split("-");
+      var dia = values[2];
+      var mes = values[1];
+      var ano = values[0];
+      // cogemos los valores actuales
+      var fecha_hoy = new Date();
+      var ahora_ano = fecha_hoy.getYear();
+      var ahora_mes = fecha_hoy.getMonth() + 1;
+      var ahora_dia = fecha_hoy.getDate();
+      // realizamos el calculo
+      var edad = (ahora_ano + 1900) - ano;
+      if (ahora_mes < mes) {
+          edad--;
+      }
+      if ((mes == ahora_mes) && (ahora_dia < dia)) {
+          edad--;
+      }
+      if (edad > 1900) {
+          edad -= 1900;
+      }
+      // calculamos los meses
+      var meses = 0;
+      if (ahora_mes > mes && dia > ahora_dia)
+          meses = ahora_mes - mes - 1;
+      else if (ahora_mes > mes)
+          meses = ahora_mes - mes
+      if (ahora_mes < mes && dia < ahora_dia)
+          meses = 12 - (mes - ahora_mes);
+      else if (ahora_mes < mes)
+          meses = 12 - (mes - ahora_mes + 1);
+      if (ahora_mes == mes && dia > ahora_dia)
+          meses = 11;
+      return meses+edad*12
     }
   }
 
@@ -314,6 +366,7 @@ export default {
     margin-bottom: 3px;
     text-align: center;
     padding-top: 68px;
+
   }
   .card-header {
     background-color: #FFFFFF;
@@ -438,6 +491,42 @@ export default {
     padding-top: 120px;
     width: 100%;
   }
+
+  .tripleParametro {
+    margin-top: 20px;
+  }
+
+  .tituloPequeno {
+    width: 33.3%;
+    text-align: center;
+    font-size: 18px;
+    color: #303434;
+    padding: 0 !important;
+  }
+
+  .central{
+    align-items: center;
+    border-left: 1px solid #F3F6FA;
+    border-right: 1px solid #F3F6FA;
+    height: 30px;
+    margin-top: 10px;
+
+  }
+
+  .subtituloPequeno {
+    text-align: center;
+    color: #BEC6C7;
+    font-size: 12px;
+  }
+
+  .valorPequeno{
+    margin: 0;
+  }
+
+  .pad{
+    margin-top: -10px;
+  }
+
 
 }
 </style>

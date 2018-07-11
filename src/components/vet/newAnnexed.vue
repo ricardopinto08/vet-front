@@ -166,6 +166,7 @@ export default {
         start_hour:'',
         end_hour:'',
       },
+      examination: '',
 
     }
   },
@@ -184,7 +185,12 @@ export default {
     }
   },
   created() {
-
+    this.$http.get('examinations/'+this.$route.params.id)
+    .then(response =>{
+      this.annexed=response.body;
+    }, error1 =>{
+      console.info(error1);
+    });
   }
 }
 </script>

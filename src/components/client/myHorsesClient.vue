@@ -8,6 +8,7 @@
     <p class="title"> <b>Mis caballos</b></p>
     <p class="subtitle">({{leng}} en total)</p>
     <div @click="caballo(horse)" class="caballo" v-for="horse in horses">
+      <img src="../../assets/caballo.png" class="fotoPerfilCaballoPreview" >
 
       <div class="primerRenglon">
         <b class="tituloCaballo">{{horse.name}}</b> <p class="meses">({{calcularEdad(horse.born_date)}} meses)</p>
@@ -158,43 +159,41 @@ export default {
 }
 @media (max-width: 575.98px) {
   .title {
-    
     font-size: 18px;
     color: #303434;
     margin-bottom: 3px;
     margin-top: 20px;
     margin-left: 15px;
-
   }
+
   .tituloCaballo {
     max-width: 50%;
     white-space: nowrap;
     text-overflow: ellipsis;
     max-height: 19px;
     overflow: hidden;
-
     font-size: 15px;
     color: #303434;
     float: left;
     margin-bottom: 0px;
   }
-  .propiedad {
 
+  .propiedad {
     font-size: 12px;
     color: #303434;
     margin-bottom: 10px;
     padding-top: 3px;
     margin-top: 16px;
     margin-left: 85px;
-
   }
-  .subtitle {
 
+  .subtitle {
     font-size: 13px;
     color: #BEC6C7;
     margin-bottom: 20px;
     margin-left: 15px;
   }
+
   .profileIconVacio{
     height: 100px;
     width: 87.64px;
@@ -203,10 +202,9 @@ export default {
     margin-top: 132px;
     margin-left: 144px;
     margin-right: 143.36px;
-
   }
-  .subtitleVacio {
 
+  .subtitleVacio {
     font-size: 13px;
     height: 32px;
     width: 126px;
@@ -216,11 +214,12 @@ export default {
     margin-left: 124px;
     margin-right: 125px;
   }
+
   .tabla {
     display: none;
   }
-  .encabezado {
 
+  .encabezado {
     font-size: 13px;
     height: 30px;
     width: 100%;
@@ -228,8 +227,8 @@ export default {
     text-align: center;
     background-color: #5BBDC4;
   }
-  .textoblanco {
 
+  .textoblanco {
     font-size: 13px;
     height: 100%;
     color: #FFFFFF;
@@ -239,10 +238,12 @@ export default {
     margin-bottom: 0px;
     text-align: center;
   }
+
   .principal {
     width: 100%;
     position: fixed;
   }
+
   .caballo {
     background-color: #FFFFFF;
     width: 80%;
@@ -251,23 +252,22 @@ export default {
     margin-left: 60px;
     margin-bottom: 10px;
   }
+
   .renglon {
     margin-bottom: 3px;
-
     font-size: 12px;
     height: 13px;
     color: #303434;
-    margin-left: 85px;
+    margin-left: 32%;
   }
+
   .primerRenglon {
     margin-bottom: 10px;
-
     font-size: 12px;
     color: #303434;
     padding-top: 10px;
     padding-bottom: 15px;
-
-    margin-left: 85px;
+    margin-left: 32%;
   }
   .propiedadNegrilla {
     max-width: 50%;
@@ -283,7 +283,6 @@ export default {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-
     font-size: 12px;
     height: 15px;
     float: right;
@@ -302,6 +301,14 @@ export default {
     float: right;
     text-align: right;
     margin-right: 20px;
+  }
+
+  .fotoPerfilCaballoPreview {
+    width: 38%;
+    height: 90px;
+    margin-left: -15%;
+    margin-top: 15px;
+    position: absolute;
   }
 
 }
