@@ -151,6 +151,7 @@ export default {
     return {
       minHour:'',
       annexed: {
+        id:'',
         examination_id: this.$route.params.id,
         current_weight: '',
         current_chest: '',
@@ -176,6 +177,7 @@ export default {
     },
     submit(evt) {
       evt.preventDefault();
+      console.info(this.annexed);
       this.$http.post('annexeds#create',this.annexed)
           .then(response =>{
             this.$router.push('/myHorsesVet');
@@ -188,6 +190,8 @@ export default {
     this.$http.get('examinations/'+this.$route.params.id)
     .then(response =>{
       this.annexed=response.body;
+      this.annexed.examination_id=this.$route.params.id;
+      this.annexed.date= this.todayDate();
     }, error1 =>{
       console.info(error1);
     });

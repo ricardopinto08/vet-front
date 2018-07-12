@@ -2,7 +2,7 @@
   <div class="w-100">
 
   <div class="mobile">
-    <div class="encabezado">
+    <div class="encabezado verde">
       <p class="textoblanco">Criadero {{this.hatchery}}</p>
     </div>
     <p class="title"> <b>Mis caballos</b></p>
@@ -84,9 +84,7 @@ export default {
     submit() {
 
     },
-    format (data){
-      return data.substring(8, 10)+"-"+data.substring(5, 7)+"-"+data.substring(0, 4)
-    },
+
     calcularEdad(data) {
       var fecha = data.substring(0, 4)+"-"+data.substring(5, 7)+"-"+data.substring(8, 10);
 
@@ -223,21 +221,16 @@ export default {
     font-size: 13px;
     height: 30px;
     width: 100%;
-    color: #BEC6C7;
+
     text-align: center;
     background-color: #5BBDC4;
   }
 
-  .textoblanco {
-    font-size: 13px;
-    height: 100%;
-    color: #FFFFFF;
-    margin-top: 0px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    margin-bottom: 0px;
-    text-align: center;
+  .verde {
+    color: #BEC6C7;
   }
+
+  
 
   .principal {
     width: 100%;

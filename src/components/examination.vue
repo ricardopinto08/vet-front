@@ -21,58 +21,98 @@
 
     <div class="mobile">
       <div class="headerConsulta">
-        <img src="../assets/back_arrow.svg" class="backArrowConsulta">
-        <p class="titulo tituloConsulta"><b>Consulta {{format(this.examination.created_at)}}</b></p>
+        <img @click="goBack" src="../assets/back_arrow.svg" class="backArrowConsulta">
+        <b class="titulo tituloConsulta">Consulta {{format(this.examination.created_at)}}</b>
         <div class="verAnexos">
-          <button @click="annexed" class="botonAnexos" type="button" name="button">Ver anexos (0)</button>
+          <button @click="annexed" class="botonAnexos" type="button" name="button">Ver anexos ({{this.numAnnexeds}})</button>
         </div>
 
       </div>
       <div class="cuerpoConsulta">
-        <p class="titulo"><b>Peso del caballo:</b></p>
-        <p class="titulo derecha">{{this.examination.current_weight}} kg</p>
+        <div class="barData">
+          <b class="titulo izquierda">Peso del caballo:</b>
+          <div class="titulo derecha">{{this.examination.current_weight}} kg</div>
+        </div>
         <hr class="miLinea">
 
-        <p class="titulo"> <b  >Perímetro pecho:</b> </p>
-        <p class="titulo derecha">{{this.examination.current_chest}} m</p>
+        <div class="barData">
+            <div class="titulo izquierda"> <b >Perímetro pecho:</b> </div>
+            <div class="titulo derecha">{{this.examination.current_chest}} m</div>
+        </div>
         <hr class="miLinea">
 
-        <p class="titulo"><b  >Perímetro abdominal:</b></p>
-        <p class="titulo derecha">{{this.examination.current_umbilical}} m</p>
+        <div class="barData">
+            <div class="titulo izquierda"><b  >Perímetro abdominal:</b></div>
+            <div class="titulo derecha">{{this.examination.current_umbilical}} m</div>
+        </div>
         <hr class="miLinea">
 
-        <p class="titulo"><b >Largo hasta el hombro:</b></p>
-        <p class="titulo derecha">{{this.examination.current_shoulder}} m</p>
+        <div class="barData">
+
+            <div class="titulo izquierda"><b >Largo hasta el hombro:</b></div>
+
+            <div class="titulo derecha">{{this.examination.current_shoulder}} m</div>
+
+        </div>
         <hr class="miLinea">
 
-        <p class="titulo"><b  >Largo hasta el olecranon:</b></p>
-        <p class="titulo derecha">{{this.examination.current_olecranon}} m</p>
+        <div class="barData">
+
+            <div class="titulo izquierda"><b  >Largo hasta el olecranon:</b></div>
+
+            <div class="titulo derecha">{{this.examination.current_olecranon}} m</div>
+
+        </div>
         <hr class="miLinea">
 
-        <p class="titulo"><b  >Altura:</b></p>
-        <p class="titulo derecha">{{this.examination.current_height}} m</p>
+        <div class="barData">
+            <div class="titulo izquierda"><b  >Altura:</b></div>
+
+            <div class="titulo derecha">{{this.examination.current_height}} m</div>
+
+        </div>
         <hr class="miLinea">
 
-        <p class="titulo"><b  >Ciudad:</b></p>
-        <p class="titulo derecha">{{this.examination.city}}</p>
+
+        <div class="barData">
+            <div class="titulo izquierda"><b  >Dirección:</b></div>
+            <div class="titulo derecha">{{this.examination.address}}</div>
+        </div>
         <hr class="miLinea">
 
-        <p class="titulo"><b  >Dirección:</b></p>
-        <p class="titulo derecha">{{this.examination.address}}</p>
+
+        <div class="barData">
+            <div class="titulo izquierda"><b  >Ciudad:</b></div>
+            <div class="titulo derecha">{{this.examination.city}}</div>
+        </div>
         <hr class="miLinea">
 
-        <p class="titulo"><b  >Hora de inicio:</b></p>
-        <p class="titulo derecha">{{formatHour(this.examination.start_hour)}}</p>
+        <div class="barData">
+            <div class="titulo izquierda"><b  >Hora de inicio:</b></div>
+            <div class="titulo derecha">{{formatHour(this.examination.start_hour)}}</div>
+
+        </div>
         <hr class="miLinea">
 
-        <p class="titulo"><b  >Hora final:</b></p>
-        <p class="titulo derecha">{{formatHour(this.examination.end_hour)}}</p>
-        <hr class="miLinea">
+        <div class="barData">
+            <div class="titulo izquierda"><b  >Hora final:</b></div>
 
-        <p class="titulo"><b  >Título:</b></p>
-        <p class="titulo derecha">{{this.examination.title}}</p>
-        <p class="titulo"><b  >Descripción:</b></p>
-        <p class="titulo derecha">{{this.examination.description}}</p>
+            <div class="titulo derecha">{{formatHour(this.examination.end_hour)}}</div>
+
+        </div>
+        <hr class="miLinea">
+        <div class="barData">
+            <div class="titulo izquierda"><b  >Título:</b></div>
+        </div>
+        <div class="titulo ultimo">{{this.examination.title}}</div>
+
+        <div class="barData">
+            <div class="titulo izquierda"><b  >Descripción:</b></div>
+
+        </div>
+        <div class="titulo ultimo">{{this.examination.description}}</div>
+
+
       </div>
 
     </div>
@@ -89,25 +129,28 @@ export default {
     }, error1 =>{
       console.info(error1);
     });
+    this.$http.get('examinations/'+this.$route.params.id+'/getNumAnnexeds')
+    .then(response =>{
+      console.info(response);
+      this.numAnnexeds=response.body;
+    }, error1 =>{
+      console.info(error1);
+    });
 
   },
   data() {
     return {
       rol: sessionStorage.getItem('type'),
-      examination: {}
+      examination: {},
+      numAnnexeds:0,
     }
   },
   methods: {
+
     annexed(){
       this.$router.push('/annexeds'+this.$route.params.id);
     },
-    format (data){
-      if(data != null){
-        return data.substring(8, 10)+"·"+data.substring(5, 7)+"·"+data.substring(0, 4);
-      }else{
-        return ""
-      }
-    },
+
     formatHour(data){
       if(data != null){
         return data.substring(11, 16);
@@ -126,55 +169,35 @@ export default {
   }
 }
 @media (max-width: 575.98px) {
-  .headerConsulta{
-    background-color: white;
-    width: 100%;
-    height: 60px;
-  }
-  .backArrowConsulta{
-    float: left;
-    width: 16px;
-    height: 100%;
-    margin-left: 16px;
-    display: flex;
-    align-items: center;
-    filter:invert(100%);
 
-  }
-  .tituloConsulta{
-    height: 100% !important;
-  }
-  .titulo{
-    float: left;
-    font-size: 15px;
-    padding-left: 20px;
-    height: 47px;
-    display: flex;
-    align-items: center;
-    margin: 0;
+
+
+  .izquierda{
+    width: 60%;
   }
 
   .derecha{
-    float: right;
-    margin-right: 20px;
+    width: 40%;
+    text-align: right ;
   }
 
   .miLinea{
     float:right;
-    margin-left: 50.5px;
-    width: 324.5px;
+    padding-left: 50.5px;
+    width: 80%;
     margin-top: 0;
     margin-bottom: 0;
     border-width: 1px;
     color: #E4EDEF;
   }
   .verAnexos{
-    height: 100%;
-    float:right;
     margin-right: 20px;
     display: flex;
     align-items: center;
+
   }
+
+
 
   .botonAnexos{
     background-color: white;
@@ -186,6 +209,20 @@ export default {
     border-radius: 3px;
   }
 
+  .barData{
+    height: 50px;
+    margin-left: 5%;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+      align-items: center;
+
+  }
+
+  .ultimo{
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 
 }
 

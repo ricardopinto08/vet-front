@@ -258,7 +258,6 @@ export default {
     }
   },
   methods: {
-    //Toca así porque con un arreglo no quedan las variables reactivas
     flip(index){
       console.info(this.arrows);
       this.arrows[index]=!this.arrows[index]
@@ -274,13 +273,6 @@ export default {
     },
     history(){
       this.$router.push('/historyOfVets'+this.horse.id);
-    },
-    format (data){
-      if(data != null){
-        return data.substring(8, 10)+"・"+data.substring(5, 7)+"・"+data.substring(0, 4);
-      }else{
-        return ""
-      }
     },
     medicalHistory(){
       this.$router.push('/medicalHistory'+this.horse.id);

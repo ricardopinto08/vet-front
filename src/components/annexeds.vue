@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="w-100">
+  <div class="w-100 espacio">
     <div class="desktop">
       <h1>Anexos</h1>
       <div class="table-responsive-sm">
@@ -15,9 +15,26 @@
 
     <div class="mobile">
       <div class="headerConsulta">
-        <img src="../assets/back_arrow.svg" class="backArrowConsulta">
-        <p class="titulo tituloConsulta"><b>Anexos consulta {{format(this.examination_date)}}</b></p>
+        <img @click="goBack" src="../assets/back_arrow.svg" class="backArrowConsulta">
+        <div class="titulo tituloConsulta"><b>Anexos consulta {{format(this.examination_date)}}</b></div>
       </div>
+      <div class="encabezado salmon">
+        <p class="textoblanco alineadoIzquierda">Criadero</p>
+      </div>
+
+      <div v-for="annexed in annexeds" class="fila">
+        <div class="fechaAnexo">
+          <b>{{annexed.date}}</b>
+        </div>
+        <p class="tituloAnexo">
+          {{annexed.title}}
+        </p>
+        <p class="vetAnexo">
+          {{annexed.name}} {{annexed.lastname}}
+        </p>
+
+      </div>
+
     </div>
 
     <b-button v-if="rol === 'Vet'" @click="annexed" >Crear anexo</b-button>
@@ -73,13 +90,7 @@ export default {
     }
   },
   methods: {
-    format (data){
-      if(data != null){
-        return data.substring(8, 10)+"·"+data.substring(5, 7)+"·"+data.substring(0, 4);
-      }else{
-        return ""
-      }
-    },
+
     submit() {
 
     },
@@ -114,5 +125,35 @@ export default {
     display: block;
   }
 }
-@media (max-width: 575.98px) {}
+@media (max-width: 575.98px) {
+  .desktop{
+    display: none;
+  }
+  .mobile{
+    display: block;
+  }
+  .salmon{
+    background-color: #FA5B7A;
+  }
+  .alineadoIzquierda{
+    text-align: left !important;
+    margin-left: 10px;
+  }
+
+  .fila{
+    height: 100px;
+    background-color: #FBFCFD;
+    display: flex;
+    flex-direction: column;
+    width: 100%
+  }
+
+  .fechaAnexo{
+    font-size: 12px;
+    text-align: left;
+    margin-left: 10px;
+  }
+
+
+}
 </style>

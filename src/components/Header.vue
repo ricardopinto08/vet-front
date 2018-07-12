@@ -146,6 +146,42 @@ export default {
     display: none;
   }
 
+  .textoblanco {
+    font-size: 13px;
+    height: 100%;
+    color: #FFFFFF;
+    margin-top: 0px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+
+  .tituloConsulta{
+    flex-grow:2;
+    margin-left: 10px;
+    align-items: center;
+  }
+
+  .titulo{
+    font-size: 15px;
+  }
+
+  .backArrowConsulta{
+    float: left;
+    width: 16px;
+    margin-left: 16px;
+    filter:invert(100%);
+  }
+
+  .headerConsulta{
+    background-color: white;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+
   .navbar-brand{
     height: 100%;
     margin-left: 5%;
