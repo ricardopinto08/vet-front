@@ -39,20 +39,43 @@
                     label-for="gender">
         <b-form-select id = "gender" required v-model="credentials.gender"  class="mb-3" >
           <option :value="null">Selecciona una opción</option>
-          <option value="m">Macho</option>
           <option value="f">Hembra</option>
+          <option value="m">Macho</option>
+          <option value="mc">Macho castrado</option>
+
         </b-form-select>
       </b-form-group>
 
       <b-form-group id="colorfg"
                     label="Color del caballo:"
                     label-for="color">
-        <b-form-input id="color"
-                      type="text"
+        <b-form-select id="color"
                       v-model="credentials.color"
                       required
-                      placeholder="Color del caballo">
-        </b-form-input>
+                      class="mb-3">
+          <option :value="null">Selecciona una opción</option>
+          <option value="Alazán">Alazán</option>
+          <option value="Alazán oscuro">Alazán oscuro</option>
+          <option value="Bayo">Bayo</option>
+          <option value="Bayo palomino">Bayo palomino</option>
+          <option value="Blanco">Blanco</option>
+          <option value="Castaño">Castaño</option>
+          <option value="Castaño oscuro">Castaño oscuro</option>
+          <option value="Cervuno">Cervuno</option>
+          <option value="Cisne">Cisne</option>
+          <option value="Colorado cereza">Colorado cereza</option>
+          <option value="Isabelo">Isabelo</option>
+          <option value="Moro">Moro</option>
+          <option value="Moro Rosado">Moro Rosado</option>
+          <option value="Moro melado">Moro melado</option>
+          <option value="Negro">Negro</option>
+          <option value="Palomino">Palomino</option>
+          <option value="Ruano">Ruano</option>
+          <option value="Rusio moro">Rusio moro</option>
+          <option value="Rusio moscado">Rusio moscado</option>
+          <option value="Zaino">Zaino</option>
+
+        </b-form-select>
       </b-form-group>
 
       <b-form-group id="momfg"
@@ -181,7 +204,7 @@ export default {
         name: '',
         breed: '',
         gender: 'null',
-        color: '',
+        color: 'null',
         born_date: '',
         current_weight: '',
         current_chest: '',
@@ -197,7 +220,8 @@ export default {
         born_height: '',
         emailClient:'',
         emailVet:sessionStorage.getItem("email"),
-      }
+      },
+
 
     }
   },
