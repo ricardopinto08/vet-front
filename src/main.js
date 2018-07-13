@@ -47,6 +47,9 @@ Vue.mixin({
       }
       var today = dd+'-'+mm+'-'+yyyy;
       return today;
+    },
+    redirect(route) {
+      this.$router.push(route);
     }
   }
 })

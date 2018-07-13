@@ -31,9 +31,14 @@
         <div class="fechaAnexo">
           <b>{{annexed.date}}</b>
         </div>
-        <p class="contentAnexo">
-          {{annexed.title}}
-        </p>
+
+        <div @click="redirect('/annexed'+annexed.id)" class="contentAnexo noPasar">
+          <div class="direccionConsulta">
+            {{annexed.title}}
+          </div>
+          <img src="../assets/right_arrow.svg" class="arrowRight flecha">
+        </div>
+
         <p class="contentAnexo">
           {{annexed.name}} {{annexed.lastname}}
         </p>

@@ -107,9 +107,7 @@ export default {
     logIn() {
       this.$router.push('/login');
     },
-    redirect(route) {
-      this.$router.push(route);
-    }
+
   },
   data: function () {
     return {
@@ -144,6 +142,24 @@ export default {
 @media (max-width: 575.98px) {
   .desktop {
     display: none;
+  }
+
+
+  .direccionConsulta {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .arrowRight {
+    height: 10px;
+    float: right;
+    margin-top: 7px;
+
+  }
+  .noPasar{
+    display: flex;
+    justify-content: space-between;
   }
 
   .miLinea{

@@ -124,14 +124,12 @@ export default {
   created() {
     this.$http.get('examinations/'+this.$route.params.id)
     .then(response =>{
-      console.info(response.body);
       this.examination=response.body;
     }, error1 =>{
       console.info(error1);
     });
     this.$http.get('examinations/'+this.$route.params.id+'/getNumAnnexeds')
     .then(response =>{
-      console.info(response);
       this.numAnnexeds=response.body;
     }, error1 =>{
       console.info(error1);
@@ -172,7 +170,7 @@ export default {
 
 
 
-  
+
 
   .miLinea{
     float:right;

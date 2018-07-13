@@ -135,7 +135,7 @@
                     <div class="direccionConsulta">
                       {{examination.address}}, {{examination.city}}
                     </div>
-                    <img src="../../assets/right_arrow.svg" class="arrowRight">
+                    <img src="../../assets/right_arrow.svg" class="arrowRight flecha">
                   </div>
                   <p class="contentAnexo">
                     Por: {{examination.vet_name}} {{examination.vet_lastname}}
@@ -451,7 +451,7 @@ export default {
   }
   .card {
     margin-bottom: 10px;
-    border-width: 0px;
+    border-width: 0px !important;
     width: 100%;
   }
 
@@ -518,12 +518,7 @@ export default {
     float: initial;
 
   }
-  .direccionConsulta {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 
-  }
   .vetConsulta {
     font-size: 15px;
     color: #303434;
@@ -531,12 +526,7 @@ export default {
     margin-top: 5px;
     float: initial;
   }
-  .arrowRight {
-    height: 10px;
-    float: right;
-    margin-top: 7px;
-    margin-right: 41.12px;
-  }
+
   .fotoPerfilCaballo {
     width: 33.3%;
     height: 66%;
@@ -595,11 +585,7 @@ export default {
     transform: rotate(180deg);
   }
 
-  .noPasar{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
+
 
 
 }
