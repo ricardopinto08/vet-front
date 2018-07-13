@@ -142,6 +142,7 @@
                v-model="examination.end_hour"
                required />
       </b-form-group>
+      
 
       <b-button type="submit" variant="primary">Crear</b-button>
     </b-form>

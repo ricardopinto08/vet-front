@@ -165,6 +165,23 @@ export default {
 
   }
 
+  .profileIconVacio{
+    width: 33%;
+    color: #BEC6C7;
+    margin-top: 10%;
+    margin-left: 33%;
+    margin-right: 143.36px;
+  }
+
+  .subtitleVacio {
+    font-size: 13px;
+    width: 33%;
+    color: #BEC6C7;
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 33%;
+  }
+
   .izquierda{
     width: 60%;
   }

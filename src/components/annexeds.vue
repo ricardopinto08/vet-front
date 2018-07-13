@@ -19,7 +19,12 @@
         <div class="titulo tituloConsulta"><b>Anexos consulta {{format(this.examination_date)}}</b></div>
       </div>
       <div class="encabezado salmon">
-        <p class="textoblanco alineadoIzquierda">Criadero</p>
+        <p class="textoblanco alineadoIzquierda">Anexo</p>
+      </div>
+
+      <div v-if="this.leng === 0" class="">
+        <img src="../assets/h_medical.svg" class="profileIconVacio">
+        <p class="subtitleVacio">No hay anexos creados en esta consulta</p>
       </div>
 
       <div v-for="annexed in annexeds" class="fila">
@@ -34,7 +39,7 @@
         </p>
 
       </div>
-      <hr class="miLinea">
+      <hr v-if="annexeds.indexOf(annexed) != annexeds.length-1"  class="miLinea">
 
     </div>
 
@@ -88,6 +93,7 @@ export default {
       },
       annexeds:[],
       examination_date:"",
+      leng:0,
     }
   },
   methods: {
@@ -107,6 +113,7 @@ export default {
     .then(response =>{
       console.info(response);
       this.annexeds=response.body;
+      this.leng=this.annexeds.length;
     }, error1 =>{
       console.info(error1);
     });
