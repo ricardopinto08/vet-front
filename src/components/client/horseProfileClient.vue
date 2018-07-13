@@ -1,9 +1,13 @@
 <template lang="html">
   <div class="w-100">
     <div class="mobile">
+
       <img src="../../assets/caballo.png" class="fotoPortadaCaballo" >
+      <img @click="goBack" src="../../assets/back_arrow.svg" class="backArrowConsulta flechaCaballos">
+
       <div class="portada">
         <img src="../../assets/caballo.png" class="fotoPerfilCaballo" >
+        <button @click='redirect("/sellHorse")' class="botonAnexos transferir" type="button" name="button">Transferir</button>
         <b><p class="nombreCaballo">{{this.horse.name}}</p></b>
         <br>
         <div class="d-flex justify-content-center tripleParametro">
@@ -21,6 +25,7 @@
           </div>
         </div>
       </div>
+
 
 
       <div id="accordion" class="tarjetas">
@@ -585,8 +590,19 @@ export default {
     transform: rotate(180deg);
   }
 
+  .flechaCaballos{
+    position: absolute;
+    filter:invert(0%);
+    margin-left: 16px;
+    margin-top: -120px;
+  }
 
-
+  .transferir{
+    width: 18%;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 77%;
+  }
 
 }
 </style>

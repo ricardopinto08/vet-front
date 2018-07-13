@@ -190,15 +190,7 @@ export default {
 
 
 
-  .botonAnexos{
-    background-color: white;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #5BBDC4;
-    color: #5BBDC4;
-    height: 28px;
-    border-radius: 3px;
-  }
+
 
 
 
