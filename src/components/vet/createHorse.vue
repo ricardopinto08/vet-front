@@ -66,8 +66,8 @@
           <option value="Colorado cereza">Colorado cereza</option>
           <option value="Isabelo">Isabelo</option>
           <option value="Moro">Moro</option>
-          <option value="Moro Rosado">Moro Rosado</option>
           <option value="Moro melado">Moro melado</option>
+          <option value="Moro rosado">Moro rosado</option>
           <option value="Negro">Negro</option>
           <option value="Palomino">Palomino</option>
           <option value="Ruano">Ruano</option>
