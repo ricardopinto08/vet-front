@@ -1,14 +1,50 @@
 <template lang="html">
-  <div class="table-responsive-sm">
-    <h1>Anexos</h1>
-    <div class="table-responsive-sm">
-      <b-table striped hover :items="annexeds" :fields="fields">
-        <template slot="title" slot-scope="data">
-          <a :href="`#${data.value.replace(/[^a-z]+/i,'-').toLowerCase()}`" @click="anexo(data.item)">
-            {{data.value}}
-          </a>
-        </template>
-      </b-table>
+  <div class="w-100 espacio">
+    <div class="desktop">
+      <h1>Anexos</h1>
+      <div class="table-responsive-sm">
+        <b-table striped hover :items="annexeds" :fields="fields">
+          <template slot="title" slot-scope="data">
+            <a :href="`#${data.value.replace(/[^a-z]+/i,'-').toLowerCase()}`" @click="anexo(data.item)">
+              {{data.value}}
+            </a>
+          </template>
+        </b-table>
+      </div>
+    </div>
+
+    <div class="mobile">
+      <div class="headerConsulta">
+        <img @click="goBack" src="../assets/back_arrow.svg" class="backArrowConsulta">
+        <div class="titulo tituloConsulta"><b>Anexos consulta {{format(this.examination_date)}}</b></div>
+      </div>
+      <div class="encabezado salmon">
+        <p class="textoblanco alineadoIzquierda">Anexo</p>
+      </div>
+
+      <div v-if="this.leng === 0" class="">
+        <img src="../assets/h_medical.svg" class="profileIconVacio">
+        <p class="subtitleVacio">No hay anexos creados en esta consulta</p>
+      </div>
+
+      <div v-for="annexed in annexeds" class="fila">
+        <div class="fechaAnexo">
+          <b>{{annexed.date}}</b>
+        </div>
+
+        <div @click="redirect('/annexed'+annexed.id)" class="contentAnexo noPasar">
+          <div class="direccionConsulta">
+            {{annexed.title}}
+          </div>
+          <img src="../assets/right_arrow.svg" class="arrowRight flecha">
+        </div>
+
+        <p class="contentAnexo">
+          {{annexed.name}} {{annexed.lastname}}
+        </p>
+
+      </div>
+      <hr v-if="annexeds.indexOf(annexed) != annexeds.length-1"  class="miLinea">
     </div>
 
     <b-button v-if="rol === 'Vet'" @click="annexed" >Crear anexo</b-button>
@@ -59,10 +95,13 @@ export default {
           sortable: true
         }
       },
-      annexeds:[]
+      annexeds:[],
+      examination_date:"",
+      leng:0,
     }
   },
   methods: {
+
     submit() {
 
     },
@@ -76,7 +115,15 @@ export default {
   created() {
     this.$http.get('examinations/'+this.$route.params.id+'/getAnnexeds')
     .then(response =>{
+      console.info(response);
       this.annexeds=response.body;
+      this.leng=this.annexeds.length;
+    }, error1 =>{
+      console.info(error1);
+    });
+    this.$http.get('examinations/'+this.$route.params.id)
+    .then(response =>{
+      this.examination_date=response.body.created_at;
     }, error1 =>{
       console.info(error1);
     });
@@ -85,4 +132,28 @@ export default {
 </script>
 
 <style lang="css">
+@media (min-width: 575.99px) {
+  .desktop{
+    display: block;
+  }
+}
+@media (max-width: 575.98px) {
+  .desktop{
+    display: none;
+  }
+  .mobile{
+    display: block;
+  }
+  .salmon{
+    background-color: #FA5B7A;
+  }
+  .alineadoIzquierda{
+    text-align: left !important;
+    margin-left: 10px;
+  }
+
+
+
+
+}
 </style>

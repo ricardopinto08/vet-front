@@ -4,12 +4,16 @@
         <ul class="nav nav-pills nav-fill">
 
           <li @click="redirect('/myHorsesClient')" v-if="type === 'Client'" class="nav-item">
-            <img src="../assets/menu_home.svg" class="profileIcon">
+            <div v-if='this.$route.name==="myHorsesClient" || this.$route.name==="horseProfileClient"' class="triangle-up"></div>
+            <img v-if='this.$route.name==="myHorsesClient" || this.$route.name==="horseProfileClient"' src="../assets/menu_home_a.svg" class="profileIcon">
+            <img v-else src="../assets/menu_home.svg" class="profileIcon">
             <p class="opciones"  href="#">Mi criadero</p>
           </li>
 
           <li @click="redirect('/myHorsesVet')" v-if="type === 'Vet'" class="nav-item">
-            <img src="../assets/menu_home.svg" class="profileIcon">
+            <div v-if='this.$route.name==="myHorsesVet" || this.$route.name==="horseProfileClient"' class="triangle-up"></div>
+            <img v-if='this.$route.name==="myHorsesVet" || this.$route.name==="horseProfileClient"' src="../assets/menu_home_a.svg" class="profileIcon">
+            <img v-else src="../assets/menu_home.svg" class="profileIcon">
             <p class="opciones"  href="#">Mi criadero</p>
           </li>
 
@@ -21,20 +25,26 @@
 
 
           <li @click="redirect('/myVets')" v-if="type === 'Client'" class="nav-item">
-            <img src="../assets/menu_vet.svg" class="profileIcon">
+            <div v-if='this.$route.name==="myVets"' class="triangle-up"></div>
+            <img v-if='this.$route.name==="myVets"' src="../assets/menu_vet_a.svg" class="profileIcon">
+            <img v-else src="../assets/menu_vet.svg" class="profileIcon">
             <p class="opciones"  href="#">Mis veterinarios</p>
           </li>
 
 
           <li @click="redirect('/myProfileClient')" v-if="type === 'Client'" class="nav-item">
-            <img src="../assets/menu_profile.svg" class="profileIcon">
+            <div v-if='this.$route.name==="myProfileClient"' class="triangle-up"></div>
+            <img v-if='this.$route.name==="myProfileClient"' src="../assets/menu_profile_a.svg" class="profileIcon">
+            <img v-else src="../assets/menu_profile.svg" class="profileIcon">
             <p class="opciones"  href="#">
               Mi perfil
             </p>
           </li>
 
           <li @click="redirect('/myProfileVet')" v-if="type === 'Vet'" class="nav-item active">
-            <img src="../assets/menu_profile.svg" class="profileIcon">
+            <div v-if='this.$route.name==="myProfileVet"' class="triangle-up"></div>
+            <img v-if='this.$route.name==="myProfileVet"' src="../assets/menu_profile_a.svg" class="profileIcon">
+            <img v-else src="../assets/menu_profile.svg" class="profileIcon">
             <p class="opciones"  href="#">
               Mi perfil
             </p>
@@ -97,9 +107,7 @@ export default {
     logIn() {
       this.$router.push('/login');
     },
-    redirect(route) {
-      this.$router.push(route);
-    }
+
   },
   data: function () {
     return {
@@ -133,7 +141,132 @@ export default {
 }
 @media (max-width: 575.98px) {
   .desktop {
-    display: block;
+    display: none;
+  }
+
+
+  .direccionConsulta {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .flecha{
+    margin-right: 41.12px;
+  }
+
+  .arrowRight {
+    height: 10px;
+    float: right;
+    margin-top: 7px;
+
+  }
+  .noPasar{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .miLinea{
+    float:right;
+    margin-left: 50.5px;
+    width: 86%;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-width: 1px;
+    color: #E4EDEF;
+  }
+
+  .fila{
+    height: 100px;
+    background-color: #FBFCFD;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+  }
+
+  .profileIconVacio{
+    width: 33%;
+    color: #BEC6C7;
+    margin-top: 10%;
+    margin-left: 33%;
+    margin-right: 143.36px;
+  }
+
+  .subtitleVacio {
+    font-size: 13px;
+    width: 33%;
+    color: #BEC6C7;
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 33%;
+  }
+
+  .izquierda{
+    width: 60%;
+  }
+
+  .derecha{
+    width: 40%;
+    text-align: right ;
+  }
+
+  .barData{
+    height: 50px;
+    margin-left: 5%;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    align-items: center;
+
+  }
+
+  .fechaAnexo{
+    margin-top: 14px;
+    font-size: 12px;
+    margin-bottom: 8px;
+    text-align: left;
+    margin-left: 5.3%;
+  }
+  .contentAnexo{
+    margin-left: 5.3%;
+    font-size: 15px;
+    margin-bottom: 3px;
+  }
+
+  .textoblanco {
+    font-size: 13px;
+    height: 100%;
+    color: #FFFFFF;
+    margin-top: 0px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+
+  .tituloConsulta{
+    flex-grow:2;
+    margin-left: 10px;
+    align-items: center;
+  }
+
+  .titulo{
+    font-size: 15px;
+  }
+
+  .backArrowConsulta{
+    float: left;
+    width: 16px;
+    margin-left: 16px;
+    filter:invert(100%);
+  }
+
+  .headerConsulta{
+    background-color: white;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
   }
 
   .navbar-brand{
@@ -175,7 +308,7 @@ export default {
   }
 
   .nav-link {
-    font-family: 'Ubuntu', sans-serif;
+
     padding: 10px;
     font-size: 10px;
     height: 9px;
@@ -184,18 +317,29 @@ export default {
     color: #5BBDC4;
   }
   .opciones {
-    font-family: 'Ubuntu', sans-serif;
+
     padding: 0px;
     font-size: 8px;
     height: 9px;
     color: #5BBDC4;
   }
   .profileIcon{
-    margin-top: 8px;
+    margin-top: 7px;
     margin-bottom: 5px;
     border: 5px;
     height: 22px;
   }
+  .triangle-up {
+  	width: 0;
+  	height: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  	border-left: 10px solid transparent;
+  	border-right: 10px solid transparent;
+  	border-bottom: 10px solid white;
+    margin-top: -9px;
+}
 }
 
 </style>

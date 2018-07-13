@@ -2,12 +2,13 @@
   <div class="w-100">
 
   <div class="mobile">
-    <div class="encabezado">
+    <div class="encabezado verde">
       <p class="textoblanco">Criadero {{this.hatchery}}</p>
     </div>
     <p class="title"> <b>Mis caballos</b></p>
     <p class="subtitle">({{leng}} en total)</p>
     <div @click="caballo(horse)" class="caballo" v-for="horse in horses">
+      <img src="../../assets/caballo.png" class="fotoPerfilCaballoPreview" >
 
       <div class="primerRenglon">
         <b class="tituloCaballo">{{horse.name}}</b> <p class="meses">({{calcularEdad(horse.born_date)}} meses)</p>
@@ -29,7 +30,8 @@
       </div>
     </div>
     <div v-if="this.leng === 0" class="">
-      <img  src="../../assets/menu_home_a.svg" class="profileIconVacio">
+
+      <img  src="../../assets/menu_home_a.svg" class="profileIconVacio caballoVacio">
       <p class="subtitleVacio">Aún no tienes caballos relacionados</p>
     </div>
   </div>
@@ -83,9 +85,7 @@ export default {
     submit() {
 
     },
-    format (data){
-      return data.substring(8, 10)+"-"+data.substring(5, 7)+"-"+data.substring(0, 4)
-    },
+
     calcularEdad(data) {
       var fecha = data.substring(0, 4)+"-"+data.substring(5, 7)+"-"+data.substring(8, 10);
 
@@ -158,93 +158,70 @@ export default {
 }
 @media (max-width: 575.98px) {
   .title {
-    font-family: 'Ubuntu', sans-serif;
     font-size: 18px;
-    height: 20px;
-    width: 105px;
     color: #303434;
     margin-bottom: 3px;
     margin-top: 20px;
     margin-left: 15px;
-
   }
+
   .tituloCaballo {
     max-width: 50%;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
     max-height: 19px;
     overflow: hidden;
-    font-family: 'Ubuntu', sans-serif;
     font-size: 15px;
     color: #303434;
     float: left;
     margin-bottom: 0px;
   }
+
   .propiedad {
-    font-family: 'Ubuntu', sans-serif;
     font-size: 12px;
     color: #303434;
     margin-bottom: 10px;
     padding-top: 3px;
     margin-top: 16px;
     margin-left: 85px;
-
   }
+
   .subtitle {
-    font-family: 'Ubuntu', sans-serif;
     font-size: 13px;
-    height: 14px;
-    width: 65px;
     color: #BEC6C7;
     margin-bottom: 20px;
     margin-left: 15px;
   }
-  .profileIconVacio{
-    height: 100px;
-    width: 87.64px;
-    color: #BEC6C7;
-    display: block;
-    margin-top: 132px;
-    margin-left: 144px;
-    margin-right: 143.36px;
 
-  }
-  .subtitleVacio {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 13px;
-    height: 32px;
-    width: 126px;
-    color: #BEC6C7;
-    text-align: center;
-    margin-top: 30px;
-    margin-left: 124px;
-    margin-right: 125px;
-  }
+
+
   .tabla {
     display: none;
   }
+
+  .caballoVacio{
+    fill: blue;
+  }
+
   .encabezado {
-    font-family: 'Ubuntu', sans-serif;
     font-size: 13px;
     height: 30px;
     width: 100%;
-    color: #BEC6C7;
     text-align: center;
+  }
+
+  .verde {
     background-color: #5BBDC4;
   }
-  .textoblanco {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 13px;
-    height: 100%;
-    color: #FFFFFF;
-    margin-top: 0px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    margin-bottom: 0px;
-    text-align: center;
-  }
+
+
+
   .principal {
     width: 100%;
     position: fixed;
   }
+
   .caballo {
     background-color: #FFFFFF;
     width: 80%;
@@ -253,50 +230,64 @@ export default {
     margin-left: 60px;
     margin-bottom: 10px;
   }
+
   .renglon {
     margin-bottom: 3px;
-    font-family: 'Ubuntu', sans-serif;
     font-size: 12px;
     height: 13px;
     color: #303434;
-    margin-left: 85px;
+    margin-left: 32%;
   }
+
   .primerRenglon {
 
     margin-bottom: 10px;
-    font-family: 'Ubuntu', sans-serif;
     font-size: 12px;
     color: #303434;
     padding-top: 10px;
     padding-bottom: 15px;
-
-    margin-left: 85px;
+    margin-left: 32%;
   }
   .propiedadNegrilla {
+    max-width: 50%;
+    max-height: 19px;
+    overflow: hidden;
     font-size: 12px;
     text-align: left;
     float: auto;
   }
   .propiedadValue {
-    font-family: 'Ubuntu', sans-serif;
+    max-width: 50%;
+    max-height: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     font-size: 12px;
-    height: 13px;
+    height: 15px;
     float: right;
     color: #4A5152;
-    margin-bottom: 3px;
+    margin-bottom: 0px;
     text-align: right;
     margin-right: 20px;
 
   }
 
   .meses{
-    font-family: 'Ubuntu', sans-serif;
+
     font-size: 12px;
     color: #BEC6C7;
     height: 13px;
     float: right;
     text-align: right;
     margin-right: 20px;
+  }
+
+  .fotoPerfilCaballoPreview {
+    width: 38%;
+    height: 90px;
+    margin-left: -15%;
+    margin-top: 15px;
+    position: absolute;
   }
 
 }

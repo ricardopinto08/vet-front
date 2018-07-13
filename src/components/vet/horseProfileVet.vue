@@ -98,7 +98,5 @@ export default {
 </script>
 
 <style lang="css">
-.espacio{
-  margin-bottom: 20%;
-}
+
 </style>

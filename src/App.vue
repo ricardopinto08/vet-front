@@ -1,10 +1,8 @@
 <template>
-  <div class="">
     <div class="">
         <app-header></app-header>
         <router-view></router-view >
     </div>
-  </div>
 </template>
 
 <script>
@@ -14,15 +12,36 @@ export default {
     appHeader: Header
   }
 }
+
 </script>
 
 
 <style>
+
+.botonAnexos{
+  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #5BBDC4;
+  color: #5BBDC4;
+  height: 28px;
+  border-radius: 3px;
+}
+
 .mobile{
   padding-bottom: 20%;
 }
 body {
   background-color: #F3F6FA;
   margin-bottom: 50%;
+}
+.espacio{
+  margin-bottom: 30%;
+}
+
+body {
+  margin-bottom: 30%;
+  background-color: #F3F6FA !important;
+  font-family: 'Oxygen', sans-serif !important;
 }
 </style>
