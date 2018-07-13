@@ -442,7 +442,7 @@ export default {
 
   }
   .card-header {
-    background-color: #FFFFFF;
+    background-color: #FFFFFF !important;
     margin-bottom: 0px;
     padding: 0;
     width: 100%;

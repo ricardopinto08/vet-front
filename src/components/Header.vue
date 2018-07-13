@@ -150,6 +150,9 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .flecha{
+    margin-right: 41.12px;
+  }
 
   .arrowRight {
     height: 10px;
