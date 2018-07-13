@@ -34,44 +34,84 @@
 
           <div id="collapseOne" class="collapse miColor" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
-              <b class="tituloAtributo" >Id del caballo:</b>
-              <p class="valorAtributo">{{this.horse.id}}</p>
+
+              <div class="barData">
+                <b class="titulo izquierda">Id del caballo:</b>
+                <div class="titulo derecha">{{this.horse.mom}}</div>
+              </div>
               <hr class="miLinea">
-              <b class="tituloAtributo" >Fecha de nacimiento:</b>
-              <p class="valorAtributo">{{format(this.horse.born_date)}}</p>
+
+              <div class="barData">
+                <b class="titulo izquierda">Fecha de nacimiento:</b>
+                <div class="titulo derecha">{{format(this.horse.born_date)}}</div>
+              </div>
               <hr class="miLinea">
-              <b class="tituloAtributo" >Creación del caballo:</b>
-              <p class="valorAtributo">{{format(this.horse.created_at)}}</p>
+
+              <div class="barData">
+                <b class="titulo izquierda">Creación del caballo:</b>
+                <div class="titulo derecha">{{format(this.horse.created_at)}}</div>
+              </div>
               <hr class="miLinea">
-              <b class="tituloAtributo" >Raza:</b>
-              <p class="valorAtributo">{{this.horse.breed}}</p>
+
+              <div class="barData">
+                <b class="titulo izquierda">Raza:</b>
+                <div class="titulo derecha">{{this.horse.breed}}</div>
+              </div>
               <hr class="miLinea">
-              <b class="tituloAtributo" >Color:</b>
-              <p class="valorAtributo">{{this.horse.color}}</p>
+
+              <div class="barData">
+                <b class="titulo izquierda">Color:</b>
+                <div class="titulo derecha">{{this.horse.color}}</div>
+              </div>
               <hr class="miLinea">
-              <b class="tituloAtributo" >Peso actual:</b>
-              <p class="valorAtributo">{{this.horse.current_weight}} Kg</p>
+
+              <div class="barData">
+                <b class="titulo izquierda">Peso actual:</b>
+                <div class="titulo derecha">{{this.horse.current_weight}} kg</div>
+              </div>
               <hr class="miLinea">
-              <b class="tituloAtributo" >Altura actual:</b>
-              <p class="valorAtributo">{{this.horse.current_height}} m</p>
+
+              <div class="barData">
+                <b class="titulo izquierda">Altura actual:</b>
+                <div class="titulo derecha">{{this.horse.current_height}} m</div>
+              </div>
               <hr class="miLinea">
-              <b class="tituloAtributo" >Perímetro de pecho actual:</b>
-              <p class="valorAtributo">{{this.horse.current_chest}} m</p>
+
+              <div class="barData">
+                <b class="titulo izquierda">Perímetro de pecho actual:</b>
+                <div class="titulo derecha">{{this.horse.current_chest}} m</div>
+              </div>
               <hr class="miLinea">
-              <b class="tituloAtributo" >Perímetro de abdomen actual:</b>
-              <p class="valorAtributo">{{this.horse.current_umbilical}} m</p>
+
+              <div class="barData">
+                <b class="titulo izquierda">Perímetro de abdomen actual:</b>
+                <div class="titulo derecha">{{this.horse.current_umbilical}} m</div>
+              </div>
               <hr class="miLinea">
-              <b class="tituloAtributo" >Largo hasta el hombro actual:</b>
-              <p class="valorAtributo">{{this.horse.current_shoulder}} m</p>
+
+              <div class="barData">
+                <b class="titulo izquierda">Largo hasta el hombro actual:</b>
+                <div class="titulo derecha">{{this.horse.current_shoulder}} m</div>
+              </div>
               <hr class="miLinea">
-              <b class="tituloAtributo" >Largo hasta el olecranon actual:</b>
-              <p class="valorAtributo">{{this.horse.current_olecranon}} m</p>
+
+              <div class="barData">
+                <b class="titulo izquierda">Largo hasta el olecranon actual:</b>
+                <div class="titulo derecha">{{this.horse.current_olecranon}} m</div>
+              </div>
               <hr class="miLinea">
-              <b class="tituloAtributo" >Nombre del padre:</b>
-              <p class="valorAtributo">{{this.horse.dad}}</p>
+
+              <div class="barData">
+                <b class="titulo izquierda">Nombre del padre:</b>
+                <div class="titulo derecha">{{this.horse.dad}}</div>
+              </div>
               <hr class="miLinea">
-              <b class="tituloAtributo" >Nombre de la madre:</b>
-              <p class="valorAtributo">{{this.horse.mom}}</p>
+
+              <div class="barData">
+                <b class="titulo izquierda">Nombre de la madre:</b>
+                <div class="titulo derecha">{{this.horse.mom}}</div>
+              </div>
+
 
             </div>
           </div>
@@ -83,18 +123,32 @@
               <b class = "tituloPropiedad">Consultas médicas</b>
               <img src="../../assets/arrow.svg" class="arrow">
           </div>
+
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body">
-              <div @click="redirect('/examination'+examination.id)" v-for="examination in historyM">
-                <b class="fechaConsulta">{{format(examination.start_hour)}}</b>
-                <p class="direccionConsulta">{{examination.address}}, {{examination.city}} <img src="../../assets/right_arrow.svg" class="arrowRight"> </p>
+            <div class="miColor">
+              <div @click="redirect('/examination'+examination.id)" v-for="examination in historyM" >
+                <div class="fila">
+                  <div class="fechaAnexo">
+                    <b>{{format(examination.start_hour)}}</b>
+                  </div>
+                  <div class="contentAnexo noPasar">
+                    <div class="direccionConsulta">
+                      {{examination.address}}, {{examination.city}}
+                    </div>
+                    <img src="../../assets/right_arrow.svg" class="arrowRight">
+                  </div>
+                  <p class="contentAnexo">
+                    Por: {{examination.vet_name}} {{examination.vet_lastname}}
+                  </p>
 
-                <p class="vetConsulta">Por: {{examination.vet_name}} {{examination.vet_lastname}}</p>
-
+                </div>
                 <hr v-if="historyM.indexOf(examination) != historyM.length-1" class="miLinea">
               </div>
             </div>
           </div>
+
+
+
         </div>
 
         <div class="card">
@@ -102,39 +156,58 @@
             <img src="../../assets/h_vet.svg" class="icon">
             <b class = "tituloPropiedad">Historial de veterinarios</b>
             <img src="../../assets/arrow.svg" class="arrow">
-          </div>
+          </div class="miColor">
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-            <div class="card-body">
-              <div v-for="vet in vetsH">
-                <b class="fechaConsulta">{{format(vet.created_at)}}</b>
-                <br>
-                <b class="direccionConsulta" >{{vet.name}} {{vet.lastname}}</b>
-                <p class="vetConsulta"> {{vet.phone}}</p>
+            <div class="miColor">
+              <div v-for="vet in vetsH" >
+                <div class="fila">
+                  <div class="fechaAnexo">
+                    <b>{{format(vet.created_at)}}</b>
+                  </div>
+                  <b class="contentAnexo">
+                    {{vet.name}} {{vet.lastname}}
+                  </b>
+                  <p class="contentAnexo">
+                    {{vet.phone}}
+                  </p>
+
+                </div>
                 <hr v-if="vetsH.indexOf(vet) != vetsH.length-1" class="miLinea">
               </div>
             </div>
           </div>
         </div>
 
+
+
         <div class="card">
           <div class="card-header" id="headingFour" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
             <img src="../../assets/h_owner.svg" class="icon">
             <b class = "tituloPropiedad">Historial de propietarios</b>
             <img src="../../assets/arrow.svg" class="arrow">
-            <img src="../../assets/arrow.svg" class="arrow">
           </div>
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-            <div class="card-body">
-              <div v-for="client in clients">
-                <b class="fechaConsulta" >{{format(client.created_at)}} / {{format(client.end_date)}}</b>
-                <br>
-                <b class="direccionConsulta">{{client.name}} {{client.lastname}}</b>
-                <p class="vetConsulta">{{client.phone}}</p>
+            <div class="miColor">
+              <div v-for="client in clients" >
+                <div class="fila">
+                  <div class="fechaAnexo">
+                    <b>{{format(client.created_at)}} / {{format(client.end_date)}}</b>
+                  </div>
+                  <b class="contentAnexo">
+                    {{client.name}} {{client.lastname}}
+                  </b>
+                  <p class="contentAnexo">
+                    {{client.phone}}
+                  </p>
+
+                </div>
                 <hr v-if="clients.indexOf(client) != clients.length-1" class="miLinea">
               </div>
             </div>
           </div>
         </div>
+
+
 
       </div>
       <div class="table-responsive-sm">
@@ -373,9 +446,8 @@ export default {
     margin-bottom: 0px;
     padding: 0;
     width: 100%;
-    border-width: 1px;
+    border-bottom: 0px;
     height: 70px;
-    border-width: 1px;
   }
   .card {
     margin-bottom: 10px;
@@ -415,8 +487,8 @@ export default {
 
   }
   .miColor {
+    border: 1px solid;
     background-color: #FBFCFD;
-    border-width: 8px;
     border-color: #E4EDEF;
 
   }
@@ -436,15 +508,7 @@ export default {
     float: right;
     text-align: right;
   }
-  .miLinea{
-    float:right;
-    margin-left: 50.5px;
-    width: 324.5px;
-    margin-top: 0;
-    margin-bottom: 0;
-    border-width: 1px;
-    color: #E4EDEF;
-  }
+
   .fechaConsulta {
     font-size: 12px;
     display: block;
@@ -455,11 +519,9 @@ export default {
 
   }
   .direccionConsulta {
-    font-size: 15px;
-    color: #303434;
-    margin-left: 20px;
-    margin-top: 10px;
-    float: initial;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
   }
   .vetConsulta {
@@ -473,7 +535,6 @@ export default {
     height: 10px;
     float: right;
     margin-top: 7px;
-    display: block;
     margin-right: 41.12px;
   }
   .fotoPerfilCaballo {
@@ -532,6 +593,12 @@ export default {
 
   .up{
     transform: rotate(180deg);
+  }
+
+  .noPasar{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
 
 

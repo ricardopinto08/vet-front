@@ -146,6 +146,57 @@ export default {
     display: none;
   }
 
+  .miLinea{
+    float:right;
+    margin-left: 50.5px;
+    width: 86%;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-width: 1px;
+    color: #E4EDEF;
+  }
+
+  .fila{
+    height: 100px;
+    background-color: #FBFCFD;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+  }
+
+  .izquierda{
+    width: 60%;
+  }
+
+  .derecha{
+    width: 40%;
+    text-align: right ;
+  }
+
+  .barData{
+    height: 50px;
+    margin-left: 5%;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    align-items: center;
+
+  }
+
+  .fechaAnexo{
+    margin-top: 14px;
+    font-size: 12px;
+    margin-bottom: 8px;
+    text-align: left;
+    margin-left: 5.3%;
+  }
+  .contentAnexo{
+    margin-left: 5.3%;
+    font-size: 15px;
+    margin-bottom: 3px;
+  }
+
   .textoblanco {
     font-size: 13px;
     height: 100%;

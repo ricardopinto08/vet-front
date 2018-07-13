@@ -26,14 +26,15 @@
         <div class="fechaAnexo">
           <b>{{annexed.date}}</b>
         </div>
-        <p class="tituloAnexo">
+        <p class="contentAnexo">
           {{annexed.title}}
         </p>
-        <p class="vetAnexo">
+        <p class="contentAnexo">
           {{annexed.name}} {{annexed.lastname}}
         </p>
 
       </div>
+      <hr class="miLinea">
 
     </div>
 
@@ -140,19 +141,7 @@ export default {
     margin-left: 10px;
   }
 
-  .fila{
-    height: 100px;
-    background-color: #FBFCFD;
-    display: flex;
-    flex-direction: column;
-    width: 100%
-  }
 
-  .fechaAnexo{
-    font-size: 12px;
-    text-align: left;
-    margin-left: 10px;
-  }
 
 
 }

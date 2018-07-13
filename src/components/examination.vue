@@ -172,14 +172,7 @@ export default {
 
 
 
-  .izquierda{
-    width: 60%;
-  }
-
-  .derecha{
-    width: 40%;
-    text-align: right ;
-  }
+  
 
   .miLinea{
     float:right;
@@ -209,15 +202,7 @@ export default {
     border-radius: 3px;
   }
 
-  .barData{
-    height: 50px;
-    margin-left: 5%;
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-      align-items: center;
 
-  }
 
   .ultimo{
     margin-left: 5%;
