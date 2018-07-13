@@ -27,6 +27,6 @@ export default {
 body {
   margin-bottom: 30%;
   background-color: #F3F6FA !important;
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Oxygen', sans-serif !important;
 }
 </style>

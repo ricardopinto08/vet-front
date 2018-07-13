@@ -446,7 +446,7 @@ export default {
     margin-bottom: 0px;
     padding: 0;
     width: 100%;
-    border-bottom: 0px;
+    border-bottom: 0px !important;
     height: 70px;
   }
   .card {
